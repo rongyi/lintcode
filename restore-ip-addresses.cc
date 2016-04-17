@@ -1,3 +1,5 @@
+//http://www.lintcode.com/zh-cn/problem/restore-ip-addresses/
+
 class Solution {
 public:
   /**

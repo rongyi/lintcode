@@ -24,6 +24,7 @@ public:
   }
 };
 
+
 // int main(int argc, char *argv[])
 // {
 //   std::vector<int> *test = new std::vector<int>{-1, 2, -3, 4, 0, 1, 0, -2, 0, 0, 1};

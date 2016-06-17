@@ -64,15 +64,11 @@ flags = [
 '.',
 '-isystem',
 #apt-get install libc++ or change this value to libstdc++
-'/usr/include/c++/5',
+'/usr/include/c++/4.8.4',
 '-isystem',
 '/usr/include',
 '-isystem',
 '/usr/local/include',
-'-isystem',
-'/home/ry/workspace/clib/include',
-'-isystem',
-'/home/ry/workspace/cpplib/include',
 ]
 
 

@@ -32,8 +32,10 @@ public:
 
     const int n = nums.size();
 
+    // brute force to test all the sub array
     for (int i = 0; i < n; i++) {
       int sum = nums[i];
+      // the element may be zero
       if (sum == 0) {
         ret.push_back(i);
         ret.push_back(i);

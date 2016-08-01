@@ -17,35 +17,32 @@ public:
    *          the first number and the index of the last number
    */
   vector<int> continuousSubarraySum(vector<int>& A) {
-    int ld = 0;
-    int rd = 0;
-    int lt = 0;
-    int rt = 0;
-    int sum = 0;
-    int ret = INT_MIN;
-    vector<int> ret_lst;
+    int cur_sum = 0;
+    int max_sum = INT_MIN;
+    vector<int> ret;
+
+    int cur_start = 0;
+    int start = 0;
+    int end = 0;
 
     for (int i = 0; i < A.size(); i++) {
-      if (sum < 0) {
-        sum = A[i];
-        if (sum > ret) {
-          ret = sum;
-          lt = rt = i;
-        }
-        ld = rd = i;
+      if (cur_sum < 0) {
+        cur_sum = A[i];
+        cur_start = i;
       } else {
-        sum += A[i];
-        rd = i;
-        if (sum > ret) {
-          ret = sum;
-          lt = ld;
-          rt = rd;
-        }
+        cur_sum += A[i];
+      }
+
+      if (cur_sum > max_sum) {
+        max_sum = cur_sum;
+        start = cur_start;
+        end = i;
       }
     }
-    ret_lst.push_back(lt);
-    ret_lst.push_back(rt);
 
-    return ret_lst;
+    ret.push_back(start);
+    ret.push_back(end);
+
+    return ret;
   }
 };

@@ -17,17 +17,22 @@ public:
    * @param dict: A dictionary of words dict
    */
   bool wordBreak(string s, unordered_set<string> &dict) {
-    if (s.empty())
-      return true;
-    if (dict.empty())
-      return false;
-    for (auto & cur: dict) {
-      if (cur.empty())
+    const int n = s.length();
+    vector<bool> ret_lst(s.length() + 1);
+    ret_lst[0] = true;
+    for (int i = 0; i < n; i++) {
+      if (!ret_lst[i])
         continue;
-      if (s.find(cur) != std::string::npos)
-        return true;
+      for (auto &cur_word : dict) {
+        int l = cur_word.length();
+        int j = i + l;
+        if (j > n || ret_lst[j])
+          continue;
+        if (cur_word == s.substr(i, l))
+          ret_lst[j] = true;
+      }
     }
-    return false;
+    return ret_lst[n];
   }
 };
 

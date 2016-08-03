@@ -53,6 +53,7 @@ public:
     dfs(t1, t2);
     return ret_;
   }
+private:
 
   bool check(TreeNode * t1, TreeNode *t2) {
     if (t1 == nullptr && t2 != nullptr)

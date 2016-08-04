@@ -16,10 +16,12 @@ public:
    * @return: true of false.
    */
   bool isInterleave(string s1, string s2, string s3) {
-    if ((s1.empty() || s2.empty()) && !s3.empty())
-      return false;
     if (s1.empty() && s2.empty() && s3.empty())
       return true;
+    if (s1.empty())
+      return s2 == s3;
+    if (s2.empty())
+      return s1 == s3;
     const int len1 = s1.size();
     const int len2 = s2.size();
 
@@ -41,14 +43,22 @@ public:
         ret[0][j] = true;
     }
 
-
-    for (int i = 0; i <= len1; i++) {
-
+    for (int i = 1; i <= len1; i++) {
       for (int j = 1; j <= len2; j++) {
         ret[i][j] = (ret[i - 1][j] && s1[i - 1] == s3[i + j - 1]) ||
           (ret[i][j - 1] && s2[j - 1] == s3[i + j - 1]);
       }
     }
+
     return ret[len1][len2];
   }
 };
+
+int main()
+{
+  Solution so;
+  auto ret = so.isInterleave("abbcddef", "accbbbcd", "abbcddefaccbbbdc");
+
+  cout << ret << endl;
+  return 0;
+}

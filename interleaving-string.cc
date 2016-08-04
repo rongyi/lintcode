@@ -16,7 +16,10 @@ public:
    * @return: true of false.
    */
   bool isInterleave(string s1, string s2, string s3) {
-
+    if ((s1.empty() || s2.empty()) && !s3.empty())
+      return false;
+    if (s1.empty() && s2.empty() && s3.empty())
+      return true;
     const int len1 = s1.size();
     const int len2 = s2.size();
 

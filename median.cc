@@ -20,10 +20,19 @@ public:
       return 0;
     std::sort(nums.begin(), nums.end());
     const int n = nums.size();
-    if (n & 1) {
+    if (n & 0x1) {
       return nums[n / 2];
     } else {
-      return (nums[n / 2 - 1] + nums[n / 2]) / 2;
+      return nums[n / 2 - 1];
     }
   }
 };
+
+int main()
+{
+  Solution so;
+  vector<int> test{7,9,4,5};
+  auto ret = so.median(test);
+  cout << ret << endl;
+  return 0;
+}

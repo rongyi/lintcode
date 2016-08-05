@@ -15,6 +15,15 @@ public:
    * @return: An integer
    */
   int fastPower(int a, int b, int n) {
-    // write your code here
+    if (n == 0)
+      return 1 % b;
+    if (n == 1)
+      return a % b;
+    long long tmp = fastPower(a, b, n / 2);
+    if (n & 0x1) {
+      return ((tmp * tmp) % b * a) % b;
+    } else {
+      return (tmp * tmp) % b;
+    }
   }
 };

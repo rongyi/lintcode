@@ -20,15 +20,28 @@ public:
     const int n = A.size();
     if (m <= 0 || A.empty())
       return 0;
-    bool ret[n + 1][m + 1];
+    /*
+      s1: D[i][j]:  bool array ---- whether the amount j can be filled with the beginning i items;
+      s2: If not put current item into backpack: D[i][j] = D[i-1][j]
+      if put it into backpack: D[i][j] = D[i-1][j - A[i]]
+      s3: Initial condition: 0 <= i <= A.size()    0 <= j <= m
+      D[0][0] = 1;  D[0][j] = 0; D[i][0] = 1;
+     */
+    vector<vector<bool>> ret(n + 1, vector<bool>(m + 1, false));
 
     ret[0][0] = true;
     for (int i = 1; i <= n; i++) {
-      for (int j = 0; j <= m; j++) {
-        if (j - A[i - 1] >= 0) {
-          ret[i][j] = ret[i - 1][j] || ret[i - 1][j - A[i - 1]];
-        } else {
+      ret[i][0] = true;
+    }
+    for (int j = 1; j <= m; j++) {
+      ret[0][j] = false;
+    }
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= m; j++) {
+        if (j < A[i - 1]) {
           ret[i][j] = ret[i - 1][j];
+        } else {
+          ret[i][j] = ret[i - 1][j] || ret[i - 1][j - A[i - 1]];
         }
       }
     }

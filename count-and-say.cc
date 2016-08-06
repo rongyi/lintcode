@@ -19,20 +19,17 @@ public:
     string seq = "1";
 
     for (int i = 1; i < n; i++) {
-      std::stringstream ss;
-      char last = seq[0];
-      int count = 0;
-      for (int j = 0; j <= seq.size(); j++) {
-        if (seq[j] == last) {
-          count++;
-          continue;
-        } else {
-          ss << count << last;
-          last = seq[j];
-          count = 1;
+      int len = seq.length();
+      int start = 0;
+      string ret;
+      for (int j = 1; j < len; j++) {
+        if (seq[j] != seq[j - 1]) {
+          ret += std::to_string(j - start) + seq[j - 1];
+          start = j;
         }
       }
-      seq = ss.str();
+      ret += std::to_string(len - start) + seq[len - 1];
+      seq = ret;
     }
     return seq;
   }

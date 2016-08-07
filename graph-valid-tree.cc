@@ -16,10 +16,10 @@ public:
    * @return true if it's a valid tree, or false
    */
   bool validTree(int n, vector<vector<int>>& edges) {
-    if (n == 0 && edges.empty())
-      return true;
-    if (edges.empty())
+    if (n < 0)
       return false;
+    if (n <= 1 && edges.empty())
+      return true;
     vector<vector<int>> g(n, vector<int>());
     vector<bool> visited(n, false);
     for (auto &e : edges) {

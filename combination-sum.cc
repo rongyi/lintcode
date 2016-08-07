@@ -45,3 +45,14 @@ private:
     }
   }
 };
+
+int main()
+{
+  vector<int> test{2, 2, 3};
+  Solution so;
+  auto ret = so.combinationSum(test, 7);
+  for (auto v : ret)
+    for (auto i : v)
+      cout << i << endl;
+  return 0;
+}

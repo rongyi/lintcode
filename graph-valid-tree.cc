@@ -18,6 +18,7 @@ public:
   bool validTree(int n, vector<vector<int>>& edges) {
     if (n < 0)
       return false;
+    // empty node or one node with empty edge is a valid tree
     if (n <= 1 && edges.empty())
       return true;
     vector<vector<int>> g(n, vector<int>());

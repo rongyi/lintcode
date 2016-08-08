@@ -48,7 +48,7 @@ private:
 
     *rob_cur = root->val + rob_cur_left_not + rob_cur_right_not;
 
-    // pick max
+    // pick max with no rule
     *rob_cur_not = std::max(rob_cur_left, rob_cur_left_not) + std::max(rob_cur_right, rob_cur_right_not);
   }
 };

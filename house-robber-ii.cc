@@ -27,13 +27,14 @@ public:
   int do_robber(vector<int> &nums, int left, int right) {
     if (right - left <= 1)
       return nums[left];
-    vector<int> ret(right, 0);
-    ret[left] = nums[left];
-    ret[left + 1] = std::max(nums[left], nums[left + 1]);
+    const int n = right - left;
+    vector<int> ret(n, 0);
+    ret[0] = nums[left];
+    ret[1] = std::max(nums[left], nums[left + 1]);
 
-    for (int i = left + 2; i < right; i++) {
-      ret[i] = std::max(ret[i - 2] + nums[i], ret[i - 1]);
+    for (int i = 2; i < n; i++) {
+      ret[i] = std::max(ret[i - 2] + nums[i + left], ret[i - 1]);
     }
-    return ret[right - 1];
+    return ret[n - 1];
   }
 };

@@ -28,14 +28,14 @@ public:
       sign = -1;
     }
 
-    long long ded = std::abs((long long)dividend);
-    long long der = std::abs((long long)divisor);
-    long long der_copy = der;
+    long long num = std::abs((long long)dividend);
+    long long diver = std::abs((long long)divisor);
+    long long der_copy = diver;
     long long ret = 0;
 
     // too slow!
-    // while (ded >= der) {
-    //   ded -= der;
+    // while (num >= diver) {
+    //   num -= diver;
     //   if (std::numeric_limits<int>::max() - 1 == ret) {
     //     return sign > 0 ? std::numeric_limits<int>::max() : std::numeric_limits<int>::min();
     //   }
@@ -44,14 +44,14 @@ public:
 
     // make it fast
     int step = 0;
-    while (der_copy < ded) {
+    while (der_copy < num) {
       der_copy <<= 1;
       step++;
     }
 
-    while (ded >= der) {
-      if (ded >= der_copy) {
-        ded -= der_copy;
+    while (num >= diver) {
+      if (num >= der_copy) {
+        num -= der_copy;
         ret += (long long)1 << step;
       }
       der_copy >>= 1;

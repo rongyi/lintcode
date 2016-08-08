@@ -35,10 +35,11 @@ public:
     int end = n;
     while (begin < end) {
       const int mid = begin + (end - begin) / 2;
-      // if mid is bad we search it before
+      // if mid is bad we search it before, mid may also be a bad commit
       if (SVNRepo::isBadVersion(mid)) {
         end = mid;
       } else {
+        // bad commit must start *after* mid
         begin = mid + 1;
       }
     }

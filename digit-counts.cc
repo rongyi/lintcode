@@ -15,9 +15,6 @@ public:
    * param n : As description.
    * return: How many k's between 0 and n.
    http://www.hawstein.com/posts/20.4.html
-   当某一位的数字小于i时，那么该位出现i的次数为：更高位数字x当前位数
-   当某一位的数字等于i时，那么该位出现i的次数为：更高位数字x当前位数+低位数字+1
-   当某一位的数字大于i时，那么该位出现i的次数为：(更高位数字+1)x当前位数
   */
   int digitCounts(int k, int n) {
     int ret = 0;

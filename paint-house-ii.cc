@@ -16,7 +16,7 @@ public:
    * @return an integer, the minimum cost to paint all houses
    # this version will time exceed!!
    */
-  int minCostII(vector<vector<int>>& costs) {
+  int minCostIITimeoutVersion(vector<vector<int>>& costs) {
     const int m = costs.size();
     if (m == 0)
       return 0;
@@ -51,5 +51,33 @@ public:
     }
 
     return value;
+  }
+  int minCostII(vector<vector<int>>& costs) {
+    if (costs.empty() || costs[0].empty())
+      return 0;
+    vector<vector<int>> dp = costs;
+    int min_top1 = -1;
+    int min_top2 = -1;
+    for (int i = 0; i < dp.size(); i++) {
+      int last_min1 = min_top1;
+      int last_min2 = min_top2;
+      min_top1 = -1;
+      min_top2 = -1;
+      for (int j = 0; j < dp[i].size(); j++) {
+        if (j != last_min1) {
+          dp[i][j] += last_min1 < 0 ? 0 : dp[i - 1][last_min1];
+        } else {
+          dp[i][j] += last_min2 < 0 ? 0 : dp[i - 1][last_min2];
+        }
+        if (min_top1 < 0 || dp[i][j] < dp[i][min_top1]) {
+          min_top2 = min_top1;
+          min_top1 = j;
+        } else if (min_top2 < 0 || dp[i][j] < dp[i][min_top2]) {
+          min_top2 = j;
+        }
+      }
+    }
+
+    return dp.back()[min_top1];
   }
 };

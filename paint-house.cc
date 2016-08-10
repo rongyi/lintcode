@@ -22,6 +22,7 @@ public:
     // in case overflow
     vector<vector<long long>> ret(m, vector<long long>(n, 0));
 
+    // the first row is its value itself
     for (int i = 0; i < n; i++) {
       ret[0][i] = costs[0][i];
     }

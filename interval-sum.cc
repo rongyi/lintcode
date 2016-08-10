@@ -39,8 +39,8 @@ public:
       return ret;
     const int n = a.size();
     vector<long long> prefix_sum(n + 1, 0);
-    for (int i = 0; i < n; i++) {
-      prefix_sum[i + 1] = prefix_sum[i] + a[i];
+    for (int i = 1; i < n + 1; i++) {
+      prefix_sum[i] = prefix_sum[i - 1] + a[i - 1];
     }
 
     for (auto q : queries) {

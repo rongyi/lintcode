@@ -19,6 +19,7 @@ public:
     // push to normal as always
     normal_stack_.push(number);
 
+    // note the equal compare
     if (min_stack_.empty() || number <= min_stack_.top()) {
       min_stack_.push(number);
     }

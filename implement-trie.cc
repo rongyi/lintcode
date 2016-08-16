@@ -69,13 +69,13 @@ public:
     return start(prefix, root, 0);
   }
 
-  bool search(string word, TrieNode *root, unsigned level) {
+  bool search(const string &word, TrieNode *root, unsigned level) {
     if (level == word.size())
       return root->is_leaf_;
     const char cur = std::tolower(word[level]);
     return root->node_[cur - 'a'] && search(word, root->node_[cur - 'a'], level + 1);
   }
-  bool start(string word, TrieNode *root, unsigned level) {
+  bool start(const string &word, TrieNode *root, unsigned level) {
     if (level == word.size())
       return root != nullptr;
     const char cur = std::tolower(word[level]);

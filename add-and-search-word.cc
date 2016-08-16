@@ -53,7 +53,7 @@ public:
     return search(word, root, 0);
   }
 
-  bool search(string word, TrieNode *root, unsigned level) {
+  bool search(const string &word, TrieNode *root, unsigned level) {
     if (level == word.size())
       return root->is_leaf_;
     const char cur = std::tolower(word[level]);

@@ -35,10 +35,3 @@ public:
   }
 
 };
-
-int main()
-{
-  Solution so;
-  auto ret = so.numbersByRecursion(5);
-  return 0;
-}

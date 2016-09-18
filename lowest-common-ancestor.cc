@@ -26,37 +26,14 @@ public:
    * @return: Return the least common ancestor(LCA) of the two nodes.
    */
   TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *a, TreeNode *b) {
-    if (!root || !a || !b)
-      return nullptr;
-
-    if (a->left == b || a->right == b || a->val == root->val) {
-      return a;
-    } else if (b->left == a || b->right == a || b->val == root->val) {
-      return b;
-    } else if (a->val < root->val && b->val < root->val) {
-      return lowestCommonAncestor(root->left, a, b);
-    } else if (a->val > root->val && b->val > root->val) {
-      return lowestCommonAncestor(root->right, a, b);
-    } else if ((a->val < root->val && b->val > root->val) ||
-               (b->val < root->val && a->val > root->val)) {
+    if (!root || root == a || root == b)
       return root;
-    } else {
-      return nullptr;
-    }
+    TreeNode *left = lowestCommonAncestor(root->left, a, b);
+    TreeNode *right = lowestCommonAncestor(root->right, a, b);
+
+    if (left && right)
+      return root;
+
+    return (left != nullptr) ? left : right;
   }
 };
-
-int main()
-{
-  Solution so;
-  TreeNode t1(-2);
-  TreeNode t2(-1);
-  TreeNode t3(-3);
-  t1.left = &t2;
-  t1.right = &t3;
-
-  auto ret = so.lowestCommonAncestor(&t1, &t2, &t3);
-  cout << ret->val << endl;
-
-  return 0;
-}

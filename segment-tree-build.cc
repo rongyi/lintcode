@@ -9,12 +9,12 @@ using std::endl;
 
 class SegmentTreeNode {
 public:
-    int start, end;
-    SegmentTreeNode *left, *right;
-    SegmentTreeNode(int start, int end) {
-        this->start = start, this->end = end;
-        this->left = this->right = NULL;
-    }
+  int start, end;
+  SegmentTreeNode *left, *right;
+  SegmentTreeNode(int start, int end) {
+    this->start = start, this->end = end;
+    this->left = this->right = NULL;
+  }
 };
 
 

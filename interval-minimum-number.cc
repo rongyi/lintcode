@@ -62,6 +62,7 @@ public:
     return ret;
   }
 
+  // FIXME: add free function
   SegmentTreeNode * build(int start, int end, const vector<int> &input) {
     if (start > end) {
       return nullptr;

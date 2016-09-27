@@ -44,6 +44,7 @@ public:
     if (root->start == start && root->end == end) {
       return root->sum;
     }
+
     const int mid = root->start + (root->end - root->start) / 2;
     if (end <= mid) {
       return query(root->left, start, end);
@@ -71,6 +72,7 @@ public:
       root->sum = new_value;
       return diff;
     }
+
     const int mid = root->start + (root->end - root->start) / 2;
     int diff = 0;
     if (index <= mid)
@@ -78,6 +80,7 @@ public:
     else
       diff = modify(root->right, index, new_value);
     root->sum += diff;
+
     return diff;
   }
 

@@ -43,12 +43,12 @@ public:
     }
     const int mid = root->start + (root->end - root->start) / 2;
 
-
     if (index <= mid) {
       modify(root->left, index, value);
     } else {
       modify(root->right, index, value);
     }
+
     root->max = std::max(root->left->max, root->right->max);
   }
 };

@@ -26,7 +26,7 @@ public:
     string ret;
 
     for (; end < n; ++end) {
-      if (mark.count(source[end]) != 0)
+      if (mark.find(source[end]) != mark.end())
         ++check[source[end]];
       while (every(check, mark)) {
         const int cur_len = end - begin + 1;

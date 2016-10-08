@@ -14,6 +14,15 @@ public:
   /**
    * @param A: An integer array.
    * @param target: An integer.
+
+   * http://www.geeksforgeeks.org/find-minimum-adjustment-cost-of-an-array/
+   * In order to minimize the adjustment cost ∑|A[i] – Anew[i]| for all index i in the array, |A[i] – Anew[i]| should be as close to zero as possible. Also, |A[i] – Anew[i+1] ]| <= Target.
+   * This problem can be solved by dynamic programming.
+   * Let dp[i][j] defines minimal adjustment cost on changing A[i] to j, then the DP relation is defined by –
+   * dp[i][j] = min{dp[i - 1][k]} + |j - A[i]|
+   *         for all k's such that |k - j| <= target
+   * Here, 0 <= i < n and 0 <= j <= M where n is number of elements in the array and M = 100. We have to consider all k such that max(j – target, 0) <= k <= min(M, j + target)
+   * Finally, the minimum adjustment cost of the array will be min{dp[n – 1][j]} for all 0 <= j <= M.
    */
   int MinAdjustmentCost(vector<int> A, int target) {
     const int n = A.size();

@@ -26,6 +26,7 @@ public:
       if (matrix[i][j] == target) {
         ret++;
       }
+
       if (matrix[i][j] < target) {
         ++j;
       } else {

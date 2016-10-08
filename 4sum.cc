@@ -20,34 +20,45 @@ public:
    *          zero.
    */
   vector<vector<int> > fourSum(vector<int> nums, int target) {
-    vector<vector<int> > ret;
-    if (nums.size() < 4)
+    vector<vector<int>> ret;
+    if (nums.empty() || nums.size() <= 3)
       return ret;
     std::sort(nums.begin(), nums.end());
-    unordered_map<int, vector<std::pair<int, int> > > cache;
-
-    for (int i = 0; i < nums.size(); i++) {
-      for (int j = i + 1; j < nums.size(); j++) {
-        cache[nums[i] + nums[j]].push_back(std::pair<int, int>(i, j));
-      }
-    }
-
-    for (int c = 0; c < nums.size(); ++c) {
-      for (int d = c + 1; d < nums.size(); ++d) {
-        const int key = target - nums[c] - nums[d];
-        if (cache.find(key) == cache.end())
+    for (int i = 0; i < nums.size() - 3; i++) {
+      if (i > 0 && nums[i] == nums[i - 1])
+        continue;
+      int j = i + 1;
+      for (; j < nums.size() - 2; j++) {
+        if (j > i + 1 && nums[j] == nums[j - 1])
           continue;
-        const auto &vec = cache[key];
-        for (size_t k = 0; k < vec.size(); ++k) {
-          if (c <= vec[k].second)
-            continue;
-          ret.push_back({nums[vec[k].first], nums[vec[k].second], nums[c], nums[d]});
+
+        int left = j + 1;
+        int right = nums.size() - 1;
+        while (left < right) {
+          int sum = nums[i] + nums[j] + nums[left] + nums[right];
+          if (sum == target) {
+            vector<int> cur_ret;
+            cur_ret.push_back(nums[i]);
+            cur_ret.push_back(nums[j]);
+            cur_ret.push_back(nums[left]);
+            cur_ret.push_back(nums[            right]);
+            ret.push_back(cur_ret);
+
+            left++;
+            right--;
+            while (left < right && nums[left] == nums[left - 1])
+              left++;
+
+            while (left < right && nums[right] == nums[right + 1])
+              right--;
+          } else if (sum > target) {
+            right--;
+          } else {
+            left++;
+          }
         }
       }
     }
-
-    sort(ret.begin(), ret.end());
-    ret.erase(unique(ret.begin(), ret.end()), ret.end());
 
     return ret;
   }

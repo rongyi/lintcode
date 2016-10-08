@@ -76,7 +76,7 @@ public:
     if (!cur_head) {
       hashTable[index] = node;
     } else {
-      insertList(cur_head, node);
+      insertListTail(cur_head, node);
     }
   }
   // insert at linklist head
@@ -84,8 +84,11 @@ public:
     node->next = head->next;
     head->next = node;
   }
+  // insert at linklist tail, insert at tail seems right
+  void insertListTail(ListNode *head, ListNode *node) {
+    ListNode *cur = head;
+    while (cur->next)
+      cur = cur->next;
+    cur->next = node;
+  }
 };
-
-// [80->null,null,null,null,null,null,null,null,null,49->null,10->50->null,null,12->null,53->93->133->null,null,15->null,null,null,null,139->null,null,null,null,null,null,null,null,187->null,null,109->null,-10->null,null,null,153->null,null,null,36->null,-3->null,118->null,159->null]
-
-// [80->null,null,null,null,null,null,null,null,null,49->null,10->50->null,null,12->null,53->133->93->null,null,15->null,null,null,null,139->null,null,null,null,null,null,null,null,187->null,null,109->null,-10->null,null,null,153->null,null,null,36->null,-3->null,118->null,159->null]

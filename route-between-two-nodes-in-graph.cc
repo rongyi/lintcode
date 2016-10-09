@@ -32,6 +32,29 @@ public:
    */
   bool hasRoute(vector<DirectedGraphNode*> graph,
                 DirectedGraphNode* s, DirectedGraphNode* t) {
-    // write your code here
+    bool routeFounded = false;
+
+    for (auto cur_node : graph) {
+      if (cur_node == s) {
+        dfs(cur_node, t, routeFounded);
+      }
+    }
+
+    return routeFounded;
+  }
+
+  void dfs(DirectedGraphNode *cur_node, const DirectedGraphNode *target, bool &routeFounded) {
+    if (cur_node == target) {
+      routeFounded = true;
+      return;
+    }
+    for (auto cur_neighbor : cur_node->neighbors) {
+      if (cur_neighbor == target) {
+        routeFounded = true;
+        return;
+      } else {
+        dfs(cur_neighbor, target, routeFounded);
+      }
+    }
   }
 };

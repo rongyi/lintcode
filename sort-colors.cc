@@ -1,4 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/sort-colors
+#include <vector>
+#include <iostream>
+
+using std::vector;
+
 
 class Solution{
 public:

@@ -20,7 +20,7 @@ public:
   }
 
 private:
-  // selected sort
+  // selected sort from ./sort-integers.cc
   void sortIntegers(vector<int>& A) {
     if (A.empty())
       return;

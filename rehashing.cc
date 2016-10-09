@@ -50,6 +50,7 @@ public:
       return ret;
 
     ret.resize(kOriginSize * 2);
+
     for (int i = 0; i < kOriginSize; i++) {
       for (ListNode *head = hashTable[i]; head != nullptr; head = head->next) {
         int curKey = hash(head->val, kCurrentSize);

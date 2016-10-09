@@ -63,6 +63,7 @@ private:
 
   void dfs(DirectedGraphNode* node, vector<DirectedGraphNode*> &ret) {
     ret.push_back(node);
+    // eliminate reentrance
     in_degree_cout_[node]--;
 
     for (auto cur_neighbor : node->neighbors) {

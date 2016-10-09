@@ -1,6 +1,8 @@
 * LintCode题解
   [[https://medium.com/always-be-coding/abc-always-be-coding-d5f8051afce2#.ixczkwou8][Always be coding!]]
 
+  语言为C++11.
+
   所有代码均通过Lintcode在线检测, 同时也考虑了诸如内存泄露等产品级需求, 许多代码
 中注释的部分比如List/Tree的定义, 在源码中都重新加入了, 为的是本地调试需要,所以
 在进行在线检测时请把相关定义删掉以免造成在线编译不通过.

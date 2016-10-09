@@ -51,20 +51,9 @@ public:
 
     ret.resize(kOriginSize * 2);
     for (int i = 0; i < kOriginSize; i++) {
-      // head
-      ListNode *head = hashTable[i];
-      if (!head)
-        continue;
-
-      int curKey = hash(head->val, kCurrentSize);
-      insertList(ret, curKey, new ListNode(head->val));
-      // tail
-      head = head->next;
-      while (head != nullptr) {
+      for (ListNode *head = hashTable[i]; head != nullptr; head = head->next) {
         int curKey = hash(head->val, kCurrentSize);
         insertList(ret, curKey, new ListNode(head->val));
-
-        head = head->next;
       }
     }
 

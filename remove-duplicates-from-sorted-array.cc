@@ -1,4 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-array
+#include <vector>
+
+using std::vector;
 
 class Solution {
 public:

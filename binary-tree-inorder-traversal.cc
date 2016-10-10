@@ -14,6 +14,18 @@
  */
 #include <vector>
 using namespace std;
+
+
+class TreeNode {
+public:
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = nullptr;
+  }
+};
+
 class Solution {
   /**
    * @param root: The root of binary tree.

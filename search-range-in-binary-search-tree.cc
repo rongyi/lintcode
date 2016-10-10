@@ -39,6 +39,27 @@ public:
    * @return: Return all keys that k1<=key<=k2 in ascending order.
    */
   vector<int> searchRange(TreeNode* root, int k1, int k2) {
+    vector<int> all_nodes = inorderTraversal(root);
+    vector<int> ret;
+    for (auto i : all_nodes) {
+      if (i >= k1 && i <= k2) {
+        ret.push_back(i);
+      }
+    }
 
+    return ret;
+  }
+private:
+  vector<int> inorderTraversal(TreeNode *root) {
+    std::vector<int> ret;
+    inner(root, ret);
+    return ret;
+  }
+  void inner(TreeNode *root, std::vector<int> &ret) {
+    if (root) {
+      inner(root->left, ret);
+      ret.push_back(root->val);
+      inner(root->right, ret);
+    }
   }
 };

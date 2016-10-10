@@ -43,7 +43,7 @@ public:
       return nullptr;
     TreeNode *ret = nullptr;
 
-    doBuild(ret, postorder, inorder, postorder.size() - 1, 0, postorder.size());
+    doBuild(ret, postorder, inorder, postorder.size() - 1, 0, inorder.size());
 
     return ret;
   }

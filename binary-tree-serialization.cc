@@ -81,7 +81,27 @@ public:
     if (!root)
       return root;
 
-    doDeserilize(root, nodes, 0, n);
+    vector<TreeNode *> root_vec;
+    root_vec.push_back(root);
+    int cur_root_index = 0;
+    bool is_left = true;
+
+    for (int i = 1; i < n; i++) {
+      if (nodes[i] != "#") {
+        TreeNode *cur = build(nodes[i]);
+        if (is_left) {
+          root_vec.at(cur_root_index)->left = cur;
+        } else {
+          root_vec.at(cur_root_index)->right = cur;
+        }
+        root_vec.push_back(cur);
+      }
+
+      if (!is_left)
+        cur_root_index++;
+
+      is_left = !is_left;
+    }
 
     return root;
   }
@@ -96,6 +116,7 @@ private:
     return new_node;
   }
 
+  // can not fix the case: {1,2,#,3,#,4}
   void doDeserilize(TreeNode *root, vector<string> &nodes, int index, int n) {
     if (!root)
       return;
@@ -154,17 +175,12 @@ private:
 int main()
 {
   Solution so;
-  TreeNode five(5), three(3), one(1), four(4), eight(8), nine(9);
-  five.left = &three;
-  five.right = &eight;
+  TreeNode n1(1), n2(2), n3(3), n4(4);
+  n1.left = &n2;
+  n2.right = &n3;
+  n3.right = &n4;
 
-  three.left = &one;
-  three.right = &four;
-
-  eight.right = &nine;
-
-
-  auto ret = so.serialize(&five);
+  auto ret = so.serialize(&n1);
   cout << ret << endl;
 
   auto tree = so.deserialize(ret);

@@ -23,7 +23,7 @@ public:
   };
 
   Solution() {
-    root_ = build(0, 2000);
+    root_ = build(0, 20000);
   }
   ~Solution() {
     //TODO

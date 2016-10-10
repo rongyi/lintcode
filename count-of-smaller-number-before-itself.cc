@@ -25,8 +25,9 @@ public:
   Solution() {
     root_ = build(0, 20000);
   }
+
   ~Solution() {
-    //TODO
+    free(root_);
   }
   /**
    * @param A: An integer array
@@ -115,6 +116,7 @@ private:
       root->right = nullptr;
     }
   }
+private:
   SegmentTreeNode *root_;
 };
 

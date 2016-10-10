@@ -34,6 +34,7 @@ public:
       for (int i = j - 1; i < n; i++) {
         local_max = std::max(local_max, global_max[i][j - 1]) + nums[i];
 
+        // pick all, that is local max
         if (i == j - 1) {
           global_max[i + 1][j] = local_max;
         } else {

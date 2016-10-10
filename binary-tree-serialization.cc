@@ -3,21 +3,23 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <queue>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::queue;
 
 
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = NULL;
+  }
 };
 
 class Solution {
@@ -31,8 +33,29 @@ public:
     std::stringstream ss;
     if (!root)
       return "";
+    queue<TreeNode *> aux;
+    aux.push(root);
 
-    do_serialize(root, ss);
+    while (!aux.empty()) {
+      auto cur_node = aux.front();
+      if (cur_node) {
+        ss << cur_node->val << ",";
+        if (cur_node->left) {
+          aux.push(cur_node->left);
+        } else {
+          aux.push(nullptr);
+        }
+
+        if (cur_node->right) {
+          aux.push(cur_node->right);
+        } else {
+          aux.push(nullptr);
+        }
+      } else {
+        ss << "#,";
+      }
+      aux.pop();
+    }
 
     return ss.str();
   }
@@ -55,25 +78,6 @@ public:
   }
 
 private:
-  // using # to denote empty child
-  void do_serialize(TreeNode *root, std::stringstream &ss) {
-    if (root) {
-      ss << root->val;
-    }
-
-    if (root->left) {
-      do_serialize(root->left, ss);
-    } else {
-      ss << "#";
-    }
-
-    if (root->right) {
-      do_serialize(root->right, ss);
-    } else {
-      ss << "#";
-    }
-  }
-
   void do_deseri(string data, TreeNode * root) {
     if (data.empty())
       return;
@@ -85,19 +89,20 @@ private:
 int main()
 {
   Solution so;
-  TreeNode root(2);
-  TreeNode left(1);
-  TreeNode right(3);
-  root.left = &left;
-  root.right = &right;
+  TreeNode five(5), three(3), one(1), four(4), eight(8), nine(9);
+  five.left = &three;
+  five.right = &eight;
 
-  TreeNode left_child(0);
-  left.left = &left_child;
+  three.left = &one;
+  three.right = &four;
 
-  auto ret = so.serialize(&root);
+  eight.right = &nine;
+
+
+  auto ret = so.serialize(&five);
   cout << ret << endl;
 
-  auto test_tree = so.deserialize("21##3##");
+  // auto test_tree = so.deserialize("21##3##");
 
   return 0;
 }

@@ -12,12 +12,15 @@ public:
    * @param k: a positive integer (k <= length(A))
    * @param target: a integer
    * @return an integer
-   * f[i][j][t] indicates the number of solutions for selecting j numbers from A[0 … i – 1] with the sum of t.
    */
   int kSum(vector<int> A, int k, int target) {
     const int n = A.size();
     if (n == 0)
       return 0;
+    // f[i][j][t] indicates the number of solutions for selecting j numbers from A[0 … i – 1] with the sum of t.
+    //     Transit function:
+    // dp[i][j][m] = dp[i - 1][j][m]   // no choose item i
+    // if (A[i - 1] <= m) dp[i][j][m] += dp[i - 1][j - 1][m - A[i - 1]]  // choose item i
     int dp[n + 1][k + 1][target + 1];
     // I miss Go
     std::memset(dp, 0, sizeof(dp));

@@ -97,8 +97,27 @@ public:
   }
 
 private:
+  void free(SegmentTreeNode *root) {
+    if (!root)
+      return;
+    if (!root->left && !root->right) {
+      delete root;
+      root = nullptr;
+    }
+
+    if (root->left) {
+      delete root->left;
+      root->left = nullptr;
+    }
+
+    if (root->right) {
+      delete root->right;
+      root->right = nullptr;
+    }
+  }
   SegmentTreeNode *root_;
 };
+
 int main()
 {
   Solution so;

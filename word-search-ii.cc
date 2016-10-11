@@ -135,7 +135,7 @@ public:
         s.push_back(board[i][j]);
         if (trie_.search(s))
           uret.insert(s);
-        else if (trie_.startsWith(s))
+        if (trie_.startsWith(s))
           search(s, board, i, j, visited, uret);
         s.pop_back();
       }
@@ -151,25 +151,35 @@ public:
               int i, int j,
               vector<vector<bool>> &visited,
               unordered_set<string> &uret) {
-    // boundary check
-    if (i < 0 || j < 0 ||
-        i == board.size() || j == board[0].size() ||
-        visited[i][j] == true) {
-      return;
-    }
+
+    auto isBoundaryValid = [](int cur_row, int cur_col, int row_size, int col_size, vector<vector<bool>> &visited) {
+      if (cur_row < 0 || cur_col < 0 ||
+          cur_row == row_size || cur_col == col_size ||
+          visited[cur_row][cur_col] == true) {
+        return false;
+      }
+      return true;
+    };
+    const static int dx[4]{1, 0, -1, 0};
+    const static int dy[4]{0, 1, 0, -1};
 
     // mark
     visited[i][j] = true;
 
-    if (trie_.search(word))
-      uret.insert(word);
-    else if (trie_.startsWith(word)) {
-      search(word, board, i - 1, j, visited, uret);
-      search(word, board, i + 1, j, visited, uret);
-      search(word, board, i, j - 1, visited, uret);
-      search(word, board, i, j + 1, visited, uret);
+    int next_x;
+    int next_y;
+    for (int cur_dicrection = 0; cur_dicrection < 4; cur_dicrection++) {
+      next_x = i + dx[cur_dicrection];
+      next_y = j + dy[cur_dicrection];
+      if (isBoundaryValid(next_x, next_y, board.size(), board[0].size(), visited)) {
+        word.push_back(board[next_x][next_y]);
+        if (trie_.search(word))
+          uret.insert(word);
+        if (trie_.startsWith(word))
+          search(word, board, next_x, next_y, visited, uret);
+        word.pop_back();
+      }
     }
-    word.pop_back();
 
     // mark it back
     visited[i][j] = false;
@@ -182,24 +192,15 @@ private:
 int main()
 {
   Solution so;
-  vector<char> row1{'d', 'o', 'a', 'f'};
-  vector<char> row2{'a', 'g', 'a', 'i'};
-  vector<char> row3{'d', 'c', 'a', 'n'};
+  vector<char> row1{'a', 'b', 'c', 'e'};
+  vector<char> row2{'s', 'f', 'c', 's'};
+  vector<char> row3{'a', 'd', 'e', 'e'};
   vector<vector<char>> test{row1, row2, row3};
-  vector<string> words{"dog","dad","dgdg","can","again"};
+  vector<string> words{"as","ab","cf","da","ee","e","adee","eeda"};
 
   auto ret = so.wordSearchII(test, words);
   for (auto s : ret)
     cout << s << endl;
-
-  // detail::Trie wd;
-  // wd.insert("lintcode");
-  // auto ret = wd.search("lintcode");
-  // cout << ret << endl;
-  // ret = wd.startsWith("lint");
-  // cout << ret << endl;
-  // ret = wd.startsWith("lintcode");
-  // cout << ret << endl;
 
   return 0;
 }

@@ -18,6 +18,12 @@ using std::string;
  * it will return 0, else if "a" is smaller than "b", it will return -1.
  * When "a" is not a nut or "b" is not a bolt, it will return 2, which is not valid.
  */
+
+class Comparator {
+    public:
+     int cmp(string a, string b);
+};
+
 class Solution {
 public:
   /**
@@ -27,6 +33,6 @@ public:
    * @return: nothing
    */
   void sortNutsAndBolts(vector<string> &nuts, vector<string> &bolts, Comparator compare) {
-    // write your code here
+
   }
 };

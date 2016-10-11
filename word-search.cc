@@ -26,9 +26,9 @@ public:
     // the A.I part
     vector<vector<bool>> visited(m, vector<bool>(n, false));
 
-    for (int i = 0; i < m; i++) {
-      for (int j = 0; j < n; j++) {
-        if (search(word, 0, board, i, j, visited))
+    for (int row = 0; row < m; row++) {
+      for (int col = 0; col < n; col++) {
+        if (search(word, 0, board, row, col, visited))
           return true;
       }
     }

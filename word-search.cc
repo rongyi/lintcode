@@ -23,6 +23,7 @@ public:
     const int m = board.size();
     const int n = board[0].size();
 
+    // the A.I part
     vector<vector<bool>> visited(m, vector<bool>(n, false));
 
     for (int i = 0; i < m; i++) {
@@ -34,12 +35,13 @@ public:
     return false;
 
   }
+
   bool search(const string &word,
               int index,
               const vector<vector<char>> &board,
               int i, int j,
               vector<vector<bool>> &visited) {
-    // boudary check
+    // boundary check
     if (i < 0 || j < 0 ||
         i == board.size() || j == board[0].size() ||
         visited[i][j] == true) {
@@ -48,6 +50,7 @@ public:
 
     // mark
     visited[i][j] = true;
+
     bool ret = false;
     if (board[i][j] == word.at(index)) {
       if (index == word.size() - 1)
@@ -58,7 +61,7 @@ public:
         search(word, index + 1, board, i, j + 1, visited);       // right
     }
 
-    // mark back
+    // mark it back
     visited[i][j] = false;
 
     return ret;

@@ -3,11 +3,13 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <unordered_set>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::unordered_set;
 
 // from file: ./implement-trie.cc
 struct TrieNode {
@@ -110,6 +112,22 @@ public:
    */
   vector<string> wordSearchII(vector<vector<char> > &board,
                               vector<string> &words) {
+    vector<string> ret;
+    if (board.empty() || board[0].empty() || words.empty())
+      return ret;
+
+    const int m = board.size();
+    const int n = board[0].size();
+
+    // uniq ret
+    unordered_set<string> uret;
+
+    for (auto &w : words) {
+      trie_.insert(w);
+    }
+
+    // the A.I part
+    vector<vector<bool>> visited(m, vector<bool>(n, false));
 
   }
 

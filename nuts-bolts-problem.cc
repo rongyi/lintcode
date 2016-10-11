@@ -53,18 +53,22 @@ public:
     quickSort(nuts, bolts, compare, cur_index + 1, end);
   }
   int partition(vector<string> &norb, string pivot, Comparator compare, int start, int end) {
-    int pivot_index = start;
-    for (int i = start + 1; i <= end; i++) {
-      if (compare.cmp(pivot, norb[i]) == 1 ||
-          compare.cmp(norb[i], pivot) == -1) {
-        std::swap(norb[++pivot_index], norb[i]);
-      } else if (compare.cmp(pivot, norb[i]) == 0 ||
-                 compare.cmp(norb[i], pivot) == 0) {
-        std::swap(norb[start], norb[i]);
-        --i;
+    // initial position is invalid
+    int pivot_index = start - 1;
+    for (int i = start; i < end; i++) {
+      if (compare.cmp(norb[i], pivot) == -1 ||
+          compare.cmp(pivot, norb[i]) == 1) {
+        pivot_index++;
+        std::swap(norb[i], norb[pivot_index]);
+      } else if (compare.cmp(norb[i], pivot) == 0 ||
+                 compare.cmp(pivot, norb[i]) == 0) {
+        // the last position is the save place for element which is equal to pivot
+        std::swap(norb[i], norb[end]);
+        i--;
       }
     }
-    std::swap(norb[pivot_index], norb[start]);
+    pivot_index++;                        // now pivot_index point to its place
+    std::swap(norb[pivot_index], norb[end]); // put pivot value to its place
 
     return pivot_index;
   }

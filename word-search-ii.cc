@@ -12,6 +12,7 @@ using std::string;
 using std::unordered_set;
 
 // from file: ./implement-trie.cc
+namespace detail {
 struct TrieNode {
   static const int NUM = 26;
   TrieNode () : is_leaf_(false){
@@ -30,7 +31,6 @@ struct TrieNode {
   TrieNode *node_[NUM];
 };
 
-namespace detail {
 class Trie {
 public:
   Trie() {
@@ -160,10 +160,11 @@ public:
       }
       return true;
     };
+    // indicate four direction
     const static int dx[4]{1, 0, -1, 0};
     const static int dy[4]{0, 1, 0, -1};
 
-    // mark
+    // mark as visited
     visited[i][j] = true;
 
     int next_x;

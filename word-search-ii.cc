@@ -129,8 +129,77 @@ public:
     // the A.I part
     vector<vector<bool>> visited(m, vector<bool>(n, false));
 
+    string s;
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        s.push_back(board[i][j]);
+        if (trie_.search(s))
+          uret.insert(s);
+        else if (trie_.startsWith(s))
+          search(s, board, i, j, visited, uret);
+        s.pop_back();
+      }
+    }
+    for (auto & w : uret)
+      ret.push_back(w);
+    return ret;
+  }
+
+
+  void search(string &word,
+              const vector<vector<char>> &board,
+              int i, int j,
+              vector<vector<bool>> &visited,
+              unordered_set<string> &uret) {
+    // boundary check
+    if (i < 0 || j < 0 ||
+        i == board.size() || j == board[0].size() ||
+        visited[i][j] == true) {
+      return;
+    }
+
+    // mark
+    visited[i][j] = true;
+
+    if (trie_.search(word))
+      uret.insert(word);
+    else if (trie_.startsWith(word)) {
+      search(word, board, i - 1, j, visited, uret);
+      search(word, board, i + 1, j, visited, uret);
+      search(word, board, i, j - 1, visited, uret);
+      search(word, board, i, j + 1, visited, uret);
+    }
+    word.pop_back();
+
+    // mark it back
+    visited[i][j] = false;
   }
 
 private:
   detail::Trie trie_;
 };
+
+int main()
+{
+  Solution so;
+  vector<char> row1{'d', 'o', 'a', 'f'};
+  vector<char> row2{'a', 'g', 'a', 'i'};
+  vector<char> row3{'d', 'c', 'a', 'n'};
+  vector<vector<char>> test{row1, row2, row3};
+  vector<string> words{"dog","dad","dgdg","can","again"};
+
+  auto ret = so.wordSearchII(test, words);
+  for (auto s : ret)
+    cout << s << endl;
+
+  // detail::Trie wd;
+  // wd.insert("lintcode");
+  // auto ret = wd.search("lintcode");
+  // cout << ret << endl;
+  // ret = wd.startsWith("lint");
+  // cout << ret << endl;
+  // ret = wd.startsWith("lintcode");
+  // cout << ret << endl;
+
+  return 0;
+}

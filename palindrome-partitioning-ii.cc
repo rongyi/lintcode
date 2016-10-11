@@ -40,11 +40,14 @@ public:
     }
 
     // dp2[i] means 0..i minimum cut
-    vector<int> dp2(n, std::numeric_limits<int>::min());
+    vector<int> dp2(n, std::numeric_limits<int>::max());
     for (int i = 0; i < n; i++) {
       // no need to cut, it already is
-      if (dp1[0][i])
+      if (dp1[0][i]) {
         dp2[i] = 0;
+        continue;
+      }
+
       for (int j = 0; j < i; j++) {
         // 如果s(j + 1, i) 是回文, 则从J这里多切一刀和之前的比较,看哪个最小
         if (dp1[j + 1][i])
@@ -55,3 +58,11 @@ public:
     return dp2[n - 1];
   }
 };
+
+int main()
+{
+  Solution so;
+  auto ret = so.minCut("ab");
+  cout << ret << endl;
+  return 0;
+}

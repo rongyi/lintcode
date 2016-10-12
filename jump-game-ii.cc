@@ -15,6 +15,17 @@ public:
    * @return: An integer
    */
   int jump(vector<int> A) {
+    int ret = 0;
+    int last = 0;
+    int cur = 0;
+    for (int i = 0; i < A.size(); i++) {
+      if (i > last) {
+        last = cur;
+        ++ret;
+      }
+      cur = std::max(cur, i + A[i]);
+    }
 
+    return ret;
   }
 };

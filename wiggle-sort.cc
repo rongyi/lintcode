@@ -16,6 +16,7 @@ public:
    * @return void
    */
   void wiggleSort(vector<int>& nums) {
+    /*
     vector<int> tmp = nums;
     std::sort(tmp.begin(), tmp.end());
     const int n = nums.size();
@@ -23,6 +24,13 @@ public:
     int j = n;
     for (int i = 0; i < n; i++) {
       nums[i] = i & 1 ? tmp[--j] : tmp[--k];
+    }
+    */
+    std::sort(nums.begin(), nums.end());
+    if (nums.size() <= 2)
+      return;
+    for (int i = 2; i < nums.size(); i+= 2) {
+      std::swap(nums[i], nums[i - 1]);
     }
   }
 };

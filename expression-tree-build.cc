@@ -104,7 +104,8 @@ private:
 int main()
 {
   Solution so;
-  vector<string> input{"2","*","6","-","(","23","+","7",")","/","(","1","+","2",")"};
+  vector<string> input{"2","-","6","*","(","23","+","7",")","/","(","1","+","2",")"};
   auto ret = so.build(input);
+
   return 0;
 }

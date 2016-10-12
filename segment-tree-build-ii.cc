@@ -43,6 +43,9 @@ public:
    *@return: The root of Segment Tree
    */
   SegmentTreeNode * build(vector<int>& nums) {
+    if (nums.empty())
+      return nullptr;
+
     return build(nums, 0, nums.size() - 1);
   }
   SegmentTreeNode *build(vector<int> &nums, int start, int end) {

@@ -32,10 +32,20 @@ public:
     ListNode *v1_prev = search(dhead, v1);
     ListNode *v2_prev = search(dhead, v2);
 
-    // not found
+    // not found, doing nothing
     if (v1_prev == nullptr || v2_prev == nullptr)
       return dummy.next;
 
+    /*
+
+      +--------------+           +------------+        +--------------+         +------------------------+
+      |  v1_prev     +----------->  v1/v2_prev|        |              +--------->                        |
+      |              |           |            +-------->    v2        |         |                        |
+      +--------------+           +------------+        +--------------+         +------------------------+
+
+    */
+
+    // FIXME: case1 and case2 are the same
     if (v1_prev->next == v2_prev) {
       ListNode *v1 = v1_prev->next;
       ListNode *v2 = v2_prev->next;
@@ -44,6 +54,15 @@ public:
       v2->next = v1;
       v1->next = v2_next;
     } else if (v2_prev->next == v1_prev) {
+
+      /*
+
+        +--------------+           +------------+        +--------------+         +------------------------+
+        | v2_prev      +----------->v2/v1_prev  |        | v1           +--------->                        |
+        |              |           |            +-------->              |         |                        |
+        +--------------+           +------------+        +--------------+         +------------------------+
+
+      */
       ListNode *v2 = v2_prev->next;
       ListNode *v1 = v1_prev->next;
       ListNode *v1_next = v1->next;
@@ -51,6 +70,15 @@ public:
       v1->next = v2;
       v2->next = v1_next;
     } else {
+
+      /*
+
+        +--------------+           +------------+        +--------------+         +------------------------+
+        | v1_prev      +----------->v1          |        | v2_prev      +--------->    v2                  |
+        |              |           |            +-------->              |         |                        |
+        +--------------+           +------------+        +--------------+         +------------------------+
+
+      */
       ListNode *pv1 = v1_prev->next;
       ListNode *v1_next = v1_prev->next->next;
       ListNode *v2_next = v2_prev->next->next;

@@ -22,6 +22,7 @@ public:
       return ret;
     const int m = matrix.size();
     const int n = matrix[0].size();
+
     for (int i = 0; i < n; i++) {
       vector<int> sum(m);
       for (int j = i; j < n; j++) {

@@ -6,7 +6,7 @@
  * class Input {
  * public:
  *     bool done();
- *         // Returns true if the iteration has elements or false.
+ *         // Returns true if the iteration has no elements.
  *     void next();
  *         // Move to the next element in the iteration
  *         // Runtime error if the iteration has no more elements

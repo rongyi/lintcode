@@ -1,4 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/super-ugly-number
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
+
 class Solution {
 public:
   /**
@@ -7,6 +17,24 @@ public:
    * @return the nth super ugly number
    */
   int nthSuperUglyNumber(int n, vector<int>& primes) {
+    vector<int> ret(1, 1);
+    vector<int> index(primes.size(), 0);
 
+    while (ret.size() < n) {
+      vector<int> tmp;
+      int cur = std::numeric_limits<int>::max();
+      for (int i = 0; i < primes.size(); i++) {
+        tmp.push_back(ret[index[i]] * primes[i]);
+      }
+      for (int i = 0; i < primes.size(); i++) {
+        cur = std::min(cur, tmp[i]);
+      }
+      for (int i = 0; i < primes.size(); ++i) {
+        if (cur == tmp[i])
+          ++index[i];
+      }
+      ret.push_back(cur);
+    }
+    return ret.back();
   }
 };

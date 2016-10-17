@@ -22,7 +22,7 @@ public:
     anti_diag_ = vector<int>(2 * n, 0);
 
     vector<vector<string>> ret;
-    // indicate the column index of current row
+    // indicate the column index of each row
     vector<int> queen_col_vec(n, 0);
     dfs(ret, queen_col_vec, 0);
 
@@ -32,7 +32,7 @@ private:
   void dfs(vector<vector<string>> &ret, vector<int> &queen_col_vec, int row) {
     const int N = queen_col_vec.size();
     if (row == N) {
-      // finay layout for a solution
+      // final layout for a solution
       vector<string> cur_layout;
       for (int i = 0; i < N; i++) {
         string cur_row(N, '.');
@@ -51,8 +51,10 @@ private:
       const bool ok = columns_[j] == 0 &&
         main_diag_[row + j] == 0 &&
         anti_diag_[row - j + N] == 0;
+
       if (!ok)
         continue;
+
       queen_col_vec[row] = j;
       columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 1;
 

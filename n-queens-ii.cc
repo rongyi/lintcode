@@ -16,6 +16,45 @@ public:
    * @return: The total number of distinct solutions.
    */
   int totalNQueens(int n) {
-    // write your code here
+    columns_ = vector<int>(n, 0);
+    main_diag_ = vector<int>(2 * n, 0);
+    anti_diag_ = vector<int>(2 * n, 0);
+
+    int ret = 0;
+
+    // indicate the column index of each row
+    vector<int> queen_col_vec(n, 0);
+    dfs(ret, queen_col_vec, 0);
+
+    return ret;
   }
+private:
+  void dfs(int &ret, vector<int> &queen_col_vec, int row) {
+    const int N = queen_col_vec.size();
+    if (row == N) {
+      ret++;
+      return;
+    }
+
+    for (int j = 0; j < N; ++j) {
+      const bool ok = columns_[j] == 0 &&
+        main_diag_[row + j] == 0 &&
+        anti_diag_[row - j + N] == 0;
+
+      if (!ok)
+        continue;
+
+      queen_col_vec[row] = j;
+      columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 1;
+
+      dfs(ret, queen_col_vec, row + 1);
+
+      // restore
+      columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 0;
+    }
+  }
+private:
+  vector<int> columns_;
+  vector<int> main_diag_;
+  vector<int> anti_diag_;
 };

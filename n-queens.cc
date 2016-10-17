@@ -43,6 +43,7 @@ private:
         // one row done
         cur_layout.push_back(cur_row);
       }
+
       ret.push_back(cur_layout);
       return;
     }
@@ -60,6 +61,7 @@ private:
 
       dfs(ret, queen_col_vec, row + 1);
 
+      // restore
       columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 0;
     }
   }

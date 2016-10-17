@@ -28,12 +28,15 @@ public:
     vector<int> dp(n, 0);
     dp[n - 1] = values[n - 1];
     dp[n - 2] = values[n - 1] + values[n - 2];
+
     for (int i = n - 3; i >= 0; --i) {
       int val1 = values[i] + std::min(i + 2 < n ? dp[i + 2] : 0, i + 3 < n ? dp[i + 3] : 0);
       int val2 = values[i] + values[i + 1] + std::min(i + 3 < n ? dp[i + 3] : 0, i + 4 < n ? dp[i + 4] : 0);
       dp[i] = std::max(val1, val2);
     }
+
     int sum = std::accumulate(values.begin(), values.end(), 0);
+
     return dp[0] > sum - dp[0];
   }
 };

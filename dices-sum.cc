@@ -45,7 +45,7 @@ public:
 
     for (int i = n; i <= target; i++) {
       if (dp[n - 1][i] > 0) {
-        double cur_sum = (dp[n - 1][i]) + 0.0;
+        double cur_sum = (dp[n - 1][i]);
         double prob = cur_sum / total;
         ret.push_back(std::make_pair(i, prob));
       }

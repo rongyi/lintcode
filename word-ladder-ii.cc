@@ -29,14 +29,13 @@ public:
     vector<vector<string>> ret;
     vector<string> cur;
 
-    dfs(ret, cur, distance_map, dict, end, start);
+    dfs(ret, cur, distance_map, end, start);
 
     return ret;
   }
 private:
   void dfs(vector<vector<string>> &ret, vector<string> &cur,
            unordered_map<string, int> &distance_map,
-           unordered_set<string> &dict,
            string &start, string &end) {
 
     if (start == end) {
@@ -55,7 +54,7 @@ private:
         starts[i] = 'a' + j;
         if (distance_map.find(starts) != distance_map.end() &&
             distance_map[starts] == distance_map[start] - 1) {
-          dfs(ret, cur, distance_map, dict, starts, end);
+          dfs(ret, cur, distance_map, starts, end);
         }
       }
       starts[i] = c;
@@ -95,6 +94,7 @@ private:
     }
   }
 };
+
 int main()
 {
   Solution so;

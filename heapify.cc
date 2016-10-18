@@ -16,11 +16,17 @@ public:
    * @return: void
    */
   void heapify(vector<int> &nums) {
-    if (nums.empty())
-      return;
-    int start = nums.size() / 2;
-    for (int i = start; i >= 0; --i) {
-      doHeapify(nums, i);
+    // version 1
+    // if (nums.empty())
+    //   return;
+    // int start = nums.size() / 2;
+    // for (int i = start; i >= 0; --i) {
+    //   doHeapify(nums, i);
+    // }
+
+    // version 2:
+    for (int i = 0; i < nums.size(); i++) {
+      siftup(nums, i);
     }
   }
 private:
@@ -43,6 +49,16 @@ private:
       } else {
         break;
       }
+    }
+  }
+
+  void siftup(vector<int> &nums, int k) {
+    while (k != 0) {
+      int parent = (k - 1) / 2;
+      if (nums[k] > nums[parent])
+        break;
+      std::swap(nums[k], nums[parent]);
+      k = parent;
     }
   }
 };

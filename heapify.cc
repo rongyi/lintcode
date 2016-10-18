@@ -16,7 +16,7 @@ public:
    * @return: void
    */
   void heapify(vector<int> &nums) {
-    // version 1
+    // version 1: siftdown
     // if (nums.empty())
     //   return;
     // int start = nums.size() / 2;
@@ -24,7 +24,7 @@ public:
     //   doHeapify(nums, i);
     // }
 
-    // version 2:
+    // version 2: siftup
     for (int i = 0; i < nums.size(); i++) {
       siftup(nums, i);
     }

@@ -33,6 +33,8 @@ private:
       int right_val = (right_index < size) ? nums[right_index] : std::numeric_limits<int>::max();
       int next = (left_val <= right_val) ? left_index : right_index;
 
+      // root should not be great than its children
+      // in min heap
       if (nums[cur_index] >=nums[next]) {
         std::swap(nums[cur_index], nums[next]);
         cur_index = next;

@@ -22,6 +22,7 @@ public:
       return ret;
 
     const int target = 6 * n;
+    // using long long to make it larger
     vector<vector<long long>> dp(n, vector<long long>(target + 1, 0));
 
     dp[0][0] = 1;

@@ -34,7 +34,7 @@ public:
   }
 
 private:
-  // brute forece
+  // brute force
   int curMax(vector<vector<bool>> &matrix, int row, int col) {
     int ret = 0;
     int min_width = std::numeric_limits<int>::max();

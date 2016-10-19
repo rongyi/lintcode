@@ -13,6 +13,10 @@ using std::string;
 
 class Solution {
 public:
+  /*
+    如果我们把每一行看成x坐标，那高度就是从那一行开始往上数的1的个数。带入我们的maxAreaInHist方法，
+    在O(n2)时间内就可以求出每一行形成的“柱状图”的最大矩形面积了。
+  */
   int maximalRectangle(vector<vector<bool>> &matrix) {
     if (matrix.empty())
       return 0;
@@ -25,6 +29,7 @@ public:
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
         if (matrix[i][j]) {
+          // accumulate previous line
           heights[i][j] = (i == 0) ? 1 : heights[i - 1][j] + 1;
         } else {
           heights[i][j] = 0;
@@ -44,7 +49,7 @@ public:
    * @param matrix a boolean 2D matrix
    * @return an integer
    * brute force
-  */
+   */
   int maximalRectangleTLEVersion(vector<vector<bool>> &matrix) {
     if (matrix.empty())
       return 0;

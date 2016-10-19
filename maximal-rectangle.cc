@@ -15,7 +15,7 @@ public:
    * @param matrix a boolean 2D matrix
    * @return an integer
    */
-  int maximalRectangle(vector<vector<bool> > &matrix) {
+  int maximalRectangle(vector<vector<bool>> &matrix) {
     if (matrix.empty())
       return 0;
     const int m = matrix.size();

@@ -43,10 +43,10 @@ public:
     for (int i = 0; i < points.size() - 1; i++) {
       slope_count.clear();
 
-      // 重合
+      // 重合在一个点的个数
       int same_count = 0;
       // 共线的个数
-      int point_max = 1;
+      int same_line_count = 1;
       for (int j = i + 1; j < points.size(); j++) {
         double slope;
         if (points[i].x == points[j].x) {
@@ -67,10 +67,10 @@ public:
           slope_count[slope] = 2;
         }
 
-        point_max = std::max(point_max, count);
+        same_line_count = std::max(same_line_count, count);
       }
 
-      ret = std::max(ret, point_max + same_count);
+      ret = std::max(ret, same_line_count + same_count);
     }
     return ret;
   }

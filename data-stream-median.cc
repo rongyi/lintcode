@@ -36,7 +36,7 @@ public:
         }
       } else {
         max_heap.emplace(i);
-        if (max_heap.size() > min_heap.size() + 1) {
+        if (max_heap.size() > min_heap.size()) {
           min_heap.emplace(max_heap.top());
           max_heap.pop();
         }

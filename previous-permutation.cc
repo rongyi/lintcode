@@ -29,7 +29,7 @@ private:
       i--;
     if (i > 0) {
       int j = i - 1;
-      for (; j + 1 < m && nums[j + 1] <= nums[i - 1]; j++)
+      for (; j + 1 < m && nums[j + 1] < nums[i - 1]; j++)
         ;
       std::swap(nums[i - 1], nums[j]);
       std::reverse(nums.begin() + i, nums.end());

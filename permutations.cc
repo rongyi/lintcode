@@ -13,7 +13,6 @@ public:
 
     sort(nums.begin(), nums.end());
 
-
     do {
       ret.push_back(nums);
     } while (next_permutation(nums.begin(), nums.end()));

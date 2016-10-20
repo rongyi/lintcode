@@ -22,6 +22,7 @@ public:
       auto sj = std::to_string(j);
       return si + sj < sj + si;
     };
+
     std::sort(nums.begin(), nums.end(), cmp);
     std::stringstream ss;
     for (auto &i : nums)
@@ -32,9 +33,7 @@ public:
       return "0";
     }
 
-    ret = ret.substr(ret.find_first_not_of("0"));
-
-    return ret;
+    return ret.substr(ret.find_first_not_of("0"));
   }
 };
 

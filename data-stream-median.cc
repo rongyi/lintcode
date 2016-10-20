@@ -22,6 +22,7 @@ public:
     if (nums.empty())
       return ret;
 
+    // array layout
     // --------------max_heap-----------|----------------min_heap--------------
     priority_queue<int, vector<int>, std::greater<int>> min_heap;
     priority_queue<int, vector<int>, std::less<int>> max_heap;

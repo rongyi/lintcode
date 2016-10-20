@@ -27,6 +27,7 @@ private:
     int i = m - 1;
     while (i > 0 && nums[i - 1] <= nums[i])
       i--;
+
     if (i > 0) {
       int j = i - 1;
       for (; j + 1 < m && nums[j + 1] < nums[i - 1]; j++)

@@ -38,12 +38,13 @@ public:
     } else if (digits.size() == 2) {
       return map(cellphone_digits_[digits[0] - '0'], cellphone_digits_[digits[1] - '0']);
     } else {
+      // lisp name convention
       string cdr = digits.substr(1);
       auto cdr_ret = letterCombinations(cdr);
       return reduce(cellphone_digits_[digits[0] - '0'], cdr_ret);
     }
   }
-public:
+private:
   vector<string> map(const vector<char> &left, const vector<char> &right) {
     vector<string> ret;
     for (const auto &l : left) {
@@ -71,12 +72,12 @@ public:
         for (const auto &s : acc) {
           cur += s;
           ret.push_back(cur);
-          // FIXME
           cur.clear();
           cur.push_back(l);
         }
       }
     }
+
     return ret;
   }
 private:

@@ -15,7 +15,7 @@ public:
    * @param A an array of Integer
    * @return  an integer
    */
-  int longestIncreasingContinuousSubsequence(vector<int>& A) {
+  int longestIncreasingContinuousSubsequenceTLE(vector<int>& A) {
     if (A.empty())
       return 0;
     const int m = A.size();
@@ -47,6 +47,31 @@ public:
         }
       }
     }
+    return ret;
+  }
+
+  int longestIncreasingContinuousSubsequence(vector<int>& A) {
+    if (A.empty())
+      return 0;
+    int ret = 0;
+
+    const int m = A.size();
+    vector<int> dpasc(1, 1);
+    vector<int> dpdes(1, 1);
+
+    for (int i = 1; i < m; i++) {
+      if (A[i] > A[i - 1]) {
+        dpasc.push_back(dpasc.back() + 1);
+        dpdes.push_back(1);
+      } else {
+        dpasc.push_back(1);
+        dpdes.push_back(dpdes.back() + 1);
+      }
+    }
+
+    ret = *std::max_element(dpasc.begin(), dpasc.end());
+    ret = std::max(*std::max_element(dpdes.begin(), dpdes.end()), ret);
+
     return ret;
   }
 };

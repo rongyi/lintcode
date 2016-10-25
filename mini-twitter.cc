@@ -2,11 +2,15 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::unordered_map;
+using std::unordered_set;
 
 /**
  * Definition of Tweet:
@@ -32,6 +36,7 @@ public:
     // and auto fill id
   }
 };
+
 class MiniTwitter {
 public:
   MiniTwitter() {
@@ -72,4 +77,6 @@ public:
   void unfollow(int from_user_id, int to_user_id) {
     // Write your code here
   }
+private:
+
 };

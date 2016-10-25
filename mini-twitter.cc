@@ -65,6 +65,7 @@ public:
     if (user_twits_.find(user_id) == user_twits_.end()) {
       user_twits_[user_id] = vector<TweetWithTimeline>{};
     }
+    // NOTE: the implicit order is: latest element is at the tail of this list
     user_twits_[user_id].push_back(tw);
 
     return t;

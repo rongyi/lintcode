@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -39,29 +40,84 @@ public:
 
 class MiniTwitter {
 public:
-  MiniTwitter() {
-    // initialize your data structure here.
+  struct TweetWithTimeline {
+    class Tweet t_;
+    unsigned long long timeline_;
+    TweetWithTimeline(const Tweet &t, unsigned long long timeline) {
+      t_ = t;
+      timeline_ = timeline;
+    }
+  };
+
+  MiniTwitter() :
+    timeline_(0) {
   }
 
   // @param user_id an integer
   // @param tweet a string
   // return a tweet
   Tweet postTweet(int user_id, string tweet_text) {
-    //  Write your code here
+    auto t = Tweet::create(user_id, tweet_text);
+    auto tw = TweetWithTimeline(t, timeline_);
+
+    // for next twits
+    ++timeline_;
+    if (user_twits_.find(user_id) == user_twits_.end()) {
+      user_twits_[user_id] = vector<TweetWithTimeline>{};
+    }
+    user_twits_[user_id].push_back(tw);
+
+    return t;
   }
 
   // @param user_id an integer
   // return a list of 10 new feeds recently
   // and sort by timeline
   vector<Tweet> getNewsFeed(int user_id) {
-    // Write your code here
+    vector<TweetWithTimeline> tw;
+    // initial value to
+    if (user_twits_.find(user_id) != user_twits_.end()) {
+      tw = lastnth(user_twits_[user_id]);
+    }
+    if (follow_dict_.find(user_id) != follow_dict_.end()) {
+      auto follower_lst = follow_dict_[user_id];
+      for (auto user : follower_lst) {
+        if (user_twits_.find(user) == user_twits_.end())
+          continue;
+        auto cur_tw = lastnth(user_twits_[user]);
+        tw.insert(tw.end(), cur_tw.begin(), cur_tw.end());
+      }
+    }
+    std::sort(tw.begin(), tw.end(),
+              [](const TweetWithTimeline &l, const TweetWithTimeline &r) {
+                return l.timeline_ < r.timeline_;
+              });
+    tw = lastnth(tw);
+    vector<Tweet> ret;
+
+    // reverse order push
+    for (auto iter = tw.rbegin(); iter != tw.rend(); iter++) {
+      ret.push_back(iter->t_);
+    }
+    return ret;
   }
 
   // @param user_id an integer
   // return a list of 10 new posts recently
   // and sort by timeline
   vector<Tweet>  getTimeline(int user_id) {
-    // Write your code here
+    vector<Tweet> ret;
+    if (user_twits_.find(user_id) == user_twits_.end())
+      return ret;
+    auto tw = user_twits_[user_id];
+    auto tw10 = lastnth(tw);
+
+    // reverse order push
+    for (auto iter = tw10.rbegin(); iter != tw10.rend(); iter++) {
+      ret.push_back(iter->t_);
+    }
+
+    return ret;
   }
 
   // @param from_user_id an integer
@@ -87,5 +143,15 @@ public:
     follow_dict_[from_user_id].erase(to_user_id);
   }
 private:
+  vector<TweetWithTimeline> lastnth(vector<TweetWithTimeline> &input, int n=10) {
+    const int m = input.size();
+    int len = std::min(n, m);
+
+    return vector<TweetWithTimeline>(input.end() - len, input.end());
+  }
+private:
   unordered_map<int, unordered_set<int>> follow_dict_;
+  unordered_map<int, vector<TweetWithTimeline>> user_twits_;
+
+  unsigned long long timeline_;
 };

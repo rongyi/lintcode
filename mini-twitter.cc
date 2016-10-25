@@ -68,15 +68,24 @@ public:
   // @param to_user_id an integer
   // from user_id follows to_user_id
   void follow(int from_user_id, int to_user_id) {
-    // Write your code here
+    if (follow_dict_.find(from_user_id) == follow_dict_.end()) {
+      follow_dict_.insert(std::make_pair(from_user_id, std::unordered_set<int>()));
+    }
+
+    follow_dict_[from_user_id].insert(to_user_id);
   }
 
   // @param from_user_id an integer
   // @param to_user_id an integer
   // from user_id unfollows to_user_id
   void unfollow(int from_user_id, int to_user_id) {
-    // Write your code here
+    // not regist yet
+    if (follow_dict_.find(from_user_id) == follow_dict_.end())
+      return;
+
+    // If the key is not present in the set, 0 is returned indicating that no element was removed.
+    follow_dict_[from_user_id].erase(to_user_id);
   }
 private:
-
+  unordered_map<int, unordered_set<int>> follow_dict_;
 };

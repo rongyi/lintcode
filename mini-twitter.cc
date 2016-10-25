@@ -78,14 +78,14 @@ public:
     vector<TweetWithTimeline> tw;
     // initial value to
     if (user_twits_.find(user_id) != user_twits_.end()) {
-      tw = lastnth(user_twits_[user_id]);
+      tw = lastn(user_twits_[user_id]);
     }
     if (follow_dict_.find(user_id) != follow_dict_.end()) {
       auto follower_lst = follow_dict_[user_id];
       for (auto user : follower_lst) {
         if (user_twits_.find(user) == user_twits_.end())
           continue;
-        auto cur_tw = lastnth(user_twits_[user]);
+        auto cur_tw = lastn(user_twits_[user]);
         tw.insert(tw.end(), cur_tw.begin(), cur_tw.end());
       }
     }
@@ -93,7 +93,7 @@ public:
               [](const TweetWithTimeline &l, const TweetWithTimeline &r) {
                 return l.timeline_ < r.timeline_;
               });
-    tw = lastnth(tw);
+    tw = lastn(tw);
     vector<Tweet> ret;
 
     // reverse order push
@@ -111,7 +111,7 @@ public:
     if (user_twits_.find(user_id) == user_twits_.end())
       return ret;
     auto tw = user_twits_[user_id];
-    auto tw10 = lastnth(tw);
+    auto tw10 = lastn(tw);
 
     // reverse order push
     for (auto iter = tw10.rbegin(); iter != tw10.rend(); iter++) {
@@ -144,7 +144,7 @@ public:
     follow_dict_[from_user_id].erase(to_user_id);
   }
 private:
-  vector<TweetWithTimeline> lastnth(vector<TweetWithTimeline> &input, int n=10) {
+  vector<TweetWithTimeline> lastn(vector<TweetWithTimeline> &input, int n=10) {
     const int m = input.size();
     int len = std::min(n, m);
 

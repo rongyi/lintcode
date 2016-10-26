@@ -21,6 +21,7 @@ public:
     if (triangle.size() == 1)
       return triangle[0][0];
     const int m = triangle.size();
+    // FIXME: space may waste a little
     vector<vector<int>> dp(m, vector<int>(m, 0));
     dp[0][0] = triangle[0][0];
 

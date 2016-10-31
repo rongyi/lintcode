@@ -34,10 +34,10 @@ public:
       aux_books[i] = aux_books[i - 1] + books[i];
       dp[0][i] = aux_books[i];
     }
-    for (unsigned i = 1; i < k; i++) {
-      for (unsigned j = i; j < m; j++) {
+    for (int i = 1; i < k; i++) {
+      for (int j = i; j < m; j++) {
         int cur_min = std::numeric_limits<int>::max();
-        for (unsigned l = i; l <= j; l++) {
+        for (int l = i; l <= j; l++) {
           cur_min = std::min(cur_min,
                              std::max(dp[i - 1][l - 1],
                                       aux_books[j] - aux_books[l - 1]));

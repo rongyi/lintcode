@@ -32,3 +32,11 @@ public:
     return ret;
   }
 };
+int main()
+{
+  Solution so;
+  vector<int> test{1, 2, 7, 7, 8, 1, 2, 3};
+  auto ret = so.maxSlidingWindow(test, 3);
+
+  return 0;
+}

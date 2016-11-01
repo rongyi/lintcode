@@ -1,5 +1,4 @@
 // http://www.lintcode.com/zh-cn/problem/create-maximum-number
-
 #include <iostream>
 #include <stack>
 #include <string>
@@ -10,6 +9,8 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::stack;
+using std::max;
+using std::min;
 
 class Solution {
 public:

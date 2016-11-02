@@ -30,19 +30,18 @@ public:
 
     int pre = 0;
     heap_.insert(0);
-    for (auto cur : points_)
-      {
-        auto prev = *heap_.rbegin();
-        if (prev) {
-          if (ret.empty() || prev != ret[ret.size() - 1][2])
-            ret.push_back(vector<int>{pre, cur, prev});
-          else
-            ret[ret.size() - 1][1] = cur;
-        }
-        for (auto x : start_[cur]) heap_.insert(x);
-        for (auto x : end_[cur]) heap_.erase(heap_.find(x));
-        pre = cur;
+    for (auto cur : points_) {
+      auto prev = *heap_.rbegin();
+      if (prev) {
+        if (ret.empty() || prev != ret[ret.size() - 1][2])
+          ret.push_back(vector<int>{pre, cur, prev});
+        else
+          ret[ret.size() - 1][1] = cur;
       }
+      for (auto x : start_[cur]) heap_.insert(x);
+      for (auto x : end_[cur]) heap_.erase(heap_.find(x));
+      pre = cur;
+    }
 
     return ret;
   }

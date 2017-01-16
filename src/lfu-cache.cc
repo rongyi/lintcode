@@ -88,8 +88,9 @@ private:
   int cur_size_;
   // store the basic key/value map
   unordered_map<int, CacheNode> cache_map_;
-  // hold the place in the list of key
+  // hold the place in the list of key, O(1) for deleting
   unordered_map<int, list<int>::iterator> position_map_;
+  // chain same freq in a list
   unordered_map<int, list<int>> freq_map_;
 };
 

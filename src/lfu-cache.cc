@@ -18,27 +18,31 @@ public:
   void set(int key, int value) {
     if (capacity_ <= 0)
       return;
-    // contain this key
+    // old key
     if (cache_map_.find(key) != cache_map_.end()) {
       // update value
-      cache_map_[key].value_ = value;
+      auto &node = cache_map_[key];
+      node.value_ = value;
       // update freq
-      freq_map_[cache_map_[key].freq_].erase(position_map_[key]);
-      cache_map_[key].freq_++;
+      freq_map_[node.freq_].erase(position_map_[key]);
+      node.freq_++;
 
-      freq_map_[cache_map_[key].freq_].push_back(key);
+      freq_map_[node.freq_].push_back(key);
 
       if (freq_map_[min_freq_].size() == 0) {
-        min_freq_ = cache_map_[key].freq_;
+        min_freq_ = node.freq_;
       }
-      position_map_[key] = --freq_map_[cache_map_[key].freq_].end();
+      position_map_[key] = --freq_map_[node.freq_].end();
       return;
     }
+    // newly added key
     // evict the least freq if nessary
     if (cur_size_ >= capacity_) {
+      // same freq, delete the oldest
       cache_map_.erase(freq_map_[min_freq_].front());
       position_map_.erase(freq_map_[min_freq_].front());
       freq_map_[min_freq_].pop_front();
+
       cur_size_--;
     }
     // insert
@@ -55,16 +59,19 @@ public:
     if (cache_map_.find(key) == cache_map_.end()) {
       return -1;
     }
-    freq_map_[cache_map_[key].freq_].erase(position_map_[key]);
-    cache_map_[key].freq_++;
-    freq_map_[cache_map_[key].freq_].push_back(key);
-    position_map_[key] = --freq_map_[cache_map_[key].freq_].end();
+    auto &node = cache_map_[key];
+    // update freq
+    freq_map_[node.freq_].erase(position_map_[key]);
+    node.freq_++;
+    freq_map_[node.freq_].push_back(key);
+
+    position_map_[key] = --freq_map_[node.freq_].end();
 
     if (freq_map_[min_freq_].size() == 0) {
-      min_freq_ = cache_map_[key].freq_;
+      min_freq_ = node.freq_;
     }
 
-    return cache_map_[key].value_;
+    return node.value_;
   }
 
 private:

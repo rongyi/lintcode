@@ -54,18 +54,17 @@ public:
   int get(int key) {
     if (cache_map_.find(key) == cache_map_.end()) {
       return -1;
-    } else {
-      freq_map_[cache_map_[key].freq_].erase(position_map_[key]);
-      cache_map_[key].freq_++;
-      freq_map_[cache_map_[key].freq_].push_back(key);
-      position_map_[key] = --freq_map_[cache_map_[key].freq_].end();
-
-      if (freq_map_[min_freq_].size() == 0) {
-        min_freq_ = cache_map_[key].freq_;
-      }
-
-      return cache_map_[key].value_;
     }
+    freq_map_[cache_map_[key].freq_].erase(position_map_[key]);
+    cache_map_[key].freq_++;
+    freq_map_[cache_map_[key].freq_].push_back(key);
+    position_map_[key] = --freq_map_[cache_map_[key].freq_].end();
+
+    if (freq_map_[min_freq_].size() == 0) {
+      min_freq_ = cache_map_[key].freq_;
+    }
+
+    return cache_map_[key].value_;
   }
 
 private:

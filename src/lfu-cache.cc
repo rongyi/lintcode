@@ -86,7 +86,9 @@ private:
   int capacity_;
   int min_freq_;
   int cur_size_;
+  // store the basic key/value map
   unordered_map<int, CacheNode> cache_map_;
+  // hold the place in the list of key
   unordered_map<int, list<int>::iterator> position_map_;
   unordered_map<int, list<int>> freq_map_;
 };

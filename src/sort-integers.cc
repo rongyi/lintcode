@@ -13,6 +13,7 @@ public:
   /**
    * @param A an integer array
    * @return void
+   * using select sort
    */
   void sortIntegers(vector<int>& A) {
     if (A.empty())

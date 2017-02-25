@@ -22,6 +22,7 @@ public:
     int left = 0;
     int right = len;
     while (left < right) {
+      // incase overflow
       int mid = left + (right - left) / 2;
       if (a[mid] == target) {
         return mid;

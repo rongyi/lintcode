@@ -19,6 +19,7 @@ public:
       if (cur->val == val) {
         pre->next = cur->next;
       } else {
+        // normal case, prev keep going and cur keep going, that's it
         pre = pre->next;
       }
       cur = cur->next;

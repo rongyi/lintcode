@@ -1,4 +1,5 @@
 // http://www.lintcode.com/zh-cn/problem/binary-tree-maximum-path-sum
+#include <algorithm>
 
 class Solution {
 public:
@@ -24,7 +25,7 @@ private:
       sum += r;
     max_sum_ = std::max(max_sum_, sum);
 
-    return std::max(r, l) > 0 ? max(r, l) + root->val : root->val;
+    return std::max(r, l) > 0 ? std::max(r, l) + root->val : root->val;
   }
 private:
   int max_sum_;

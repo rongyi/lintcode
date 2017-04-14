@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -13,7 +14,10 @@ public:
    * @param B a string
    * @return a boolean
    */
-  bool stringPermutation(string& A, string& B) {
+  bool stringPermutation(string& a, string& b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
 
+    return a == b;
   }
 };

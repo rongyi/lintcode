@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/string-permutation
+
 #include <vector>
 #include <iostream>
 #include <string>

@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/find-the-missing-number-ii
+
 #include <vector>
 #include <iostream>
 #include <string>

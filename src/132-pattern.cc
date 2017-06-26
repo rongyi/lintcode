@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <limits>
 
 using std::vector;
 using std::cout;
@@ -16,14 +17,16 @@ public:
    * @return true if there is a 132 pattern or false
    */
   bool find132pattern(vector<int>& nums) {
-    int third = std::numeric_limits<int>::min();
+    // the current minimum number
+    int min = std::numeric_limits<int>::min();
     stack<int> s;
     for (int i = nums.size() - 1; i >= 0; --i) {
-      if (nums[i] < third) {
+      // we find the order
+      if (nums[i] < min) {
         return true;
       } else {
         while (!s.empty() && nums[i] > s.top()) {
-          third = s.top();
+          min = s.top();
           s.pop();
         }
       }
@@ -33,3 +36,12 @@ public:
     return false;
   }
 };
+
+int main()
+{
+  Solution so;
+  vector<int> test{1, 10, 4, 9, 2};
+  auto ret = so.find132pattern(test);
+  cout << ret << endl;
+  return 0;
+}

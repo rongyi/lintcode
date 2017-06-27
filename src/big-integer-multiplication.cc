@@ -44,6 +44,8 @@ public:
     for (int i = 0; i < ret.size(); i++) {
       sum = addStrings(sum, ret[i]);
     }
+    // reduce zero,
+    // FIXME: may be write some continue stmt in the process above
     if (std::count(sum.begin(), sum.end(), '0') == sum.size()) {
       return "0";
     }

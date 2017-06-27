@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/132-pattern
+
 #include <vector>
 #include <iostream>
 #include <string>

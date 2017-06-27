@@ -28,8 +28,7 @@ public:
       int cur1 = (i < num1.size() ? (num1[i] - '0') : 0);
       int cur2 = (i < num2.size() ? (num2[i] - '0') : 0);
       int sum = cur1 + cur2 + carry;
-      int cur = sum % 10;
-      ss << cur;
+      ss << (sum % 10);
       carry = sum / 10;
     }
 

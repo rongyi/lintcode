@@ -35,7 +35,7 @@ public:
     while (!q.empty()) {
       int n = q.front();
       q.pop();
-      for (auto e : graph[n]) {
+      for (auto &e : graph[n]) {
         --in[e];
         if (in[e] == 0)
           q.push(e);

@@ -33,7 +33,23 @@ public:
     return ret;
   }
 
-  int maxEnvelopes(vector<pair<int, int>> &envelopes) {
+  int maxEnvelopes(vector<pair<int, int>> &nums) {
+    vector<int> dp;
+    std::sort(nums.begin(), nums.end(), [](const std::pair<int, int> &a,
+                                         const std::pair<int, int> &b) -> bool {
+               if (a.first == b.first)
+                 return a.second > b.second;
+               return a.first < b.first;
+             });
 
+    for (int i = 0; i < nums.size(); ++i) {
+      auto it = std::lower_bound(dp.begin(), dp.end(), nums[i].second);
+      if (it == dp.end())
+        dp.push_back(nums[i].second);
+      else
+        *it = nums[i].second;
+    }
+
+    return dp.size();
   }
 };

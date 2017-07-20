@@ -25,25 +25,21 @@ public:
     if (len_delta > 2) {
       return false;
     }
-    bool ret = true;
     if (len_delta == 1) {
-      for (int i = 0; i < s.size(); ++i) {
+      for (uint32_t i = 0; i < s.size(); ++i) {
         if (s[i] != t[i]) {
-          ret = s.substr(i) == t.substr(i + 1);
-          break;
+          return s.substr(i) == t.substr(i + 1);
         }
       }
     } else if (len_delta == 0) {
       int diff_count = 0;
-      for (int i = 0; i < s.size(); ++i) {
+      for (uint32_t i = 0; i < s.size(); ++i) {
         if (s[i] != t[i]) {
           diff_count++;
-          if (diff_count > 1)
-            break;
         }
       }
-      ret = (diff_count == 1);
+      return diff_count == 1;
     }
-    return ret;
+    return true;
   }
 };

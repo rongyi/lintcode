@@ -60,6 +60,6 @@ int main()
   for (auto i : ret) {
     cout << i << endl;
   }
-  return 0;
 
+  return 0;
 }

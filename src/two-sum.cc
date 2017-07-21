@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/two-sum
+
 class Solution {
 public:
   /*

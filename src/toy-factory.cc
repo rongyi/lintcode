@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/toy-factory
+
 #include <string>
 #include <iostream>
 using std::string;

@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/palindrome-number
+
 #include <vector>
 #include <iostream>
 #include <string>

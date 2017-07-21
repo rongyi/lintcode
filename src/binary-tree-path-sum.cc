@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/binary-tree-path-sum
+
 #include <vector>
 #include <iostream>
 #include <string>

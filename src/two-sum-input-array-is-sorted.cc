@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/two-sum-input-array-is-sorted
+
 #include <vector>
 #include <iostream>
 #include <string>

@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/k-closest-points
+
 #include <vector>
 #include <iostream>
 #include <string>

@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/binary-tree-maximum-node
+
 #include <vector>
 #include <iostream>
 #include <string>

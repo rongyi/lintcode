@@ -20,6 +20,7 @@ public:
   int largestRectangleArea(vector<int> &height) {
     // write your code here
     stack<int> s;
+    // 就是要让最后一个元素也要开始统计
     height.push_back(0);
 
     int ret = 0;
@@ -27,7 +28,8 @@ public:
       if (s.empty() || height[i] > height[s.top()]) {
         s.push(i++);
       } else {
-        // 走到这个逻辑的i是一直不变的，所以会一直把栈清空算完
+        // 走到这个逻辑的i是一直不变的，所以会一直把栈清空算完，可以
+        // 如果不清楚可以通过例子[1, 2, 3, 4, 5]进行类比
         int tmp = s.top();
         s.pop();
         auto w = s.empty() ? i : i - s.top() - 1;

@@ -1,4 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/largest-rectangle-in-histogram
+#include <vector>
+#include <iostream>
+#include <string>
+#include <stack>
+
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
+using std::stack;
+
 
 class Solution {
 public:
@@ -16,9 +27,11 @@ public:
       if (s.empty() || height[i] > height[s.top()]) {
         s.push(i++);
       } else {
+        // 走到这个逻辑的i是一直不变的，所以会一直把栈清空算完
         int tmp = s.top();
         s.pop();
-        ret = std::max(ret, height[tmp] * (s.empty() ? i : i - s.top() - 1));
+        auto w = s.empty() ? i : i - s.top() - 1;
+        ret = std::max(ret, height[tmp] * w);
       }
     }
 
@@ -26,3 +39,12 @@ public:
 
   }
 };
+
+int main()
+{
+  Solution so;
+  vector<int> test{1, 2, 3, 4, 5};
+  auto ret = so.largestRectangleArea(test);
+  cout << ret << endl;
+  return 0;
+}

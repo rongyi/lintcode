@@ -1,4 +1,14 @@
 //http://www.lintcode.com/zh-cn/problem/restore-ip-addresses/
+#include <vector>
+#include <iostream>
+#include <string>
+#include <sstream>
+
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
+
 
 class Solution {
 public:
@@ -6,7 +16,7 @@ public:
    * @param s the IP string
    * @return All possible valid IP addresses
    */
-  vector<string> restoreIpAddresses(const string& s) {
+  vector<string> restoreIpAddressesLame(const string& s) {
     std::vector<std::string> ret;
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -44,4 +54,44 @@ public:
     }
     return ret;
   }
+
+  vector<string> restoreIpAddresses(string &s) {
+    vector<string> ret;
+    vector<string> ip;
+    dfs(s, ip, ret, 0);
+    return ret;
+  }
+private:
+  void dfs(string &s, vector<string> &ip, vector<string> &ret, int start) {
+    if (ip.size() == 4 && start == s.length()) {
+      ret.push_back(ip[0] + "." + ip[1] + "." + ip[2] + "." + ip[3]);
+      return;
+    }
+    if (s.length() - start > (4 - ip.size()) * 3)
+      return;
+    if (s.length() - start < (4 - ip.size()))
+      return;
+    int num = 0;
+    for (int i = start; i < start + 3 && i < s.length(); ++i) {
+      num = num * 10 + (s[i] - '0');
+      if (num < 0 || num > 255)
+        continue;
+      ip.push_back(s.substr(start, i - start + 1));
+      dfs(s, ip, ret, i + 1);
+      ip.pop_back();
+      if (num == 0)
+        break;
+    }
+  }
 };
+
+int main()
+{
+  Solution so;
+  string test{"25525511135"};
+  auto ret = so.restoreIpAddresses(test);
+  for (auto &s : ret) {
+    cout << s << endl;
+  }
+  return 0;
+}

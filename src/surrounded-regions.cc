@@ -22,6 +22,7 @@ public:
       return;
     const int m = board.size();
     const int n = board[0].size();
+    // 从四周切进去发现的O不能替换，所以这里有个转换，转换成其他值
     for (int i = 0; i < n; i++) {
       bfs(board, 0, i);
       bfs(board, m - 1, i);

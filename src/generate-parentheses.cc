@@ -22,6 +22,7 @@ public:
     return ret;
   }
 
+  // 采用深搜来实现
   vector<string> generateParenthesis(int n) {
     vector<string> ret;
     vector<string> path;
@@ -33,6 +34,7 @@ public:
 private:
   void generate(int n, vector<string> &path, vector<string> &ret, int l, int r) {
     if (l == n) {
+      // 这里copy出来，为的是和下面的pop_back对应
       auto cp = path;
       for (int i = 0; i < n - r; ++i) {
         cp.push_back(")");

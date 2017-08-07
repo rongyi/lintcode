@@ -15,6 +15,7 @@ public:
   /**
    * @param s the IP string
    * @return All possible valid IP addresses
+   * a brute force solution
    */
   vector<string> restoreIpAddressesLame(const string& s) {
     std::vector<std::string> ret;
@@ -55,6 +56,7 @@ public:
     return ret;
   }
 
+  // using dfs to solve this problem
   vector<string> restoreIpAddresses(string &s) {
     vector<string> ret;
     vector<string> ip;

@@ -19,18 +19,20 @@ public:
     if (nums.empty())
       return 0;
 
-    vector<int> h_lst(nums.size(), 0);
+    // 定义状态f[i]为第i个元素为终点的最长递增子序列的长度，那么状态转移方程是
+    // f[j] = max{f[i], 0 <= i < j && f[i] < f[j]} + 1
+    vector<int> dp(nums.size(), 0);
     int ret = 0;
 
     for (int i = 0; i < nums.size(); i++) {
-      h_lst[i] = 1;
+      dp[i] = 1;
       for (int j = 0; j < i; j++) {
         if (nums[j] < nums[i]) {
-          h_lst[i] = std::max(h_lst[i], h_lst[j] + 1);
+          dp[i] = std::max(dp[i], dp[j] + 1);
         }
       }
-      if (h_lst[i] > ret)
-        ret = h_lst[i];
+      if (dp[i] > ret)
+        ret = dp[i];
     }
 
     return ret;

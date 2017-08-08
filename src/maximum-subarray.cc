@@ -23,6 +23,10 @@ public:
     int max_sum = nums[0];
 
     for (int i = 0; i < n; i++) {
+      // 新来的一个数有两个选择
+      // 1. 加入前面的子数组
+      // 2. 不加入前面的子数组，作为新的数组的第一个元素
+      // 判断的标准？ 加上之前的和是否对自己有利
       cur_sum = (nums[i] > cur_sum + nums[i]) ? nums[i] : cur_sum + nums[i];
       if (cur_sum > max_sum)
         max_sum = cur_sum;

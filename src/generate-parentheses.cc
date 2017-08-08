@@ -16,7 +16,6 @@ public:
    * @return All combinations of well-formed parentheses
    */
   vector<string> generateParenthesis1(int n) {
-    // Write your code here
     vector<string> ret;
     help(n, n, "", ret);
     return ret;

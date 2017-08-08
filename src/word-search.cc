@@ -61,7 +61,7 @@ public:
         search(word, index + 1, board, i, j + 1, visited);       // right
     }
 
-    // mark it back
+    // restore it back
     visited[i][j] = false;
 
     return ret;

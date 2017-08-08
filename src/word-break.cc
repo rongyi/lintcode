@@ -18,6 +18,7 @@ public:
    */
   bool wordBreak(string s, unordered_set<string> &dict) {
     const int n = s.length();
+    // 有n+1个隔板
     vector<bool> ret_lst(s.length() + 1);
     ret_lst[0] = true;
     for (int i = 0; i < n; i++) {

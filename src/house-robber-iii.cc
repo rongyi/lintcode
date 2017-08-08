@@ -26,29 +26,29 @@ public:
     if (!root)
       return 0;
     int rob_cur = 0;
-    int rob_cur_not = 0;
+    int untouch_cur = 0;
 
-    do_robber(root, &rob_cur, &rob_cur_not);
+    do_robber(root, &rob_cur, &untouch_cur);
 
-    return std::max(rob_cur, rob_cur_not);
+    return std::max(rob_cur, untouch_cur);
   }
 private:
-  void do_robber(TreeNode *root, int *rob_cur, int * rob_cur_not) {
+  void do_robber(TreeNode *root, int *rob_cur, int * untouch_cur) {
     if (!root)
       return;
 
     int rob_cur_left = 0;
-    int rob_cur_left_not = 0;
+    int untouch_cur_left = 0;
     int rob_cur_right = 0;
-    int rob_cur_right_not = 0;
+    int untouch_cur_right = 0;
 
-    do_robber(root->left, &rob_cur_left, &rob_cur_left_not);
+    do_robber(root->left, &rob_cur_left, &untouch_cur_left);
 
-    do_robber(root->right, &rob_cur_right, &rob_cur_right_not);
+    do_robber(root->right, &rob_cur_right, &untouch_cur_right);
 
-    *rob_cur = root->val + rob_cur_left_not + rob_cur_right_not;
+    *rob_cur = root->val + untouch_cur_left + untouch_cur_right;
 
     // pick max with no rule
-    *rob_cur_not = std::max(rob_cur_left, rob_cur_left_not) + std::max(rob_cur_right, rob_cur_right_not);
+    *untouch_cur = std::max(rob_cur_left, untouch_cur_left) + std::max(rob_cur_right, untouch_cur_right);
   }
 };

@@ -25,6 +25,7 @@ public:
     vector<vector<int>> dp(m, vector<int>(m, 0));
     dp[0][0] = triangle[0][0];
 
+    // f(i,j)=min{f(i+1,j),f(i+1,j+1)}+(i,j)
     for (int cur_level = 1; cur_level < m; cur_level++) {
       const auto cur_vec = triangle[cur_level];
 

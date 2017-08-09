@@ -16,6 +16,10 @@ public:
    * @return the nth prime number as description.
    */
   int nthUglyNumber(int n) {
+    // 三个乘数 2， 3， 5的index
+    // 1x2, 2x2, 3x2, 4x2, 5x2, ...
+    // 1x3, 2x3, 3x3, 4x3, 5x3, ...
+    // 1x5, 2x5, 3x5, 4x5, 5x5, ...
     vector<long> ids(3, 0);
     vector<long> ugly_lst(n);
 

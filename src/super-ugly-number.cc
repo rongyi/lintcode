@@ -18,6 +18,7 @@ public:
    */
   int nthSuperUglyNumber(int n, vector<int>& primes) {
     vector<int> ret(1, 1);
+    // 之前题目2， 3， 5扩展为n个的情况, 请参考之前的例子
     vector<int> index(primes.size(), 0);
 
     while (ret.size() < n) {

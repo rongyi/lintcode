@@ -38,10 +38,12 @@ public:
     vector<Interval> res;
     int i;
     for (i = 1; i < len; ++i) {
-      while (intervals[i].start <= intervals[i-1].end && i < len) {
+      while (i < len && intervals[i].start <= intervals[i-1].end) {
+        // update current interval, i - 1 will be discarded!
         intervals[i].start = intervals[i-1].start;
         intervals[i].end = intervals[i].end > intervals[i-1].end ?
           intervals[i].end : intervals[i-1].end;
+        // discard i - 1 element
         i++;
       }
       res.push_back(intervals[i-1]);
@@ -49,7 +51,7 @@ public:
         return res;
       }
     }
-    // now intersection
+    // no intersection(while in for is not exe), insert the last one
     res.push_back(intervals[i-1]);
     return res;
   }
@@ -61,7 +63,7 @@ int main(int argc, char *argv[])
 {
   Solution so;
   vector<Interval> test{Interval(1, 2), Interval(5, 9)};
-  auto ret = so.insert(test, Interval(7, 100));
+  auto ret = so.insert(test, Interval(10, 100));
   cout << ret.size() << endl;
   return 0;
 }

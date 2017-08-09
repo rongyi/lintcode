@@ -14,7 +14,7 @@ public:
    * @param matrix a matrix of m x n elements
    * @return an integer array
    */
-  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+  vector<int> spiralOrderDirection(vector<vector<int>>& matrix) {
     vector<int> ret;
     if (matrix.empty())
       return ret;
@@ -58,6 +58,59 @@ public:
 
       startx += y[direct];
       starty += x[direct];
+    }
+
+    return ret;
+  }
+  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+    vector<int> ret;
+    if (matrix.size() == 0) {
+      return ret;
+    }
+    const int m = matrix.size();
+    const int n = matrix[0].size();
+
+    int beginx = 0;
+    int endx = n - 1;
+    int beginy = 0;
+    int endy = m - 1;
+
+    // 每走完一行或一列，就更新后面的起始/结束范围
+
+    /**
+     ----------> 更新beginy
+更新benginx          |
+    |                |
+    |                |
+    |                |
+    |                |
+ 更新endy<----------更新endx
+     */
+    while (true) {
+      for (int j = beginx; j <= endx; ++j) {
+        ret.push_back(matrix[beginy][j]);
+      }
+      if (++beginy > endy) {
+        break;
+      }
+      for (int i = beginy; i <= endy; ++i) {
+        ret.push_back(matrix[i][endx]);
+      }
+      if (beginx > --endx) {
+        break;
+      }
+      for (int j = endx; j >= beginx; --j) {
+        ret.push_back(matrix[endy][j]);
+      }
+      if (beginy > --endy) {
+        break;
+      }
+      for (int i = endy; i >= beginy; --i) {
+        ret.push_back(matrix[i][beginx]);
+      }
+      if (++beginx > endx) {
+        break;
+      }
     }
 
     return ret;

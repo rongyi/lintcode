@@ -36,6 +36,7 @@ public:
     if (intervals.empty())
       return intervals;
     std::sort(intervals.begin(), intervals.end(), cmp);
+    // see insert-interval for detail explanation
     for (int i = 1; i < intervals.size(); i++) {
       if (intervals[i - 1].end >= intervals[i].start) {
         if (intervals[i - 1].end < intervals[i].end) {

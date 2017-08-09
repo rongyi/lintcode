@@ -2,7 +2,11 @@
 #include <string>
 #include <unordered_map>
 #include <algorithm>
+#include <iostream>
+#include <string>
 
+using std::cout;
+using std::endl;
 using std::string;
 using std::unordered_map;
 
@@ -25,6 +29,7 @@ public:
     int min = std::numeric_limits<int>::max();
     string ret;
 
+    // 先跑end，跑到一个满足条件的，再紧缩begin，找到一个满足条件最小的
     for (; end < n; ++end) {
       if (mark.find(source[end]) != mark.end())
         ++check[source[end]];
@@ -51,3 +56,14 @@ private:
     return true;
   }
 };
+
+int main()
+{
+  Solution so;
+  // For example, S = "ADOBECODEBANC", T = "ABC"
+  string s("ADOBECODEBANC");
+  string t("ABC");
+  auto ret = so.minWindow(s, t);
+  cout << ret << endl;
+  return 0;
+}

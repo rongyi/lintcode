@@ -1,4 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/happy-number/
+#include <vector>
+#include <iostream>
+#include <string>
+#include <unordered_set>
+
+using std::vector;
+using std::cout;
+using std::endl;
+using std::string;
+using std::unordered_set;
+
 
 class Solution {
 public:
@@ -6,7 +17,7 @@ public:
    * @param n an integer
    * @return true if this is a happy number or false
    */
-  bool isHappy(int n) {
+  bool isHappyMath(int n) {
     if (n == 1) {
       return true;
     }
@@ -24,6 +35,23 @@ public:
       }
       n = next;
     }
+  }
+
+  bool isHappy(int n) {
+    if (n == 1) {
+      return true;
+    }
+    std::unordered_set<int> uniq;
+    while (true) {
+      auto h = next_happy(n);
+      if (uniq.find(h) != uniq.end()) {
+        return h == 1;
+      }
+      n = h;
+      uniq.insert(h);
+    }
+    // never reach!
+    return false;
   }
 private:
   int next_happy(int n) {

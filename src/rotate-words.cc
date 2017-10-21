@@ -30,6 +30,7 @@ public:
       for (unsigned i = 1; i < s.length(); i++ ) {
         auto r = rotate(s, i);
         auto it = set.find(r);
+        // special case equal to s, so we exclude it
         if (it != set.end() && *it != s) {
           set.erase(it);
         }

@@ -1,3 +1,5 @@
+// http://www.lintcode.com/zh-cn/problem/missing-string
+
 #include <bitset>
 #include <iostream>
 #include <string>

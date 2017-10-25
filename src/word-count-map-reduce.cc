@@ -1,5 +1,4 @@
 // http://www.lintcode.com/zh-cn/problem/word-count-map-reduce
-// http://www.lintcode.com/zh-cn/problem/word-count-map-reduce
 /**
  * Definition of Input:
  * template<class T>
@@ -65,7 +64,6 @@ public:
     }
   }
 };
-
 
 class WordCountReducer: public Reducer {
 public:

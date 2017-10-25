@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/single-number-ii
 
-#include <vector>
 #include <algorithm>
+#include <vector>
 using namespace std;
 class Solution {
 public:

@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/intersection-of-two-arrays
 
-#include <vector>
+#include <algorithm>
 #include <map>
 #include <set>
-#include <algorithm>
+#include <vector>
 using std::vector;
 using std::set;
 
@@ -14,7 +14,7 @@ public:
    * @param nums2 an integer array
    * @return an integer array
    */
-  vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+  vector<int> intersection(vector<int> &nums1, vector<int> &nums2) {
     vector<int> ret;
     set<int> set1;
     set<int> set2;
@@ -25,7 +25,8 @@ public:
     for (auto i : nums2) {
       set2.insert(i);
     }
-    std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::inserter(ret, ret.begin()));
+    std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                          std::inserter(ret, ret.begin()));
 
     return ret;
   }

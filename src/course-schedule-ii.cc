@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/course-schedule-ii
-#include <vector>
 #include <iostream>
 #include <queue>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param prerequisites a list of prerequisite pairs
    * @return the course order
    */
-  vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {
+  vector<int> findOrder(int numCourses, vector<pair<int, int>> &prerequisites) {
     vector<int> ret;
     vector<vector<int>> graph(numCourses, vector<int>(0));
     vector<int> in(numCourses, 0);

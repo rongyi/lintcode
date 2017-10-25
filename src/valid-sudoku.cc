@@ -9,7 +9,7 @@ public:
    * @param board: the board
    * @return: wether the Sudoku is valid
    */
-  bool isValidSudoku(const vector<vector<char> >& board) {
+  bool isValidSudoku(const vector<vector<char>> &board) {
     bool used[9];
 
     for (int i = 0; i < 9; i++) {

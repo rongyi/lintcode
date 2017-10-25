@@ -4,7 +4,7 @@
 using std::list;
 using std::unordered_map;
 
-class LFUCache{
+class LFUCache {
 public:
   // @param capacity, an integer
   LFUCache(int capacity) {
@@ -80,7 +80,7 @@ private:
     int value_;
     int freq_;
     CacheNode(int k, int v) : key_(k), value_(v), freq_(1) {}
-    CacheNode() : key_(0), value_(0), freq_(0){}
+    CacheNode() : key_(0), value_(0), freq_(0) {}
   };
 
   int capacity_;
@@ -94,8 +94,7 @@ private:
   unordered_map<int, list<int>> freq_map_;
 };
 
-int main()
-{
+int main() {
   LFUCache cache(1);
   cache.set(1, 1);
   return 0;

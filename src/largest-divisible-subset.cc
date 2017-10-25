@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/largest-divisible-subset
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param nums a set of distinct positive integers
    * @return the largest subset
    */
-  vector<int> largestDivisibleSubset(vector<int>& nums) {
+  vector<int> largestDivisibleSubset(vector<int> &nums) {
     vector<int> ret;
     if (nums.empty())
       return ret;

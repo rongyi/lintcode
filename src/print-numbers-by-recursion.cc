@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/print-numbers-by-recursion
-#include <vector>
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -33,5 +33,4 @@ public:
       return ret;
     }
   }
-
 };

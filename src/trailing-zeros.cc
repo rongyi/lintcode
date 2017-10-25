@@ -15,8 +15,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   Solution so;
   auto ret = so.trailingZeros(11);
   std::cout << ret << std::endl;

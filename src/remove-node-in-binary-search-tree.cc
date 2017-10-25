@@ -1,11 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/remove-node-in-binary-search-tree
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
-
 
 class TreeNode {
 public:
@@ -24,7 +23,7 @@ public:
    * @param value: Remove the node with given value.
    * @return: The root of the binary search tree after removal.
    */
-  TreeNode* removeNode(TreeNode* root, int value) {
+  TreeNode *removeNode(TreeNode *root, int value) {
     if (root == nullptr)
       return root;
     // point to the deleted node

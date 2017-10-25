@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/unique-binary-search-trees
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,8 @@ public:
    * @return: An integer
    */
   int numTrees(int n) {
-    // f(n) = f(n-1)f(0) + f(n-2)f(1) + f(n-3)f(2) + ... + f(1)f(n-2) + f(n-1)f(0)
+    // f(n) = f(n-1)f(0) + f(n-2)f(1) + f(n-3)f(2) + ... + f(1)f(n-2) +
+    // f(n-1)f(0)
     vector<int> ret_vec(n + 1, 0);
     ret_vec[0] = 1;
     ret_vec[1] = 1;

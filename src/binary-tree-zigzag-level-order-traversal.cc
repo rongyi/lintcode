@@ -13,7 +13,6 @@
  * }
  */
 
-
 class Solution {
   /**
    * @param root: The root of binary tree.
@@ -21,7 +20,7 @@ class Solution {
    *          the zigzag level order traversal of its nodes' values
    */
 public:
-  vector<vector<int> > zigzagLevelOrder(TreeNode *root) {
+  vector<vector<int>> zigzagLevelOrder(TreeNode *root) {
     vector<vector<int>> ret;
     traverse(root, 1, ret, true);
     return ret;
@@ -43,5 +42,4 @@ private:
     traverse(root->left, level + 1, ret, !left_to_right);
     traverse(root->right, level + 1, ret, !left_to_right);
   }
-
 };

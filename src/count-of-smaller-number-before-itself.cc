@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/count-of-smaller-number-before-itself
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,20 +15,16 @@ public:
     int start, end;
     int smaller_count;
     SegmentTreeNode *left, *right;
-    SegmentTreeNode(int start, int end, int smaller_count=0) {
+    SegmentTreeNode(int start, int end, int smaller_count = 0) {
       this->start = start, this->end = end;
       this->left = this->right = nullptr;
       this->smaller_count = smaller_count;
     }
   };
 
-  Solution() {
-    root_ = build(0, 20000);
-  }
+  Solution() { root_ = build(0, 20000); }
 
-  ~Solution() {
-    free(root_);
-  }
+  ~Solution() { free(root_); }
   /**
    * @param A: An integer array
    * @return: Count the number of element before this element 'ai' is
@@ -44,7 +40,7 @@ public:
     return ret;
   }
 
-  SegmentTreeNode * build(int start, int end) {
+  SegmentTreeNode *build(int start, int end) {
     if (start > end) {
       return nullptr;
     }
@@ -75,7 +71,8 @@ public:
     else
       modify(root->right, index);
 
-    root->smaller_count = root->left->smaller_count + (root->right ? root->right->smaller_count : 0);
+    root->smaller_count = root->left->smaller_count +
+                          (root->right ? root->right->smaller_count : 0);
   }
 
   int query(SegmentTreeNode *root, int start, int end) {
@@ -92,8 +89,7 @@ public:
     } else if (start > mid) {
       return query(root->right, start, end);
     } else {
-      return query(root->left, start, mid) +
-        query(root->right, mid + 1, end);
+      return query(root->left, start, mid) + query(root->right, mid + 1, end);
     }
   }
 
@@ -116,14 +112,17 @@ private:
       root->right = nullptr;
     }
   }
+
 private:
   SegmentTreeNode *root_;
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<int> test{73,82,74,12,25,0,33,46,79,90,6,97,18,84,34,54,64,5,54,44,74,95,90,24,70,94,12,41,79,88,48,82,89,100,33,3,23,21,90,50,26,3,4,21,67,24,59,62,9,78,60,40,4,40,7,5,54,38,68,66};
+  vector<int> test{73, 82, 74, 12,  25, 0,  33, 46, 79, 90, 6,  97, 18, 84, 34,
+                   54, 64, 5,  54,  44, 74, 95, 90, 24, 70, 94, 12, 41, 79, 88,
+                   48, 82, 89, 100, 33, 3,  23, 21, 90, 50, 26, 3,  4,  21, 67,
+                   24, 59, 62, 9,   78, 60, 40, 4,  40, 7,  5,  54, 38, 68, 66};
   so.countOfSmallerNumberII(test);
 
   return 0;

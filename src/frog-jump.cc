@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/frog-jump
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,12 +15,13 @@ public:
    * @param stones a list of stones' positions in sorted ascending order
    * @return true if the frog is able to cross the river or false
    */
-  bool canCross(vector<int>& stones) {
+  bool canCross(vector<int> &stones) {
     std::unordered_map<int, bool> aux;
     return do_cross(stones, 0, 0, aux);
   }
 
-  bool do_cross(vector<int> &stones, int pos, int step, std::unordered_map<int, bool> &aux) {
+  bool do_cross(vector<int> &stones, int pos, int step,
+                std::unordered_map<int, bool> &aux) {
     const int n = stones.size();
     int key = pos | (step << 11);
     if (pos >= n - 1)

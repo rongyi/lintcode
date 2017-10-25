@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/sort-letters-by-case
-#include <vector>
+#include <cctype>
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -30,8 +30,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   std::string test{"helloWorD"};
   so.sortLetters(test);

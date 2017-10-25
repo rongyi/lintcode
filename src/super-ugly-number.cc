@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/super-ugly-number
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param primes the given prime list
    * @return the nth super ugly number
    */
-  int nthSuperUglyNumber(int n, vector<int>& primes) {
+  int nthSuperUglyNumber(int n, vector<int> &primes) {
     vector<int> ret(1, 1);
     // 之前题目2， 3， 5扩展为n个的情况, 请参考之前的例子
     vector<int> index(primes.size(), 0);

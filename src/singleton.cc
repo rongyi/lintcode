@@ -4,7 +4,7 @@ public:
   /**
    * @return: The same instance of this class every time
    */
-  static Solution* getInstance() {
+  static Solution *getInstance() {
     static Solution *ins = NULL;
     if (!ins)
       ins = new Solution();

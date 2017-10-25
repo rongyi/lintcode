@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/house-robber-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param nums: An array of non-negative integers.
    * return: The maximum amount of money you can rob tonight
    */
-  int houseRobber2(vector<int>& nums) {
+  int houseRobber2(vector<int> &nums) {
     const int n = nums.size();
     if (n == 0)
       return 0;

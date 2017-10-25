@@ -1,15 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/maximal-rectangle
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
+#include <iostream>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class Solution {
 public:
@@ -43,7 +42,6 @@ public:
 
     return ret;
   }
-
 
   /**
    * @param matrix a boolean 2D matrix

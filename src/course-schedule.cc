@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/course-schedule
-#include <vector>
 #include <iostream>
-#include <string>
 #include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param prerequisites a list of prerequisite pairs
    * @return true if can finish all courses or false
    */
-  bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
+  bool canFinish(int numCourses, vector<pair<int, int>> &prerequisites) {
     vector<vector<int>> graph(numCourses, vector<int>(0));
     vector<int> in(numCourses, 0);
 

@@ -1,23 +1,22 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-depth-of-binary-tree
-#include <vector>
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = NULL;
+  }
 };
 
 class Solution {

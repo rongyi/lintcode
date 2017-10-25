@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/substring-anagrams
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -36,7 +36,6 @@ public:
         ret.push_back(i - p.size() + 1);
     }
 
-
     return ret;
   }
 
@@ -50,9 +49,7 @@ private:
   }
 };
 
-
-int main()
-{
+int main() {
   Solution so;
   string s("abab");
   string p("ab");

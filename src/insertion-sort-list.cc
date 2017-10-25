@@ -29,6 +29,7 @@ public:
     }
     return dummy.next;
   }
+
 private:
   ListNode *find_insert_pos(ListNode *head, int x) {
     ListNode *pre = nullptr;

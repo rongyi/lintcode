@@ -12,6 +12,7 @@ public:
     dfs(root);
     return max_sum_;
   }
+
 private:
   int dfs(const TreeNode *root) {
     if (root == nullptr)
@@ -27,6 +28,7 @@ private:
 
     return std::max(r, l) > 0 ? std::max(r, l) + root->val : root->val;
   }
+
 private:
   int max_sum_;
 };

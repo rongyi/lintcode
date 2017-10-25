@@ -30,9 +30,7 @@ public:
       }
       if (cur_max > max_len)
         max_len = cur_max;
-
     }
-
 
     return max_len;
   }

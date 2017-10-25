@@ -18,7 +18,8 @@ public:
 
     for (int i = 0; i < num.size(); i++) {
       auto gap = target - num[i];
-      if (num_index_map.find(gap) != num_index_map.end() && num_index_map[gap] - 1 > i) {
+      if (num_index_map.find(gap) != num_index_map.end() &&
+          num_index_map[gap] - 1 > i) {
         ret.push_back(i + 1);
         ret.push_back(num_index_map[gap]);
         break;

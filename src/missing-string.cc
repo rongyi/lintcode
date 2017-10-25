@@ -1,8 +1,8 @@
-#include <vector>
+#include <bitset>
 #include <iostream>
 #include <string>
-#include <bitset>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -23,18 +23,19 @@ public:
     split(' ', str1, v1);
     split(' ', str2, v2);
     unordered_set<string> set2;
-    for (auto &s: v2)
+    for (auto &s : v2)
       set2.insert(s);
     vector<string> ret;
-    for (auto &s: v1) {
-      if (set2.find(s) ==set2.end()) {
+    for (auto &s : v1) {
+      if (set2.find(s) == set2.end()) {
         ret.emplace_back(s);
       }
     }
     return ret;
   }
 
-  inline void split(const char delim, const std::string &input, std::vector<std::string> &output) {
+  inline void split(const char delim, const std::string &input,
+                    std::vector<std::string> &output) {
     if (input.empty())
       return;
 

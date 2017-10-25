@@ -29,8 +29,7 @@ public:
     }
     // 分拆两个单链表
     RandomListNode dummy(-1);
-    for (RandomListNode *cur = head, *new_cur = &dummy;
-         cur;) {
+    for (RandomListNode *cur = head, *new_cur = &dummy; cur;) {
       new_cur->next = cur->next;
       new_cur = new_cur->next;
       cur->next = cur->next->next;

@@ -14,7 +14,7 @@ public:
     sort(nums.begin(), nums.end());
     for (auto a = nums.begin(); a != prev(nums.end(), 2); ++a) {
       auto b = next(a);
-      auto c  = prev(nums.end());
+      auto c = prev(nums.end());
       while (b < c) {
         const int sum = *a + *b + *c;
         const int gap = abs(sum - target);
@@ -26,7 +26,6 @@ public:
           ++b;
         else
           --c;
-
       }
     }
     return ret;

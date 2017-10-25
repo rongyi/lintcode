@@ -1,4 +1,4 @@
-//http://www.lintcode.com/zh-cn/problem/powx-n/
+// http://www.lintcode.com/zh-cn/problem/powx-n/
 
 class Solution {
 public:

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/backpack-vi
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,11 +15,11 @@ public:
    * @param target an integer
    * @return an integer
    */
-  int backPackVI(vector<int>& nums, int target) {
+  int backPackVI(vector<int> &nums, int target) {
     vector<int> dp(target + 1, 0);
     dp[0] = 1;
     for (int i = 1; i <= target; i++) {
-      for (auto n :nums) {
+      for (auto n : nums) {
         if (n <= i) {
           dp[i] += dp[i - n];
         }

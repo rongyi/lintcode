@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/maximum-subarray-difference
-#include <vector>
+#include <algorithm>
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -23,7 +23,6 @@ public:
 
     int ret = INT_MIN;
     const int n = nums.size();
-
 
     vector<int> left_max(n);
     vector<int> left_min(n);

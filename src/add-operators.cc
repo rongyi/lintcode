@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/add-operators
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -23,7 +23,8 @@ public:
   }
 
 private:
-  void dfs(string num, int target, long long diff, long long cur_num, string out, vector<string> &ret) {
+  void dfs(string num, int target, long long diff, long long cur_num,
+           string out, vector<string> &ret) {
     if (num.size() == 0 && cur_num == target) {
       ret.push_back(out);
     }
@@ -36,7 +37,8 @@ private:
       if (out.size() > 0) {
         dfs(next, target, tmp, cur_num + tmp, out + "+" + cur, ret);
         dfs(next, target, -tmp, cur_num - tmp, out + "-" + cur, ret);
-        dfs(next, target, diff * tmp, (cur_num - diff) + diff * tmp, out + "*" + cur, ret);
+        dfs(next, target, diff * tmp, (cur_num - diff) + diff * tmp,
+            out + "*" + cur, ret);
       } else {
         dfs(next, target, std::stoll(cur), std::stoll(cur), cur, ret);
       }
@@ -44,8 +46,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string num{"123"};
   int t = 6;

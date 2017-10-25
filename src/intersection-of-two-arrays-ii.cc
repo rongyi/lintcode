@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/intersection-of-two-arrays-ii
-#include <vector>
 #include <map>
+#include <vector>
 
 using std::vector;
 using std::map;
@@ -12,11 +12,11 @@ public:
    * @param nums2 an integer array
    * @return an integer array
    */
-  vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+  vector<int> intersection(vector<int> &nums1, vector<int> &nums2) {
     vector<int> ret;
     map<int, int> count1;
     map<int, int> count2;
-    for (auto i :nums1) {
+    for (auto i : nums1) {
       if (count1.find(i) == count1.end()) {
         count1[i] = 1;
       } else {

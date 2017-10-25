@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/palindrome-number
 
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -50,8 +50,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.palindromeNumber(122221);
   cout << ret << endl;

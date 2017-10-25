@@ -1,17 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/kth-smallest-number-in-sorted-matrix
-#include <vector>
-#include <iostream>
-#include <string>
-#include <queue>
 #include <algorithm>
+#include <iostream>
 #include <map>
+#include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
-
 
 class Solution {
 public:
@@ -20,7 +18,7 @@ public:
    * @param k: an integer
    * @return: the kth smallest number in the matrix
    */
-  int kthSmallest(vector<vector<int> > &matrix, int k) {
+  int kthSmallest(vector<vector<int>> &matrix, int k) {
     if (k <= 0 || matrix.empty())
       return 0;
 
@@ -28,8 +26,9 @@ public:
     const int n = matrix[0].size();
 
     std::priority_queue<std::pair<int, std::pair<int, int>>,
-      std::vector<std::pair<int, std::pair<int, int>>>,
-      std::greater<std::pair<int, std::pair<int, int>>>> pq;
+                        std::vector<std::pair<int, std::pair<int, int>>>,
+                        std::greater<std::pair<int, std::pair<int, int>>>>
+        pq;
     std::map<std::pair<int, int>, bool> visited;
     pq.push(std::make_pair(matrix[0][0], std::make_pair(0, 0)));
     visited[std::make_pair(0, 0)] = true;
@@ -44,7 +43,8 @@ public:
       int downy = cur.second.second;
       if (downx < m &&
           visited.find(std::make_pair(downx, downy)) == visited.end()) {
-        pq.push(std::make_pair(matrix[downx][downy], std::make_pair(downx, downy)));
+        pq.push(
+            std::make_pair(matrix[downx][downy], std::make_pair(downx, downy)));
         visited[std::make_pair(downx, downy)] = true;
       }
 
@@ -52,15 +52,15 @@ public:
       int righty = cur.second.second + 1;
       if (righty < n &&
           visited.find(std::make_pair(rightx, righty)) == visited.end()) {
-        pq.push(std::make_pair(matrix[rightx][righty], std::make_pair(rightx, righty)));
+        pq.push(std::make_pair(matrix[rightx][righty],
+                               std::make_pair(rightx, righty)));
         visited[std::make_pair(rightx, righty)] = true;
       }
     }
     return -1;
   }
 };
-int main()
-{
+int main() {
   Solution so;
   vector<int> test_inner{1, 2, 3, 4, 5};
   vector<vector<int>> test = {test_inner};

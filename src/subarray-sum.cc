@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/subarray-sum
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @return: A list of integers includes the index of the first number
    *          and the index of the last number
    */
-  vector<int> subarraySum(vector<int> nums){
+  vector<int> subarraySum(vector<int> nums) {
     vector<int> ret;
     if (nums.empty()) {
       return ret;
@@ -55,8 +55,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   vector<int> test{-5, 10, 5, -3, 1, 1, 1, -2, 3, -4};
 
   Solution so;

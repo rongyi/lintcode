@@ -6,7 +6,7 @@ public:
    * @param path the original path
    * @return the simplified path
    */
-  string simplifyPath(string& path) {
+  string simplifyPath(string &path) {
     // Write your code here
     vector<string> dir_lst;
     for (auto i = path.begin(); i != path.end();) {
@@ -22,7 +22,6 @@ public:
         } else {
           dir_lst.push_back(dir);
         }
-
       }
 
       i = j;
@@ -35,6 +34,5 @@ public:
         ss << "/" << dir;
     }
     return ss.str();
-
   }
 };

@@ -16,6 +16,7 @@ public:
     }
     return n + 1;
   }
+
 private:
   void bucket_sort(vector<int> &A) {
     const int n = A.size();

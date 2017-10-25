@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/permutations-ii
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param nums: A list of integers.
    * @return: A list of unique permutations.
    */
-  vector<vector<int> > permuteUnique(vector<int> &nums) {
+  vector<vector<int>> permuteUnique(vector<int> &nums) {
     vector<vector<int>> ret;
     if (nums.size() == 0)
       return vector<vector<int>>{{}};
@@ -27,8 +27,8 @@ public:
   }
 
 private:
-  void doPermute(vector<int> &nums, vector<vector<int>> &ret,
-                 vector<int> &cur, unsigned index) {
+  void doPermute(vector<int> &nums, vector<vector<int>> &ret, vector<int> &cur,
+                 unsigned index) {
     if (index == nums.size()) {
       ret.push_back(cur);
       return;

@@ -33,6 +33,7 @@ public:
 
     return ret;
   }
+
 private:
   int find_first_bit_of1(int n) {
     int ret = 0;
@@ -43,7 +44,5 @@ private:
     return ret;
   }
 
-  bool is_pos_1(int n, int pos) {
-    return ((n >> pos) & 0x1) == 1;
-  }
+  bool is_pos_1(int n, int pos) { return ((n >> pos) & 0x1) == 1; }
 };

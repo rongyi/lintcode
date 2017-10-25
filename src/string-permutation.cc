@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/string-permutation
 
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param B a string
    * @return a boolean
    */
-  bool stringPermutation(string& a, string& b) {
+  bool stringPermutation(string &a, string &b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
 

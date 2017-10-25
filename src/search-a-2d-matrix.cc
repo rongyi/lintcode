@@ -7,7 +7,7 @@ public:
    * @param target, an integer
    * @return a boolean, indicate whether matrix contains target
    */
-  bool searchMatrix(vector<vector<int> > &matrix, int target) {
+  bool searchMatrix(vector<vector<int>> &matrix, int target) {
     if (matrix.empty())
       return false;
     const size_t m = matrix.size();

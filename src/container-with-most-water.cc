@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/container-with-most-water
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,7 +21,8 @@ public:
     int left = 0;
     int right = heights.size() - 1;
     while (left < right) {
-      ret = std::max(ret, std::min(heights[left], heights[right]) * (right - left));
+      ret = std::max(ret,
+                     std::min(heights[left], heights[right]) * (right - left));
       if (heights[left] < heights[right])
         left++;
       else

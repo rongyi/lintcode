@@ -51,6 +51,7 @@ public:
       }
     }
   }
+
 private:
   stack<NestedInteger> s;
 };

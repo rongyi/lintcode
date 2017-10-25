@@ -12,13 +12,13 @@
  *     }
  * }
  */
-class Solution{
+class Solution {
 public:
   /**
    * @param head: The first node of linked list.
    * @return: head node
    */
-  ListNode * deleteDuplicates(ListNode *head) {
+  ListNode *deleteDuplicates(ListNode *head) {
     if (!head || !head->next)
       return head;
 

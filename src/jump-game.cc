@@ -1,14 +1,13 @@
 // http://www.lintcode.com/zh-cn/problem/jump-game
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class Solution {
 public:

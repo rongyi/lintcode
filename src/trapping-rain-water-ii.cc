@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/trapping-rain-water-ii
-#include <vector>
 #include <iostream>
-#include <string>
 #include <limits>
 #include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -24,7 +24,9 @@ public:
     const int n = heights[0].size();
     int mx = std::numeric_limits<int>::min();
 
-    std::priority_queue<std::pair<int, int>, vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> q;
+    std::priority_queue<std::pair<int, int>, vector<std::pair<int, int>>,
+                        std::greater<std::pair<int, int>>>
+        q;
     vector<vector<bool>> visited(m, vector<bool>(n, false));
     vector<vector<int>> dir{{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 

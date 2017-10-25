@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/sliding-window-median
-#include <vector>
 #include <iostream>
-#include <string>
 #include <set>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;

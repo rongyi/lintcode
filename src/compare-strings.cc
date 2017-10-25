@@ -1,16 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/compare-strings
-#include <vector>
-#include <iostream>
-#include <string>
-#include <set>
 #include <cctype>
+#include <iostream>
+#include <set>
+#include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class Solution {
 public:

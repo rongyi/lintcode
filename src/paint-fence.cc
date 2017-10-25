@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/paint-fence
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,8 +18,12 @@ public:
   int numWays(int n, int k) {
     if (n == 0 || k == 0)
       return 0;
-    // 1. 如果第3个柱子的颜色跟第2个一样，那么他必须跟第一个柱子不一样，所以，前3个柱子的染色方案有k * (k - 1)种
-    // 2. 如果第3个柱子的颜色跟第2个不一样，那么他跟第一个柱子没关系了，所以，前3个柱子的染色方案有k * k * (k - 1)种
+    // 1.
+    // 如果第3个柱子的颜色跟第2个一样，那么他必须跟第一个柱子不一样，所以，前3个柱子的染色方案有k
+    // * (k - 1)种
+    // 2.
+    // 如果第3个柱子的颜色跟第2个不一样，那么他跟第一个柱子没关系了，所以，前3个柱子的染色方案有k
+    // * k * (k - 1)种
     vector<int> dp(n, 0);
     dp[0] = k;
     dp[1] = k * k;

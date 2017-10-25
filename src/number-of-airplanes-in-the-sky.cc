@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/number-of-airplanes-in-the-sky
-#include <vector>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 
@@ -34,7 +34,7 @@ public:
     std::sort(arrive.begin(), arrive.end());
     int ret = 0;
 
-    for (int i = 0, di = 0, ai = 0, count= 0; ; i++) {
+    for (int i = 0, di = 0, ai = 0, count = 0;; i++) {
       // 如果多架飞机降落和起飞在同一时刻，我们认为降落有优先权。
       if (i >= arrive[ai] && ai < arrive.size()) {
         while (ai < arrive.size() && arrive[ai] == i) {
@@ -59,8 +59,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   vector<Interval> test;
   test.push_back(Interval(3, 11));
   test.push_back(Interval(3, 11));

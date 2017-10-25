@@ -1,10 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/132-pattern
 
-#include <vector>
 #include <iostream>
-#include <string>
-#include <stack>
 #include <limits>
+#include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,7 +18,7 @@ public:
    * @param nums a list of n integers
    * @return true if there is a 132 pattern or false
    */
-  bool find132pattern(vector<int>& nums) {
+  bool find132pattern(vector<int> &nums) {
     // the current minimum number
     int min = std::numeric_limits<int>::min();
     stack<int> s;
@@ -39,8 +39,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 10, 4, 9, 2};
   auto ret = so.find132pattern(test);

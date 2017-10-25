@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/first-bad-version
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -17,12 +17,10 @@ using std::string;
  * the kth code version is bad or not.
  */
 
-
 class SVNRepo {
-    public:
-    static bool isBadVersion(int k);
+public:
+  static bool isBadVersion(int k);
 };
-
 
 class Solution {
 public:

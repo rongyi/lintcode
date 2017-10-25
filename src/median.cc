@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/median
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -28,10 +28,9 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<int> test{7,9,4,5};
+  vector<int> test{7, 9, 4, 5};
   auto ret = so.median(test);
   cout << ret << endl;
   return 0;

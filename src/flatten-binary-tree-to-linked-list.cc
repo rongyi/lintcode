@@ -37,6 +37,5 @@ public:
       if (!s.empty())
         p->right = s.top();
     }
-
   }
 };

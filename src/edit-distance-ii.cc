@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/edit-distance-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;

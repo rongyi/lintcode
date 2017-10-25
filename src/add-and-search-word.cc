@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/add-and-search-word
-#include <vector>
-#include <iostream>
-#include <cstring>
-#include <string>
 #include <cctype>
+#include <cstring>
+#include <iostream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -12,9 +12,7 @@ using std::string;
 
 struct TrieNode {
   static const int NUM = 26;
-  TrieNode () : is_leaf_(false){
-    std::memset(node_, 0, sizeof(node_));
-  }
+  TrieNode() : is_leaf_(false) { std::memset(node_, 0, sizeof(node_)); }
 
   bool HasNoChild() const {
     for (auto p : node_) {
@@ -64,13 +62,12 @@ public:
       }
       return false;
     } else {
-      return root->node_[cur - 'a'] && search(word, root->node_[cur - 'a'], level + 1);
+      return root->node_[cur - 'a'] &&
+             search(word, root->node_[cur - 'a'], level + 1);
     }
   }
 
-  WordDictionary() {
-    root = new TrieNode();
-  }
+  WordDictionary() { root = new TrieNode(); }
 
   void do_delete(TrieNode *root) {
     if (!root)
@@ -88,9 +85,7 @@ public:
     }
   }
 
-  ~WordDictionary() {
-    do_delete(root);
-  }
+  ~WordDictionary() { do_delete(root); }
 
 private:
   TrieNode *root;
@@ -101,8 +96,7 @@ private:
 // wordDictionary.addWord("word");
 // wordDictionary.search("pattern");
 
-int main()
-{
+int main() {
   WordDictionary wd;
   wd.addWord("rongyi");
   auto ret = wd.search("r....i");

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/k-sum-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param target: a integer
    * @return a list of lists of integer
    */
-  vector<vector<int> > kSumII(vector<int> A, int k, int target) {
+  vector<vector<int>> kSumII(vector<int> A, int k, int target) {
     vector<vector<int>> ret;
     vector<int> cur;
 
@@ -24,8 +24,10 @@ public:
 
     return ret;
   }
+
 private:
-  void dosum(vector<vector<int>> &ret, vector<int> path, vector<int> nodes, int k, int remain, int index) {
+  void dosum(vector<vector<int>> &ret, vector<int> path, vector<int> nodes,
+             int k, int remain, int index) {
     if (path.size() == k) {
       if (remain == 0) {
         ret.push_back(path);

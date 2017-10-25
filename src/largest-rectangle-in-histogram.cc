@@ -1,15 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/largest-rectangle-in-histogram
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 using std::stack;
-
 
 class Solution {
 public:
@@ -38,12 +37,10 @@ public:
     }
 
     return ret;
-
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 2, 3, 4, 5};
   auto ret = so.largestRectangleArea(test);

@@ -1,22 +1,21 @@
 // http://www.lintcode.com/zh-cn/problem/clone-binary-tree
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = nullptr;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = nullptr;
+  }
 };
 
 class Solution {
@@ -25,7 +24,7 @@ public:
    * @param root: The root of binary tree
    * @return root of new tree
    */
-  TreeNode* cloneTree(TreeNode *root) {
+  TreeNode *cloneTree(TreeNode *root) {
     if (!root)
       return nullptr;
     TreeNode *new_node = new TreeNode(root->val);

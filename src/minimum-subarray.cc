@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-subarray
-#include <vector>
+#include <cctype>
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <vector>
 
 using std::vector;
 using std::cout;

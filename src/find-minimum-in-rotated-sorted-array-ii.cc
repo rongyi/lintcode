@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/find-minimum-in-rotated-sorted-array-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,9 +14,8 @@ public:
    * @param num: the rotated sorted array
    * @return: the minimum number in the array
    */
-  int findMin(vector<int> &num) {
-    return findMin(num, 0, num.size() - 1);
-  }
+  int findMin(vector<int> &num) { return findMin(num, 0, num.size() - 1); }
+
 private:
   int findMin(vector<int> &nums, int left, int right) {
     if (right == left) {

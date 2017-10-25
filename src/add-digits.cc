@@ -29,8 +29,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto test = so.addDigits(38);
   std::cout << test << std::endl;

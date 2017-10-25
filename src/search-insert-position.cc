@@ -10,9 +10,9 @@ public:
   int searchInsert(vector<int> &A, int target) {
     return lower_bound(A.begin(), A.end(), target) - A.begin();
   }
-  template<typename ForwardIterator, typename T>
-  ForwardIterator lower_bound(ForwardIterator first,
-                              ForwardIterator last, T value) {
+  template <typename ForwardIterator, typename T>
+  ForwardIterator lower_bound(ForwardIterator first, ForwardIterator last,
+                              T value) {
     while (first != last) {
       auto mid = next(first, distance(first, last) / 2);
 

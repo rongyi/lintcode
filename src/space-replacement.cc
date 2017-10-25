@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/space-replacement
-#include <vector>
+#include <cstring>
 #include <iostream>
 #include <string>
-#include <cstring>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -34,7 +34,6 @@ public:
       } else {
         *(string++) = c;
       }
-
     }
     return len + space_count * 2;
   }

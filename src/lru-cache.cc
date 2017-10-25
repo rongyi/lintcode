@@ -5,12 +5,10 @@
 using std::list;
 using std::unordered_map;
 
-class LRUCache{
+class LRUCache {
 public:
   // @param capacity, an integer
-  LRUCache(int capacity) {
-    this->capacity_ = capacity;
-  }
+  LRUCache(int capacity) { this->capacity_ = capacity; }
 
   // @return an integer
   int get(int key) {

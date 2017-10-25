@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/combination-sum
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param target:An integer
    * @return: A list of lists of integers
    */
-  vector<vector<int> > combinationSum(vector<int> &candidates, int target) {
+  vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
     vector<int> cur_vec;
     std::sort(candidates.begin(), candidates.end());
     vector<vector<int>> ret;
@@ -29,8 +29,10 @@ public:
 
     return ret;
   }
+
 private:
-  void dfs(vector<vector<int>> &ret, vector<int> &candidates, vector<int> &cur_vec, int cur, int target, int cur_sum) {
+  void dfs(vector<vector<int>> &ret, vector<int> &candidates,
+           vector<int> &cur_vec, int cur, int target, int cur_sum) {
     if (cur_sum == target) {
       ret.push_back(cur_vec);
       return;
@@ -45,7 +47,8 @@ private:
       dfs(ret, candidates, cur_vec, cur + 1, target, cur_sum);
     }
   }
-  void dfs2(vector<vector<int>> &ret, vector<int> &candidates, vector<int> &cur_vec, int cur_index, int target) {
+  void dfs2(vector<vector<int>> &ret, vector<int> &candidates,
+            vector<int> &cur_vec, int cur_index, int target) {
     if (target < 0)
       return;
     else if (target == 0) {
@@ -60,8 +63,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   vector<int> test{2, 2, 3};
   Solution so;
   auto ret = so.combinationSum(test, 7);

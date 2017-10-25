@@ -22,7 +22,6 @@ public:
   }
 };
 
-
 class Solution {
 public:
   Solution() : sum_(0) {}
@@ -30,7 +29,7 @@ public:
    * @param root the root of binary tree
    * @return the new root
    */
-  TreeNode* convertBST(TreeNode* root) {
+  TreeNode *convertBST(TreeNode *root) {
     if (!root)
       return nullptr;
     convertBST(root->right);
@@ -40,6 +39,7 @@ public:
 
     return root;
   }
+
 private:
   int sum_;
 };

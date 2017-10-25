@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/palindrome-partitioning
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -53,8 +53,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   Solution so;
   std::string test("aab");
   auto ret = so.isParlidrome(test);

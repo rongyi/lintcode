@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/merge-intervals
-#include <vector>
 #include <algorithm>
+#include <vector>
 using std::vector;
 /**
  * Definition of Interval:

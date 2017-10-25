@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/rotate-string
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param offset: an integer
    * @return: nothing
    */
-  void rotateString(string &str,int offset){
+  void rotateString(string &str, int offset) {
     if (str.empty())
       return;
     const int n = str.length();
@@ -27,11 +27,11 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   std::string test("hellorongyi");
   so.rotateString(test, 2);
-  cout << test << endl;;
+  cout << test << endl;
+  ;
   return 0;
 }

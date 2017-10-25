@@ -1,13 +1,12 @@
 // http://www.lintcode.com/zh-cn/problem/unique-binary-search-trees-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class TreeNode {
 public:
@@ -25,11 +24,9 @@ public:
    * @paramn n: An integer
    * @return: A list of root
    */
-  vector<TreeNode *> generateTrees(int n) {
-    return do_gen(1, n);
-  }
-private:
+  vector<TreeNode *> generateTrees(int n) { return do_gen(1, n); }
 
+private:
   vector<TreeNode *> do_gen(int ld, int rd) {
     vector<TreeNode *> ret;
     if (ld == rd) {

@@ -1,8 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-size-subarray-sum
-#include <vector>
 #include <algorithm>
+#include <vector>
 using std::vector;
-
 
 class Solution {
 public:

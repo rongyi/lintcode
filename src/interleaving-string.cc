@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/interleaving-string
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,7 +32,6 @@ public:
 
     ret[0][0] = true;
 
-
     for (int i = 1; i <= len1; i++) {
       if (s1[i - 1] == s3[i - 1])
         ret[i][0] = true;
@@ -46,7 +45,7 @@ public:
     for (int i = 1; i <= len1; i++) {
       for (int j = 1; j <= len2; j++) {
         ret[i][j] = (ret[i - 1][j] && s1[i - 1] == s3[i + j - 1]) ||
-          (ret[i][j - 1] && s2[j - 1] == s3[i + j - 1]);
+                    (ret[i][j - 1] && s2[j - 1] == s3[i + j - 1]);
       }
     }
 
@@ -54,8 +53,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.isInterleave("abbcddef", "accbbbcd", "abbcddefaccbbbdc");
 

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/letter-combinations-of-a-phone-number
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -19,15 +19,17 @@ public:
     cellphone_digits_.insert(std::make_pair(4, vector<char>{'g', 'h', 'i'}));
     cellphone_digits_.insert(std::make_pair(5, vector<char>{'j', 'k', 'l'}));
     cellphone_digits_.insert(std::make_pair(6, vector<char>{'m', 'n', 'o'}));
-    cellphone_digits_.insert(std::make_pair(7, vector<char>{'p', 'q', 'r', 's'}));
+    cellphone_digits_.insert(
+        std::make_pair(7, vector<char>{'p', 'q', 'r', 's'}));
     cellphone_digits_.insert(std::make_pair(8, vector<char>{'t', 'u', 'v'}));
-    cellphone_digits_.insert(std::make_pair(9, vector<char>{'w', 'x', 'y', 'z'}));
+    cellphone_digits_.insert(
+        std::make_pair(9, vector<char>{'w', 'x', 'y', 'z'}));
   }
   /**
    * @param digits A digital string
    * @return all posible letter combinations
    */
-  vector<string> letterCombinations(string& digits) {
+  vector<string> letterCombinations(string &digits) {
     vector<string> ret;
 
     if (digits.empty())
@@ -36,7 +38,8 @@ public:
       vector<string> empty;
       return reduce(cellphone_digits_[digits[0] - '0'], empty);
     } else if (digits.size() == 2) {
-      return map(cellphone_digits_[digits[0] - '0'], cellphone_digits_[digits[1] - '0']);
+      return map(cellphone_digits_[digits[0] - '0'],
+                 cellphone_digits_[digits[1] - '0']);
     } else {
       // lisp name convention
       string cdr = digits.substr(1);
@@ -44,6 +47,7 @@ public:
       return reduce(cellphone_digits_[digits[0] - '0'], cdr_ret);
     }
   }
+
 private:
   vector<string> map(const vector<char> &left, const vector<char> &right) {
     vector<string> ret;
@@ -80,16 +84,16 @@ private:
 
     return ret;
   }
+
 private:
   unordered_map<int, vector<char>> cellphone_digits_;
 };
 
-int main()
-{
+int main() {
   Solution so;
   string test("2");
   auto final_test = so.letterCombinations(test);
-  for (auto s: final_test)
+  for (auto s : final_test)
     cout << s << endl;
 
   return 0;

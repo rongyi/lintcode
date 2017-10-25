@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/delete-digits
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -35,9 +35,7 @@ public:
   }
 };
 
-
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.DeleteDigits("178542", 4);
   cout << ret << endl;

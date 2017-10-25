@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/move-zeroes
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 
@@ -10,7 +10,7 @@ public:
    * @param nums an integer array
    * @return nothing, do this in-place
    */
-  void moveZeroes(vector<int>& nums) {
+  void moveZeroes(vector<int> &nums) {
     auto size = nums.size();
     unsigned i = 0;
     for (auto iter = nums.begin(); iter != nums.end() && i < size; i++) {
@@ -24,10 +24,10 @@ public:
   }
 };
 
-
 // int main(int argc, char *argv[])
 // {
-//   std::vector<int> *test = new std::vector<int>{-1, 2, -3, 4, 0, 1, 0, -2, 0, 0, 1};
+//   std::vector<int> *test = new std::vector<int>{-1, 2, -3, 4, 0, 1, 0, -2, 0,
+//   0, 1};
 //   Solution so;
 //   so.moveZeroes(*test);
 //   for (auto i: *test) {

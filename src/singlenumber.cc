@@ -1,6 +1,6 @@
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,9 +18,7 @@ public:
   }
 };
 
-
-int main()
-{
+int main() {
   vector<int> test{1, 2, 3, 1, 2, 3, 4};
   auto ret = Solution().singleNumber(test);
   cout << ret << endl;

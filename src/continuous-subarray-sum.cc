@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/continuous-subarray-sum
-#include <vector>
+#include <cctype>
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @return  A list of integers includes the index of
    *          the first number and the index of the last number
    */
-  vector<int> continuousSubarraySum(vector<int>& A) {
+  vector<int> continuousSubarraySum(vector<int> &A) {
     int cur_sum = 0;
     int max_sum = INT_MIN;
     vector<int> ret;

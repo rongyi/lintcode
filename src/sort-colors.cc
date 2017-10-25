@@ -1,11 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/sort-colors
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 
-
-class Solution{
+class Solution {
 public:
   /**
    * @param nums: A list of integer which is 0, 1 or 2
@@ -24,5 +23,4 @@ public:
         i++;
     }
   }
-
 };

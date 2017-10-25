@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/interval-sum-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -10,13 +10,12 @@ using std::string;
 
 class Solution {
 public:
-
   class SegmentTreeNode {
   public:
     int start, end;
     long long sum;
     SegmentTreeNode *left, *right;
-    SegmentTreeNode(int start, int end, long long sum=0) {
+    SegmentTreeNode(int start, int end, long long sum = 0) {
       this->start = start, this->end = end;
       this->left = this->right = nullptr;
       this->sum = sum;
@@ -36,9 +35,7 @@ public:
    * @param start, end: Indices
    * @return: The sum from start to end
    */
-  long long query(int start, int end) {
-    return query(root_, start, end);
-  }
+  long long query(int start, int end) { return query(root_, start, end); }
 
   long long query(SegmentTreeNode *root, int start, int end) {
     if (root->start == start && root->end == end) {
@@ -51,8 +48,7 @@ public:
     } else if (start > mid) {
       return query(root->right, start, end);
     } else {
-      return query(root->left, start, mid) +
-        query(root->right, mid + 1, end);
+      return query(root->left, start, mid) + query(root->right, mid + 1, end);
     }
   }
 
@@ -84,7 +80,7 @@ public:
     return diff;
   }
 
-  SegmentTreeNode * build(int start, int end) {
+  SegmentTreeNode *build(int start, int end) {
     if (start > end) {
       return nullptr;
     }
@@ -100,6 +96,7 @@ public:
 
     return root;
   }
+
 private:
   vector<int> aux_;
   SegmentTreeNode *root_;

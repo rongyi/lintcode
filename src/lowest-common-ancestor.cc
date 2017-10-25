@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/lowest-common-ancestor
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -10,12 +10,12 @@ using std::string;
 
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = NULL;
+  }
 };
 
 class Solution {

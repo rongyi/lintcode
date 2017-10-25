@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/toy-factory
 
-#include <string>
 #include <iostream>
+#include <string>
 using std::string;
 using std::cout;
 using std::endl;
@@ -13,19 +13,15 @@ using std::endl;
  */
 class Toy {
 public:
-  virtual void talk() const=0;
+  virtual void talk() const = 0;
 };
 
-class Dog: public Toy {
-  void talk() const {
-    cout << "Wow" << std::endl;
-  }
+class Dog : public Toy {
+  void talk() const { cout << "Wow" << std::endl; }
 };
 
-class Cat: public Toy {
-  void talk() const {
-    cout << "Meow" << std::endl;
-  }
+class Cat : public Toy {
+  void talk() const { cout << "Meow" << std::endl; }
 };
 
 class ToyFactory {
@@ -34,7 +30,7 @@ public:
    * @param type a string
    * @return Get object of the type
    */
-  Toy* getToy(string& type) {
+  Toy *getToy(string &type) {
     if (type == "Dog") {
       return new Dog();
     } else if (type == "Cat") {
@@ -44,8 +40,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   ToyFactory tf;
   string t("Dog");
   auto e = tf.getToy(t);

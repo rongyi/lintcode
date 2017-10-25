@@ -14,11 +14,12 @@
  *        // the iteration has no more elements
  * }
  */
-namespace detail{
+namespace detail {
 
 /* like python split
  */
-inline void split(const char delim, const std::string &input, std::vector<std::string> &output) {
+inline void split(const char delim, const std::string &input,
+                  std::vector<std::string> &output) {
   if (input.empty())
     return;
 
@@ -46,9 +47,9 @@ inline void split(const char delim, const std::string &input, std::vector<std::s
 }
 } // namespace detail
 
-class WordCountMapper: public Mapper {
+class WordCountMapper : public Mapper {
 public:
-  void Map(Input<string>* input) {
+  void Map(Input<string> *input) {
     // Write your code here
     // Please directly use func 'output' to
     // output the results into output buffer.
@@ -65,9 +66,9 @@ public:
   }
 };
 
-class WordCountReducer: public Reducer {
+class WordCountReducer : public Reducer {
 public:
-  void Reduce(string &key, Input<int>* input) {
+  void Reduce(string &key, Input<int> *input) {
     // Write your code here
     // Please directly use func 'output' to
     // output the results into output buffer.

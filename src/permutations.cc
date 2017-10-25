@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/permutations
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param nums: A list of integers.
    * @return: A list of permutations.
    */
-  vector<vector<int> > permuteCheating(vector<int> nums) {
+  vector<vector<int>> permuteCheating(vector<int> nums) {
     vector<vector<int>> ret{};
     if (nums.size() == 0)
       return vector<vector<int>>{{}};
@@ -41,8 +41,8 @@ public:
   }
 
 private:
-  void doPermute(vector<int> &nums, vector<vector<int>> &ret,
-                 vector<int> &cur, unsigned index) {
+  void doPermute(vector<int> &nums, vector<vector<int>> &ret, vector<int> &cur,
+                 unsigned index) {
     if (index == nums.size()) {
       ret.push_back(cur);
       return;
@@ -58,8 +58,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 2, 3};
   auto ret = so.permute(test);

@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-window-substring
-#include <string>
-#include <unordered_map>
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <string>
+#include <unordered_map>
 
 using std::cout;
 using std::endl;
@@ -57,8 +57,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   // For example, S = "ADOBECODEBANC", T = "ABC"
   string s("ADOBECODEBANC");

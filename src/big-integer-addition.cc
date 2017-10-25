@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/big-integer-addition
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
+#include <iostream>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,7 +18,7 @@ public:
    * @param num2 a non-negative integers
    * @return return sum of num1 and num2
    */
-  string addStrings(string& num1, string& num2) {
+  string addStrings(string &num1, string &num2) {
     std::reverse(num1.begin(), num1.end());
     std::reverse(num2.begin(), num2.end());
     std::stringstream ss;
@@ -42,8 +42,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string num1 = "1";
   string num2 = "999";

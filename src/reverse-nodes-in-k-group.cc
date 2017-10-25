@@ -24,7 +24,7 @@ public:
       if (next_group)
         next_group = next_group->next;
       else
-        return head;            // 不够下一个group的，所以这里直接返回
+        return head; // 不够下一个group的，所以这里直接返回
     }
 
     ListNode *new_next_group = reverseKGroup(next_group, k);

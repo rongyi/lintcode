@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/spiral-matrix
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param matrix a matrix of m x n elements
    * @return an integer array
    */
-  vector<int> spiralOrderDirection(vector<vector<int>>& matrix) {
+  vector<int> spiralOrderDirection(vector<vector<int>> &matrix) {
     vector<int> ret;
     if (matrix.empty())
       return ret;
@@ -62,7 +62,7 @@ public:
 
     return ret;
   }
-  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+  vector<int> spiralOrder(vector<vector<int>> &matrix) {
     vector<int> ret;
     if (matrix.size() == 0) {
       return ret;
@@ -117,8 +117,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<vector<int>> input{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
   auto ret = so.spiralOrder(input);

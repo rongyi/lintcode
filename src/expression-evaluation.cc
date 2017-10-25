@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/expression-evaluation
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -85,15 +85,16 @@ private:
     }
     number_.push(eval_ret);
   }
+
 private:
   stack<string> op_;
   stack<int> number_;
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<string> input{"2","-","6","*","(","23","+","7",")","/","(","1","+","2",")"};
+  vector<string> input{"2", "-", "6", "*", "(", "23", "+", "7",
+                       ")", "/", "(", "1", "+", "2",  ")"};
   auto ret = so.evaluateExpression(input);
   cout << ret << endl;
 

@@ -41,8 +41,8 @@ public:
         s.push(p->left);
     }
     return ret;
-
   }
+
 private:
   void inner(TreeNode *root, std::vector<int> &ret) {
     if (root) {

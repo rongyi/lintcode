@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/string-to-integer-ii
 
+#include <climits>
 #include <cstdlib>
 #include <string>
-#include <climits>
 using std::string;
 class Solution {
 public:

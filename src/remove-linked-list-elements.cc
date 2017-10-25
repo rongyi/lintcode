@@ -14,7 +14,8 @@ public:
     ListNode *cur = head;
 
     while (cur) {
-      // clean all the occurrence of this val, so we don't change prev pointer untill
+      // clean all the occurrence of this val, so we don't change prev pointer
+      // untill
       // cur->val is not equal to the target value
       if (cur->val == val) {
         pre->next = cur->next;

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/burst-balloons
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param nums a list of integer
    * @return an integer, maximum coins
    */
-  int maxCoins(vector<int>& nums) {
+  int maxCoins(vector<int> &nums) {
     const int n = nums.size();
     nums.insert(nums.begin(), 1);
     nums.push_back(1);
@@ -26,9 +26,11 @@ public:
 
         // dp[i][j]表示打爆区间[i,j]中的所有气球能得到的最多金币
         for (int k = left; k <= right; ++k) {
-          dp[left][right] = std::max(dp[left][right],
-                                     // 左边炸的最高分 + 右边最高分 + 当前所炸分
-                                     nums[left - 1] * nums[k] * nums[right + 1] + dp[left][k - 1] + dp[k + 1][right]);
+          dp[left][right] =
+              std::max(dp[left][right],
+                       // 左边炸的最高分 + 右边最高分 + 当前所炸分
+                       nums[left - 1] * nums[k] * nums[right + 1] +
+                           dp[left][k - 1] + dp[k + 1][right]);
         }
       }
     }
@@ -37,8 +39,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{4, 1, 5, 10};
   auto ret = so.maxCoins(test);

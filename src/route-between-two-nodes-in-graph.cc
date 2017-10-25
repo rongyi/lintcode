@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/route-between-two-nodes-in-graph
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -19,7 +19,7 @@ using std::string;
 struct DirectedGraphNode {
   int label;
   vector<DirectedGraphNode *> neighbors;
-  DirectedGraphNode(int x) : label(x) {};
+  DirectedGraphNode(int x) : label(x){};
 };
 
 class Solution {
@@ -30,8 +30,8 @@ public:
    * @param t: the terminal Directed graph node
    * @return: a boolean value
    */
-  bool hasRoute(vector<DirectedGraphNode*> graph,
-                DirectedGraphNode* s, DirectedGraphNode* t) {
+  bool hasRoute(vector<DirectedGraphNode *> graph, DirectedGraphNode *s,
+                DirectedGraphNode *t) {
     bool routeFounded = false;
 
     for (auto cur_node : graph) {
@@ -43,7 +43,8 @@ public:
     return routeFounded;
   }
 
-  void dfs(DirectedGraphNode *cur_node, const DirectedGraphNode *target, bool &routeFounded) {
+  void dfs(DirectedGraphNode *cur_node, const DirectedGraphNode *target,
+           bool &routeFounded) {
     if (cur_node == target) {
       routeFounded = true;
       return;

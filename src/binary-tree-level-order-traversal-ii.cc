@@ -13,18 +13,17 @@
  * }
  */
 
-
 class Solution {
   /**
    * @param root : The root of binary tree.
    * @return : buttom-up level order a list of lists of integer
    */
 public:
-  vector<vector<int> > levelOrderBottom(TreeNode *root) {
-    vector< vector<int> > ret;
+  vector<vector<int>> levelOrderBottom(TreeNode *root) {
+    vector<vector<int>> ret;
     if (!root)
       return ret;
-    queue<TreeNode*> queue;
+    queue<TreeNode *> queue;
     queue.push(root);
     while (!queue.empty()) {
       vector<int> tmp;
@@ -44,5 +43,4 @@ public:
 
     return ret;
   }
-
 };

@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/unique-paths-ii
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -12,7 +12,7 @@ public:
    * @param obstacleGrid: A list of lists of integers
    * @return: An integer
    */
-  int uniquePathsWithObstacles(vector<vector<int> > &obstacleGrid) {
+  int uniquePathsWithObstacles(vector<vector<int>> &obstacleGrid) {
     const int m = obstacleGrid.size();
     const int n = obstacleGrid[0].size();
     vector<vector<int>> path(m + 1, vector<int>(n + 1, 0));

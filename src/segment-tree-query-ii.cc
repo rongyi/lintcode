@@ -25,11 +25,11 @@ public:
     if (!root || start > end)
       return 0;
 
-    if(root->start > end || root->end < start) {
+    if (root->start > end || root->end < start) {
       return 0;
     }
 
-    if(root->start >= start && root->end <= end)
+    if (root->start >= start && root->end <= end)
       return root->count;
 
     return query(root->left, start, end) + query(root->right, start, end);

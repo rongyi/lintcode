@@ -4,19 +4,15 @@
 class Solution {
 public:
   char *m_pData;
-  Solution() {
-    this->m_pData = nullptr;
-  }
-  Solution(char *pData) {
-    this->m_pData = pData;
-  }
+  Solution() { this->m_pData = nullptr; }
+  Solution(char *pData) { this->m_pData = pData; }
 
   // Implement an assignment operator
   Solution operator=(const Solution &other) {
     if (this != &other) {
       char *new_char = nullptr;
       if (other.m_pData) {
-        new_char = new char[::strlen(other.m_pData) + 1];
+        new_char = new char[ ::strlen(other.m_pData) + 1];
         ::strcpy(new_char, other.m_pData);
       }
 

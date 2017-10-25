@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/copy-books
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -38,9 +38,9 @@ public:
       for (int j = i; j < m; j++) {
         int cur_min = std::numeric_limits<int>::max();
         for (int l = i; l <= j; l++) {
-          cur_min = std::min(cur_min,
-                             std::max(dp[i - 1][l - 1],
-                                      aux_books[j] - aux_books[l - 1]));
+          cur_min =
+              std::min(cur_min, std::max(dp[i - 1][l - 1],
+                                         aux_books[j] - aux_books[l - 1]));
           dp[i][j] = cur_min;
         }
       }

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/permutation-index-ii
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param A an integer array
    * @return a long integer
    */
-  long long permutationIndexII(vector<int>& nums) {
+  long long permutationIndexII(vector<int> &nums) {
     if (nums.empty())
       return 0;
 
@@ -39,6 +39,7 @@ public:
 
     return ret;
   }
+
 private:
   long long duplicate(const std::unordered_map<int, int> &dup_count) {
     if (dup_count.empty())

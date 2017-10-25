@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/recover-rotated-sorted-array
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,8 +32,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{4, 1, 2, 3};
   so.recoverRotatedSortedArray(test);

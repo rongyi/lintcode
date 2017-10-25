@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/spiral-matrix-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -68,8 +68,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.generateMatrix(3);
   for (auto vec : ret) {

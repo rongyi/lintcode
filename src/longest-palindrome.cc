@@ -1,7 +1,7 @@
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param s a string which consists of lowercase or uppercase letters
    * @return the length of the longest palindromes that can be built
    */
-  int longestPalindrome(string& s) {
+  int longestPalindrome(string &s) {
     std::unordered_map<char, int> stat;
     for (auto &c : s) {
       stat[c]++;

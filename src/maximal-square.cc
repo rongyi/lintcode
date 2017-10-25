@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/maximal-square
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @return: an integer
    dp: state[x][y] = 1 + min{state[x-1][y], state[x][y-1], state[x-1][y-1]}
    */
-  int maxSquare(vector<vector<int> > &matrix) {
+  int maxSquare(vector<vector<int>> &matrix) {
     if (matrix.empty())
       return 0;
     const int m = matrix.size();
@@ -34,7 +34,9 @@ public:
     for (int i = 1; i < m; i++) {
       for (int j = 1; j < n; j++) {
         if (state[i][j] != 0) {
-          state[i][j] = 1 + std::min(state[i - 1][j], std::min(state[i - 1][j - 1], state[i][j - 1]));
+          state[i][j] =
+              1 + std::min(state[i - 1][j],
+                           std::min(state[i - 1][j - 1], state[i][j - 1]));
           if (state[i][j] > ret)
             ret = state[i][j];
         }

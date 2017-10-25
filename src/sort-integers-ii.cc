@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/sort-integers-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param A an integer array
    * @return void
    */
-  void sortIntegers2(vector<int>& A) {
+  void sortIntegers2(vector<int> &A) {
     if (A.empty())
       return;
     quicksort(A, 0, A.size());
@@ -36,8 +36,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   vector<int> test{1, 2, 3, 9, 4, 5};
   Solution so;
   so.sortIntegers2(test);

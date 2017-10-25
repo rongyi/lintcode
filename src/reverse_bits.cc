@@ -1,7 +1,7 @@
-#include <vector>
+#include <bitset>
 #include <iostream>
 #include <string>
-#include <bitset>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -28,9 +28,7 @@ public:
   }
 };
 
-
-int main()
-{
+int main() {
   Solution so;
 
   int test = 43261596;

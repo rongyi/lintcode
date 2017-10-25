@@ -14,15 +14,14 @@ public:
    * @param head a ListNode
    * @return a ListNode
    */
-  ListNode* swapPairs(ListNode* head) {
+  ListNode *swapPairs(ListNode *head) {
     if (!head || !head->next)
       return head;
 
     ListNode dummy(-1);
     dummy.next = head;
 
-    for (ListNode *prev = &dummy, *cur = prev->next, *next = cur->next;
-         next;
+    for (ListNode *prev = &dummy, *cur = prev->next, *next = cur->next; next;
          prev = cur, cur = cur->next, next = cur ? cur->next : nullptr) {
       prev->next = next;
       cur->next = next->next;

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/ugly-number
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,8 +32,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.isUgly(33);
   cout << ret << endl;

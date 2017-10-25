@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/4sum
-#include <unordered_map>
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -19,7 +19,7 @@ public:
    * @return: Find all unique quadruplets in the array which gives the sum of
    *          zero.
    */
-  vector<vector<int> > fourSum(vector<int> nums, int target) {
+  vector<vector<int>> fourSum(vector<int> nums, int target) {
     vector<vector<int>> ret;
     if (nums.empty() || nums.size() <= 3)
       return ret;
@@ -41,7 +41,7 @@ public:
             cur_ret.push_back(nums[i]);
             cur_ret.push_back(nums[j]);
             cur_ret.push_back(nums[left]);
-            cur_ret.push_back(nums[            right]);
+            cur_ret.push_back(nums[right]);
             ret.push_back(cur_ret);
 
             left++;

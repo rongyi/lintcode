@@ -6,7 +6,7 @@ public:
    * @param s A string
    * @return whether the string is a valid parentheses
    */
-  bool isValidParentheses(string& s) {
+  bool isValidParentheses(string &s) {
     // Write your code here
     const string left = "([{";
     const string right = ")]}";
@@ -24,6 +24,5 @@ public:
       }
     }
     return stack.empty();
-
   }
 };

@@ -1,11 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/segment-tree-build
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
-
 
 class SegmentTreeNode {
 public:
@@ -17,14 +16,13 @@ public:
   }
 };
 
-
 class Solution {
 public:
   /**
    *@param start, end: Denote an segment / interval
    *@return: The root of Segment Tree
    */
-  SegmentTreeNode * build(int start, int end) {
+  SegmentTreeNode *build(int start, int end) {
     if (start > end) {
       return nullptr;
     }
@@ -38,5 +36,4 @@ public:
 
     return root;
   }
-
 };

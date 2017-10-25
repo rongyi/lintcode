@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/longest-increasing-continuous-subsequence
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param A an array of Integer
    * @return  an integer
    */
-  int longestIncreasingContinuousSubsequenceTLE(vector<int>& A) {
+  int longestIncreasingContinuousSubsequenceTLE(vector<int> &A) {
     if (A.empty())
       return 0;
     const int m = A.size();
@@ -50,7 +50,7 @@ public:
     return ret;
   }
 
-  int longestIncreasingContinuousSubsequence(vector<int>& A) {
+  int longestIncreasingContinuousSubsequence(vector<int> &A) {
     if (A.empty())
       return 0;
     int ret = 0;
@@ -76,8 +76,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{5, 4, 2, 1, 3};
   auto ret = so.longestIncreasingContinuousSubsequence(test);

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/flatten-list
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;

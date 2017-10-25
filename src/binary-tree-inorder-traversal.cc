@@ -15,7 +15,6 @@
 #include <vector>
 using namespace std;
 
-
 class TreeNode {
 public:
   int val;
@@ -37,6 +36,7 @@ public:
     inner(root, ret);
     return ret;
   }
+
 private:
   void inner(TreeNode *root, std::vector<int> &ret) {
     if (root) {

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/majority-number
-#include <vector>
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -25,8 +25,7 @@ public:
         count_map[nums[i]]++;
     }
     for (std::map<int, int>::const_iterator iter = count_map.begin();
-         iter != count_map.end();
-         iter++) {
+         iter != count_map.end(); iter++) {
       if (iter->second > size / 2)
         return iter->first;
     }

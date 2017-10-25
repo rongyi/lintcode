@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/scramble-string
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param s2 Another string
    * @return whether s2 is a scrambled string of s1
    */
-  bool isScrambleRecursiveVersion(string& s1, string& s2) {
+  bool isScrambleRecursiveVersion(string &s1, string &s2) {
     if (s1.size() != s2.size())
       return false;
 
@@ -36,13 +36,11 @@ public:
       auto s1sub2 = s1.substr(i);
       auto s2sub2 = s2.substr(i);
 
-      if (isScramble(s1sub1, s2sub1) &&
-          isScramble(s1sub2, s2sub2))
+      if (isScramble(s1sub1, s2sub1) && isScramble(s1sub2, s2sub2))
         return true;
       auto s2sub3 = s2.substr(s2.size() - i);
       auto s2sub4 = s2.substr(0, s2.size() - i);
-      if (isScramble(s1sub1, s2sub3) &&
-          isScramble(s1sub2, s2sub4))
+      if (isScramble(s1sub1, s2sub3) && isScramble(s1sub2, s2sub4))
         return true;
     }
 
@@ -55,9 +53,10 @@ public:
     初始条件：dp[1][i][j] = (s1[i] == s2[j] ? true : false)
 
     dp[k][i][j] = ( dp[div][i][j] && dp[k-div][i+div][j+div] )  ||
-    ( dp[div][i][j+k-div] && dp[k-div][i+div][j] ) (div = 1,2,3...k-1, 它表示子串分割点到子串起始端的距离)
+    ( dp[div][i][j+k-div] && dp[k-div][i+div][j] ) (div = 1,2,3...k-1,
+    它表示子串分割点到子串起始端的距离)
   */
-  bool isScramble(string& s1, string& s2) {
+  bool isScramble(string &s1, string &s2) {
     if (s1.size() != s2.size())
       return false;
 
@@ -65,7 +64,8 @@ public:
       return true;
 
     const int m = s1.size();
-    vector<vector<vector<bool>>> dp(m + 1, vector<vector<bool>>(m, vector<bool>(m, false)));
+    vector<vector<vector<bool>>> dp(
+        m + 1, vector<vector<bool>>(m, vector<bool>(m, false)));
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < m; j++) {
         dp[1][i][j] = s1[i] == s2[j] ? true : false;
@@ -76,8 +76,8 @@ public:
       for (int i = 0; i <= m - k; i++) {
         for (int j = 0; j <= m - k; j++) {
           for (int div = 1; div < k && !dp[k][i][j]; div++) {
-            dp[k][i][j] = (dp[div][i][j] && dp[k-div][i+div][j+div])
-              || (dp[div][i][j+k-div] && dp[k-div][i+div][j]);
+            dp[k][i][j] = (dp[div][i][j] && dp[k - div][i + div][j + div]) ||
+                          (dp[div][i][j + k - div] && dp[k - div][i + div][j]);
           }
         }
       }
@@ -87,8 +87,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string a("a");
   string b("a");

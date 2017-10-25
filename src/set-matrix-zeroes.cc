@@ -9,7 +9,7 @@ public:
    * @param matrix: A list of lists of integers
    * @return: Void
    */
-  void setZeroes(vector<vector<int> > &matrix) {
+  void setZeroes(vector<vector<int>> &matrix) {
     const size_t m = matrix.size();
     if (m == 0)
       return;
@@ -34,7 +34,6 @@ public:
           matrix[i][j] = 0;
         }
       }
-
     }
   }
 };

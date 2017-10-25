@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/combinations
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,7 +21,8 @@ public:
     combine(ret, cur, 1, n, k);
     return ret;
   }
-  void combine(vector<vector<int>> &ret, vector<int> cur, int index, int n, int k) {
+  void combine(vector<vector<int>> &ret, vector<int> cur, int index, int n,
+               int k) {
     if (cur.size() == k) {
       ret.push_back(cur);
       return;
@@ -34,8 +35,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.combine(4, 2);
   for (auto &v : ret) {

@@ -28,12 +28,12 @@ using std::stack;
 
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = NULL;
+  }
 };
 
 class BSTIterator {
@@ -47,12 +47,10 @@ public:
   }
 
   //@return: True if there has next node, or false
-  bool hasNext() {
-    return !s_.empty();
-  }
+  bool hasNext() { return !s_.empty(); }
 
   //@return: return next node
-  TreeNode* next() {
+  TreeNode *next() {
     TreeNode *cur = s_.top();
     s_.pop();
     TreeNode *ret = cur;
@@ -67,6 +65,7 @@ public:
 
     return ret;
   }
+
 private:
-  stack<TreeNode*> s_;
+  stack<TreeNode *> s_;
 };

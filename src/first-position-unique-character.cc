@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/first-position-unique-character
-#include <vector>
 #include <iostream>
-#include <string>
 #include <set>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -10,15 +10,13 @@ using std::endl;
 using std::string;
 using std::set;
 
-
-
 class Solution {
 public:
   /**
    * @param s a string
    * @return it's index
    */
-  int firstUniqChar(string& s) {
+  int firstUniqChar(string &s) {
     if (s.empty())
       return -1;
     std::set<char> aux;
@@ -27,7 +25,7 @@ public:
         continue;
       }
 
-      string sub = s.substr(i+1);
+      string sub = s.substr(i + 1);
       if (sub.find(s[i]) == string::npos) {
         return i;
       } else {
@@ -38,8 +36,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string t = "{{;;lintcodelintcode}}";
   auto index = so.firstUniqChar(t);

@@ -1,11 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/partition-equal-subset-sum
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
-#include <numeric>
+#include <iostream>
 #include <limits>
-
+#include <numeric>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,7 +17,7 @@ public:
    * @param nums a non-empty array only positive integers
    * @return return true if can partition or false
    */
-  bool canPartition(vector<int>& nums) {
+  bool canPartition(vector<int> &nums) {
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
     if (sum & 0x1)
       return false;
@@ -36,8 +35,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 5, 11, 5};
   auto ret = so.canPartition(test);

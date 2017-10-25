@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/median-of-two-sorted-arrays
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -27,14 +27,15 @@ public:
       return doFind(A.begin(), A.end(), B.begin(), B.end(), total / 2 + 1);
     } else {
       return (doFind(A.begin(), A.end(), B.begin(), B.end(), total / 2) +
-              doFind(A.begin(), A.end(), B.begin(), B.end(), total / 2 + 1)) / 2.0;
+              doFind(A.begin(), A.end(), B.begin(), B.end(), total / 2 + 1)) /
+             2.0;
     }
   }
+
 private:
   using Iter = vector<int>::const_iterator;
 
-  int doFind(Iter beginA, Iter endA, Iter beginB, Iter endB,
-             int k) {
+  int doFind(Iter beginA, Iter endA, Iter beginB, Iter endB, int k) {
     const int m = std::distance(beginA, endA);
     const int n = std::distance(beginB, endB);
     // make m is *always* smaller or equal than n
@@ -57,8 +58,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test1{2};
   vector<int> test2{};

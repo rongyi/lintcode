@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/reverse-pairs
-#include <vector>
 #include <algorithm>
+#include <vector>
 using std::vector;
 using std::sort;
 
@@ -23,14 +23,13 @@ public:
 
   //   return ret;
   // }
-  long long reversePairs(vector<int>& A) {
+  long long reversePairs(vector<int> &A) {
     // Get the place (position in the ascending order) of each number.
     vector<int> sorted_A(A), places(A.size());
     sort(sorted_A.begin(), sorted_A.end());
     for (int i = 0; i < A.size(); ++i) {
-      places[i] =
-        lower_bound(sorted_A.begin(), sorted_A.end(), A[i]) -
-        sorted_A.begin();
+      places[i] = lower_bound(sorted_A.begin(), sorted_A.end(), A[i]) -
+                  sorted_A.begin();
     }
     // Count the smaller elements after the number.
     long long count = 0;
@@ -43,13 +42,13 @@ public:
   }
 
 private:
-  void add(vector<int>& bit, int i, int val) {
+  void add(vector<int> &bit, int i, int val) {
     for (; i < bit.size(); i += lower_bit(i)) {
       bit[i] += val;
     }
   }
 
-  int query(const vector<int>& bit, int i) {
+  int query(const vector<int> &bit, int i) {
     int sum = 0;
     for (; i > 0; i -= lower_bit(i)) {
       sum += bit[i];
@@ -57,7 +56,5 @@ private:
     return sum;
   }
 
-  int lower_bit(int i) {
-    return i & -i;
-  }
+  int lower_bit(int i) { return i & -i; }
 };

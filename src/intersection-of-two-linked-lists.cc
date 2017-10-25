@@ -1,14 +1,12 @@
 // http://www.lintcode.com/zh-cn/problem/intersection-of-two-linked-lists
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
-
 
 // * Definition for singly-linked list.
 
@@ -43,7 +41,7 @@ public:
         pb = pb->next;
         step--;
       }
-    } else {                    // B list is the short list
+    } else { // B list is the short list
       while (step) {
         pa = pa->next;
         step--;

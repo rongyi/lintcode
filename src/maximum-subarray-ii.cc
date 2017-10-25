@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/maximum-subarray-ii
-#include <vector>
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,7 +21,6 @@ public:
 
     int ret = INT_MIN;
     const int n = nums.size();
-
 
     vector<int> left_max(n);
 

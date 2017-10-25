@@ -33,5 +33,4 @@ private:
     std::reverse(&nums[p + 1], &nums[end]);
     return true;
   }
-
 };

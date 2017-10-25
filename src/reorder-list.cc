@@ -27,7 +27,7 @@ public:
 
     while (fast && fast->next) {
       prev = slow;
-      slow  = slow->next;
+      slow = slow->next;
       fast = fast->next->next;
     }
     prev->next = nullptr; // 上半截列表的最后一个节点，从这里断开了

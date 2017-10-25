@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/hash-function
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param HASH_SIZE: An integer
    * @return an integer
    */
-  int hashCode(string key,int HASH_SIZE) {
+  int hashCode(string key, int HASH_SIZE) {
     if (key.empty())
       return 0;
     const int len = key.size();
@@ -29,8 +29,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   Solution so;
   auto ret = so.hashCode("abcd", 1000);
   cout << ret << endl;

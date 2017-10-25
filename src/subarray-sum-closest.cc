@@ -1,11 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/subarray-sum-closest
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
 #include <cctype>
 #include <climits>
-
+#include <iostream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -55,8 +54,7 @@ public:
   //   return ret;
   // }
 
-
-  vector<int> subarraySumClosest(vector<int> nums){
+  vector<int> subarraySumClosest(vector<int> nums) {
     vector<std::pair<int, int>> sum_lst;
     vector<int> ret;
 
@@ -86,12 +84,11 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{-3, 1, 1, -3, 5};
   auto ret = so.subarraySumClosest(test);
-  for (auto i:ret)
+  for (auto i : ret)
     cout << i << endl;
 
   return 0;

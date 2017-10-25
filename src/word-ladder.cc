@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/word-ladder
-#include <vector>
 #include <iostream>
+#include <queue>
 #include <string>
 #include <unordered_set>
-#include <queue>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -20,7 +20,8 @@ public:
    * @return an integer
    1. 将每个单词看成图的一个节点。
    2. 当单词s1改变一个字符可以变成存在于字典的单词s2时，则s1与s2之间有连接。
-   3. 给定s1和s2，问题I转化成了求在图中从s1->s2的最短路径长度。而问题II转化为了求所有s1->s2的最短路径。
+   3.
+   给定s1和s2，问题I转化成了求在图中从s1->s2的最短路径长度。而问题II转化为了求所有s1->s2的最短路径。
   */
   int ladderLength(string start, string end, unordered_set<string> &dict) {
     dict.insert(end);

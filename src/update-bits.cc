@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/update-bits
-#include <vector>
+#include <bitset>
 #include <iostream>
 #include <string>
-#include <bitset>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,8 +32,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   auto a = 1024;
   auto b = 21;
   Solution so;

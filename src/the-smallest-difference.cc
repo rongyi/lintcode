@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/the-smallest-difference
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <vector>
 using std::vector;
 
 class Solution {

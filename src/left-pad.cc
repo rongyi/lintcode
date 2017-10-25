@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/left-pad
-#include <string>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 using std::string;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param padChar the character to pad to the left side of the string
    * @return a string
    */
-  static string leftPad(string& originalStr, int size, char padChar=' ') {
+  static string leftPad(string &originalStr, int size, char padChar = ' ') {
     const int len = originalStr.length();
     // no need to padding
     if (len >= size) {

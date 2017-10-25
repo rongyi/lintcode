@@ -19,13 +19,15 @@ public:
    * @return: True if the binary tree is BST, or false
    */
   bool isValidBST(TreeNode *root) {
-    if (root == NULL) return true;
+    if (root == NULL)
+      return true;
 
     return helper(root, INT_MIN, INT_MAX);
   }
 
   bool helper(TreeNode *root, int lower, int upper) {
-    if (root == NULL) return true;
+    if (root == NULL)
+      return true;
 
     if (root->val <= lower || root->val >= upper) {
       bool right_max = root->val == INT_MAX && root->right == NULL;
@@ -39,5 +41,4 @@ public:
 
     return isLeftValidBST && isRightValidBST;
   }
-
 };

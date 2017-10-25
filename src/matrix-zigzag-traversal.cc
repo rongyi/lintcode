@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/matrix-ret-traversal
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -39,8 +39,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   vector<vector<int>> test{vector<int>{1, 2}};
   Solution so;
   auto ret = so.printZMatrix(test);

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/partition-array
 
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -22,7 +22,7 @@ public:
         begin++;
       } else if (nums[end] >= k) {
         end--;
-      } else {                  // swap
+      } else { // swap
         std::swap(nums[begin++], nums[end--]);
       }
     }
@@ -30,8 +30,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   vector<int> test{7, 7, 9, 8, 6, 6, 8, 7, 9, 8, 6, 6};
   Solution so;
   auto ret = so.partitionArray(test, 10);

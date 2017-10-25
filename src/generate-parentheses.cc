@@ -1,8 +1,8 @@
-//http://www.lintcode.com/zh-cn/problem/generate-parentheses/
-#include <vector>
+// http://www.lintcode.com/zh-cn/problem/generate-parentheses/
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -26,12 +26,14 @@ public:
     vector<string> ret;
     vector<string> path;
     if (n > 0) {
-      generate(n ,path, ret, 0, 0);
+      generate(n, path, ret, 0, 0);
     }
     return ret;
   }
+
 private:
-  void generate(int n, vector<string> &path, vector<string> &ret, int l, int r) {
+  void generate(int n, vector<string> &path, vector<string> &ret, int l,
+                int r) {
     if (l == n) {
       // 这里copy出来，为的是和下面的pop_back对应
       auto cp = path;
@@ -71,8 +73,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.generateParenthesis(3);
   for (auto &s : ret)

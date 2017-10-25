@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/remove-duplicates-from-sorted-array-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -28,8 +28,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 2, 2, 3, 3, 3};
   auto ret = so.removeDuplicates(test);

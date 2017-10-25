@@ -4,10 +4,11 @@ class Solution {
 public:
   /**
    * @param numbers : Give an array numbers of n integer
-   * @return : Find all unique triplets in the array which gives the sum of zero.
+   * @return : Find all unique triplets in the array which gives the sum of
+   * zero.
    */
-  vector<vector<int> > threeSum(vector<int> &nums) {
-    vector<vector<int> > ret;
+  vector<vector<int>> threeSum(vector<int> &nums) {
+    vector<vector<int>> ret;
     if (nums.size() < 3)
       return ret;
     // sort
@@ -24,7 +25,7 @@ public:
       while (j < k) {
         if (*i + *j + *k < target) {
           ++j;
-          while (*j == *(j  - 1) && j < k)
+          while (*j == *(j - 1) && j < k)
             ++j;
         } else if (*i + *j + *k > target) {
           --k;

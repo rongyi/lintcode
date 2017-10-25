@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/backpack-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -26,7 +26,8 @@ public:
         if (j - A[i - 1] < 0)
           ret[i][j] = ret[i - 1][j];
         else
-          ret[i][j] = std::max(ret[i - 1][j], ret[i - 1][j - A[i - 1]] + V[i - 1]);
+          ret[i][j] =
+              std::max(ret[i - 1][j], ret[i - 1][j - A[i - 1]] + V[i - 1]);
       }
     }
 

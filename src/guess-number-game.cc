@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/guess-number-game
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -10,7 +10,8 @@ using std::string;
 
 // Forward declaration of guess API.
 // @param num, your guess
-// @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+// @return -1 if my number is lower, 1 if my number is higher, otherwise return
+// 0
 int guess(int num);
 
 int guess(int num) {
@@ -48,8 +49,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   so.guessNumber(2147483647);
 

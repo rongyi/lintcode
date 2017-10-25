@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/previous-permutation
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,6 +21,7 @@ public:
 
     return doPermute(nums);
   }
+
 private:
   vector<int> doPermute(vector<int> &nums) {
     const int m = nums.size();
@@ -41,8 +42,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 3, 2};
   auto ret = so.previousPermuation(test);

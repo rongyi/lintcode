@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/merge-two-sorted-arrays
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;

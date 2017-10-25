@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/topological-sorting
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,21 +21,18 @@ using std::unordered_map;
 struct DirectedGraphNode {
   int label;
   vector<DirectedGraphNode *> neighbors;
-  DirectedGraphNode(int x) : label(x) {};
+  DirectedGraphNode(int x) : label(x){};
 };
 
 class Solution {
 public:
-  Solution() :
-    in_degree_cout_() {
-    in_degree_cout_.clear();
-  }
+  Solution() : in_degree_cout_() { in_degree_cout_.clear(); }
   /**
    * @param graph: A list of Directed graph node
    * @return: Any topological order for the given graph.
    */
-  vector<DirectedGraphNode*> topSort(vector<DirectedGraphNode*> graph) {
-    vector<DirectedGraphNode*> ret;
+  vector<DirectedGraphNode *> topSort(vector<DirectedGraphNode *> graph) {
+    vector<DirectedGraphNode *> ret;
 
     calculateInDegree(graph);
 
@@ -48,8 +45,9 @@ public:
 
     return ret;
   }
+
 private:
-  void calculateInDegree(const vector<DirectedGraphNode*> &graph) {
+  void calculateInDegree(const vector<DirectedGraphNode *> &graph) {
     for (auto dgn : graph) {
       for (auto cur_neighbor : dgn->neighbors) {
         if (in_degree_cout_.find(cur_neighbor) == in_degree_cout_.end()) {
@@ -61,7 +59,7 @@ private:
     }
   }
 
-  void dfs(DirectedGraphNode* node, vector<DirectedGraphNode*> &ret) {
+  void dfs(DirectedGraphNode *node, vector<DirectedGraphNode *> &ret) {
     ret.push_back(node);
     // eliminate reentrance
     in_degree_cout_[node]--;
@@ -76,5 +74,5 @@ private:
   }
 
 private:
-  unordered_map<DirectedGraphNode*, int> in_degree_cout_;
+  unordered_map<DirectedGraphNode *, int> in_degree_cout_;
 };

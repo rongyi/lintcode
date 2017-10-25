@@ -1,15 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/convert-expression-to-reverse-polish-notation
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 using std::stack;
-
 
 namespace detail {
 
@@ -26,7 +25,7 @@ class Expression {
 public:
   // caller be aware!!
   // call build/free in pair
-  ExpressionTreeNode* build(vector<string> &expression) {
+  ExpressionTreeNode *build(vector<string> &expression) {
     for (auto &enigma : expression) {
       ExpressionTreeNode *node = new ExpressionTreeNode(enigma);
 
@@ -43,7 +42,8 @@ public:
         break;
       case '*':
       case '/':
-        while (!op_.empty() && (op_.top()->symbol[0] == '*' || op_.top()->symbol[0] == '/')) {
+        while (!op_.empty() &&
+               (op_.top()->symbol[0] == '*' || op_.top()->symbol[0] == '/')) {
           eval();
         }
         op_.push(node);
@@ -98,6 +98,7 @@ public:
 
     acc.push_back(root->symbol);
   }
+
 private:
   void eval() {
     auto opnode = op_.top();
@@ -114,6 +115,7 @@ private:
 
     number_.push(opnode);
   }
+
 private:
   stack<ExpressionTreeNode *> op_;
   stack<ExpressionTreeNode *> number_;
@@ -139,11 +141,11 @@ public:
   detail::Expression expression_;
 };
 
-int main()
-{
+int main() {
   Solution so;
 
-  vector<string> input{"2","-","6","*","(","23","+","7",")","/","(","1","+","2",")"};
+  vector<string> input{"2", "-", "6", "*", "(", "23", "+", "7",
+                       ")", "/", "(", "1", "+", "2",  ")"};
   auto ret = so.convertToRPN(input);
   for (auto s : ret)
     cout << s << endl;

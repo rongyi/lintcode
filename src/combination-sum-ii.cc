@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/combination-sum-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param target: Given the target number
    * @return: All the combinations that sum to target
    */
-  vector<vector<int> > combinationSum2(vector<int> &num, int target) {
+  vector<vector<int>> combinationSum2(vector<int> &num, int target) {
     vector<int> cur_vec;
     std::sort(num.begin(), num.end());
     vector<vector<int>> ret;
@@ -25,8 +25,10 @@ public:
 
     return ret;
   }
+
 private:
-  void dfs2(vector<vector<int>> &ret, vector<int> &num, vector<int> &cur_vec, int cur_index, int target) {
+  void dfs2(vector<vector<int>> &ret, vector<int> &num, vector<int> &cur_vec,
+            int cur_index, int target) {
     if (target < 0)
       return;
     else if (target == 0) {

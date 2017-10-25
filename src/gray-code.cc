@@ -22,7 +22,5 @@ public:
   }
 
 private:
-  unsigned int binary_to_gray(unsigned int n) {
-    return n ^ (n >> 1);
-  }
+  unsigned int binary_to_gray(unsigned int n) { return n ^ (n >> 1); }
 };

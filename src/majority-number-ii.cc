@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/majority-number-ii
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,9 +32,7 @@ public:
       }
     }
 
-    for (auto iter = count_map.cbegin();
-         iter != count_map.cend();
-         iter++) {
+    for (auto iter = count_map.cbegin(); iter != count_map.cend(); iter++) {
       if (iter->second > pivot)
         return iter->first;
     }
@@ -42,10 +40,9 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<int> test{99,2,99,2,99,3,3};
+  vector<int> test{99, 2, 99, 2, 99, 3, 3};
   auto ret = so.majorityNumber(test);
   cout << ret << endl;
   return 0;

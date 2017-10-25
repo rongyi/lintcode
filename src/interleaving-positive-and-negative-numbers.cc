@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/interleaving-positive-and-negative-numbers
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
   void rerange(vector<int> &A) {
     std::vector<int> postive;
     std::vector<int> negtive;
-    for (auto i: A) {
+    for (auto i : A) {
       if (i > 0)
         postive.push_back(i);
       else
@@ -39,10 +39,10 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   Solution so;
-  vector<int> test{28,2,-22,-27,2,9,-33,-4,-18,26,25,34,-35,-17,2,-2,32,35,-8};
+  vector<int> test{28, 2,  -22, -27, 2, 9,  -33, -4, -18, 26,
+                   25, 34, -35, -17, 2, -2, 32,  35, -8};
   so.rerange(test);
   return 0;
 }

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/cosine-similarity
-#include <vector>
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <vector>
 
 using std::vector;
 using std::cout;

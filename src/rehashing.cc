@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/rehashing
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -37,13 +37,13 @@ public:
    * @param hashTable: A list of The first node of linked list
    * @return: A list of The first node of linked list which have twice size
    */
-  vector<ListNode*> rehashing(vector<ListNode*> hashTable) {
-    auto hash = [] (int key, int capacity) -> int {
+  vector<ListNode *> rehashing(vector<ListNode *> hashTable) {
+    auto hash = [](int key, int capacity) -> int {
       return (key % capacity + capacity) % capacity;
       // return key % capacity;
     };
 
-    vector<ListNode*> ret;
+    vector<ListNode *> ret;
     const int kOriginSize = hashTable.size();
     const int kCurrentSize = kOriginSize * 2;
     if (kOriginSize == 0)
@@ -61,7 +61,7 @@ public:
     return ret;
   }
 
-  void insertList(vector<ListNode*> &hashTable, int index, ListNode *node) {
+  void insertList(vector<ListNode *> &hashTable, int index, ListNode *node) {
     ListNode *cur_head = hashTable[index];
     if (!cur_head) {
       hashTable[index] = node;

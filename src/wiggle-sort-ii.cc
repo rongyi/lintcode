@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/wiggle-sort-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param nums a list of integer
    * @return void
    */
-  void wiggleSort(vector<int>& nums) {
+  void wiggleSort(vector<int> &nums) {
     vector<int> tmp = nums;
     std::sort(tmp.begin(), tmp.end());
     const int n = nums.size();
@@ -27,8 +27,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{3, 5, 2, 1, 6, 4};
   so.wiggleSort(test);

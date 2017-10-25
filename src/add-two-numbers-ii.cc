@@ -1,13 +1,12 @@
 // http://www.lintcode.com/zh-cn/problem/add-two-numbers-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 /**
  * Definition for singly-linked list.
@@ -24,8 +23,6 @@ struct ListNode {
   ListNode(int x) : val(x), next(NULL) {}
 };
 
-
-
 class Solution {
 public:
   /**
@@ -36,7 +33,6 @@ public:
   ListNode *addLists2(ListNode *l1, ListNode *l2) {
     return reverse(addLists(reverse(l1), reverse(l2)));
   }
-
 
 private:
   ListNode *reverse(ListNode *head) {
@@ -64,14 +60,12 @@ private:
     int carry = 0;
     ListNode *prev = &dummy;
 
-    for (ListNode *pa = l1, *pb = l2;
-         pa != nullptr || pb != nullptr;
+    for (ListNode *pa = l1, *pb = l2; pa != nullptr || pb != nullptr;
          pa = pa == nullptr ? nullptr : pa->next,
-           pb = pb == nullptr ? nullptr : pb->next,
-           prev = prev->next) {
+                  pb = pb == nullptr ? nullptr : pb->next, prev = prev->next) {
       const int ai = pa == nullptr ? 0 : pa->val;
       const int bi = pb == nullptr ? 0 : pb->val;
-      const int value  = (ai + bi + carry) % 10;
+      const int value = (ai + bi + carry) % 10;
       carry = (ai + bi + carry) / 10;
       prev->next = new ListNode(value);
     }
@@ -80,5 +74,4 @@ private:
 
     return dummy.next;
   }
-
 };

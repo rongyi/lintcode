@@ -13,14 +13,13 @@
  * }
  */
 
-
 class Solution {
   /**
    * @param root: The root of binary tree.
    * @return: Level order a list of lists of integer
    */
 public:
-  vector<vector<int> > levelOrder(TreeNode *root) {
+  vector<vector<int>> levelOrder(TreeNode *root) {
     vector<vector<int>> ret;
     traverse(root, 1, ret);
     return ret;
@@ -37,5 +36,4 @@ private:
     traverse(root->left, level + 1, ret);
     traverse(root->right, level + 1, ret);
   }
-
 };

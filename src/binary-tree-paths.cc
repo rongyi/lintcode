@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/binary-tree-paths/
 class Solution {
 public:
-  vector<string> binaryTreePaths(TreeNode* root) {
+  vector<string> binaryTreePaths(TreeNode *root) {
     // vector<string> ret;
     // help(root, "", ret);
     // return ret;
@@ -19,18 +19,19 @@ public:
 
     return str_ret;
   }
+
 private:
   /**
    * @param root the root of the binary tree
    * @return all root-to-leaf paths
    */
-  vector<vector<int>> __binaryTreePaths(TreeNode* root) {
-    vector<vector<int> > ret;
+  vector<vector<int>> __binaryTreePaths(TreeNode *root) {
+    vector<vector<int>> ret;
     vector<int> cur;
     help(root, cur, ret);
     return ret;
   }
-  void help(TreeNode *root, vector<int> &cur, vector<vector<int> > &ret) {
+  void help(TreeNode *root, vector<int> &cur, vector<vector<int>> &ret) {
     if (!root)
       return;
     cur.push_back(root->val);
@@ -38,9 +39,9 @@ private:
       ret.push_back(cur);
     }
     if (root->left)
-        help(root->left, cur, ret);
+      help(root->left, cur, ret);
     if (root->right)
-        help(root->right, cur, ret);
+      help(root->right, cur, ret);
     cur.pop_back();
   }
 };

@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/kth-largest-element
-#include <vector>
-#include <iostream>
-#include <string>
-#include <queue>
 #include <algorithm>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -34,8 +34,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{9, 3, 2, 4, 8};
   auto ret = so.kthLargestElement(3, test);

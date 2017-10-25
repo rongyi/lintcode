@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/search-range-in-binary-search-tree
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -38,7 +38,7 @@ public:
    * @param k1 and k2: range k1 to k2.
    * @return: Return all keys that k1<=key<=k2 in ascending order.
    */
-  vector<int> searchRange(TreeNode* root, int k1, int k2) {
+  vector<int> searchRange(TreeNode *root, int k1, int k2) {
     vector<int> all_nodes = inorderTraversal(root);
     vector<int> ret;
     for (auto i : all_nodes) {
@@ -49,6 +49,7 @@ public:
 
     return ret;
   }
+
 private:
   vector<int> inorderTraversal(TreeNode *root) {
     std::vector<int> ret;

@@ -14,7 +14,7 @@ public:
       if (cur.length() == max_len) {
         // max_len = cur.length();
         ret.push_back(cur);
-      } else if (cur.length() > max_len){
+      } else if (cur.length() > max_len) {
         ret.clear();
         max_len = cur.length();
         ret.push_back(cur);

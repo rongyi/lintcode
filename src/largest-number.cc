@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/largest-number
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
+#include <iostream>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -41,7 +41,7 @@ public:
     if (ret == 0)
       return "0";
     vector<string> ret_lst;
-    for (auto i: num) {
+    for (auto i : num) {
       ret_lst.push_back(std::to_string(i));
     }
     std::sort(ret_lst.begin(), ret_lst.end(), cmp);
@@ -55,8 +55,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 20, 23, 4, 8};
   auto ret = so.largestNumber(test);

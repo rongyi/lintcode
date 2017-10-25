@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/maximum-gap
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -61,10 +61,9 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<int> test{3,2,1,4,3};
+  vector<int> test{3, 2, 1, 4, 3};
   auto ret = so.maximumGapBruteForce(test);
   cout << ret << endl;
   return 0;

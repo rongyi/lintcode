@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/system-longest-file-path
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param input an abstract file system
    * @return return the length of the longest absolute path to file
    */
-  int lengthLongestPath(string& input) {
+  int lengthLongestPath(string &input) {
     vector<int> path(input.size() + 2, 0);
     int ret = 0;
 
@@ -41,7 +41,8 @@ public:
 public:
   /* like python split
   */
-  inline void split(const char delim, const std::string &input, std::vector<std::string> &output) {
+  inline void split(const char delim, const std::string &input,
+                    std::vector<std::string> &output) {
     if (input.empty())
       return;
 
@@ -69,8 +70,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string test("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext");
   auto ret = so.lengthLongestPath(test);

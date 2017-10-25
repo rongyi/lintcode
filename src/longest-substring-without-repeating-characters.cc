@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/longest-substring-without-repeating-characters
-#include <vector>
-#include <iostream>
-#include <string>
-#include <map>
 #include <cstring>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -40,8 +40,7 @@ q p x r j x k l t z y x
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.lengthOfLongestSubstring("abcabcdefg");
   cout << ret << endl;

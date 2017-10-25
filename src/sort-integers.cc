@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/sort-integers
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @return void
    * using select sort
    */
-  void sortIntegers(vector<int>& A) {
+  void sortIntegers(vector<int> &A) {
     if (A.empty())
       return;
     const int len = A.size();
@@ -35,8 +35,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   vector<int> test{3, 2, 1, 4, 5};
   Solution so;
   so.sortIntegers(test);

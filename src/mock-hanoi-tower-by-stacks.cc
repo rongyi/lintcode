@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/mock-hanoi-tower-by-stacks
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -43,9 +43,7 @@ public:
     }
   }
 
-  stack<int> getDisks() {
-    return disks_;
-  }
+  stack<int> getDisks() { return disks_; }
 
 private:
   stack<int> disks_;

@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/data-stream-median
-#include <vector>
-#include <iostream>
-#include <string>
-#include <queue>
 #include <algorithm>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -42,16 +42,15 @@ public:
         }
       }
 
-      ret.emplace_back(min_heap.size() == max_heap.size() ?
-                       max_heap.top() : min_heap.top());
+      ret.emplace_back(min_heap.size() == max_heap.size() ? max_heap.top()
+                                                          : min_heap.top());
     }
 
     return ret;
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 3, 2, 9, 7};
   so.medianII(test);

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/find-the-missing-number
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using std::vector;
 
 class Solution {

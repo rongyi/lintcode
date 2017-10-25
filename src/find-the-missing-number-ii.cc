@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/find-the-missing-number-ii
 
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -11,7 +11,6 @@ using std::string;
 
 class Solution {
 public:
-
   Solution() : ret_(-1) {}
   /**
    * @param n an integer
@@ -19,7 +18,7 @@ public:
    *            random order and miss one number
    * @return an integer
    */
-  int findMissing2(int n, string& str) {
+  int findMissing2(int n, string &str) {
     vector<bool> visited(n + 1, false);
     dfs(n, str, 0, visited);
 
@@ -51,6 +50,7 @@ public:
       }
     }
   }
+
 private:
   int atoi(const string &s, int start, int len) {
     return ::atoi(s.substr(start, len).c_str());
@@ -60,8 +60,7 @@ private:
   int ret_;
 };
 
-int main()
-{
+int main() {
   Solution so;
   string input("12131415161819201234568910117");
   auto i = so.findMissing2(20, input);

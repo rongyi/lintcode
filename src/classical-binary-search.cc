@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/classical-binary-search
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param target an integer
    * @return an integer
    */
-  int findPosition(vector<int>& a, int target) {
+  int findPosition(vector<int> &a, int target) {
     if (a.empty())
       return -1;
     const int len = a.size();
@@ -37,8 +37,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   auto so = Solution();
   vector<int> test{1, 2, 2, 4, 5, 5};
   auto ret = so.findPosition(test, 2);

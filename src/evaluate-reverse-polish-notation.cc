@@ -6,7 +6,7 @@ public:
    * @param tokens The Reverse Polish Notation
    * @return the value
    */
-  int evalRPN(vector<string>& tokens) {
+  int evalRPN(vector<string> &tokens) {
     // Write your code here
     stack<string> s;
 
@@ -30,12 +30,11 @@ public:
       }
     }
     return std::stoi(s.top());
-
   }
+
 private:
   bool is_operator(const string &op) {
     static string valid_op("+-*/");
     return op.size() == 1 && valid_op.find(op) != string::npos;
   }
-
 };

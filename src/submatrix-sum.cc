@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/submatrix-sum
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param matrix an integer matrix
    * @return the coordinate of the left-up and right-down number
    */
-  vector<vector<int>> submatrixSum(vector<vector<int>>& matrix) {
+  vector<vector<int>> submatrixSum(vector<vector<int>> &matrix) {
     vector<vector<int>> ret;
     if (matrix.empty() || matrix[0].empty())
       return ret;
@@ -49,8 +49,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<vector<int>> input{{1, 5, 7}, {3, 7, -8}, {4, -8, 9}};
   auto ret = so.submatrixSum(input);

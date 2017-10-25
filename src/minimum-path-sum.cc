@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-path-sum
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param grid: a list of lists of integers.
    * @return: An integer, minimizes the sum of all numbers along its path
    */
-  int minPathSum(vector<vector<int> > &grid) {
+  int minPathSum(vector<vector<int>> &grid) {
     if (grid.empty())
       return 0;
     const int m = grid.size();
@@ -34,15 +34,15 @@ public:
 
     for (int i = 1; i < m; i++) {
       for (int j = 1; j < n; j++) {
-        dp[i][j] = std::min(dp[i - 1][j] + grid[i][j], dp[i][j - 1] + grid[i][j]);
+        dp[i][j] =
+            std::min(dp[i - 1][j] + grid[i][j], dp[i][j - 1] + grid[i][j]);
       }
     }
 
     return dp[m - 1][n - 1];
   }
 };
-int main()
-{
+int main() {
   Solution so;
   vector<vector<int>> test{{1, 2}, {1, 1}};
   auto ret = so.minPathSum(test);

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/two-sum-input-array-is-sorted
 
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -37,8 +37,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   vector<int> test{2, 7, 11, 15};
   Solution so;
   auto ret = so.twoSum(test, 9);

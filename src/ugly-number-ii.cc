@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/ugly-number-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -44,8 +44,7 @@ public:
     return ugly_lst[n - 1];
   }
 };
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.nthUglyNumber(9);
   cout << ret << endl;

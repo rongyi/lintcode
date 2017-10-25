@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/triangle-count
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -38,9 +38,7 @@ public:
   }
 };
 
-
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{4, 4, 4, 4};
   auto ret = so.triangleCount(test);

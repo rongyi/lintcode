@@ -1,11 +1,11 @@
 // http://www.lintcode.com/zh-cn/problem/expression-expand
-#include <vector>
+#include <algorithm>
+#include <cctype>
 #include <iostream>
+#include <sstream>
 #include <stack>
 #include <string>
-#include <algorithm>
-#include <sstream>
-#include <cctype>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -19,7 +19,7 @@ public:
    * @param s  an expression includes numbers, letters and brackets
    * @return a string
    */
-  string expressionExpand(string& s) {
+  string expressionExpand(string &s) {
     std::stringstream ss;
     stack<char> aux;
 
@@ -61,8 +61,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string test("10[a]dy");
   auto ret = so.expressionExpand(test);

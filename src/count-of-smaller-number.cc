@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/count-of-smaller-number
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;

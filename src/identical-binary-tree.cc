@@ -17,13 +17,14 @@ public:
    * @aaram a, b, the root of binary trees.
    * @return true if they are identical, or false.
    */
-  bool isIdentical(TreeNode* a, TreeNode* b) {
+  bool isIdentical(TreeNode *a, TreeNode *b) {
     if (!a && b)
       return false;
     if (!b && a)
       return false;
     if (!a && !b)
       return true;
-    return (a->val == b->val && isIdentical(a->left, b->left) && isIdentical(a->right, b->right));
+    return (a->val == b->val && isIdentical(a->left, b->left) &&
+            isIdentical(a->right, b->right));
   }
 };

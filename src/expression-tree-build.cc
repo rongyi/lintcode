@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/expression-tree-build
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -37,9 +37,10 @@ public:
   /**
    * @param expression: A string array
    * @return: The root of expression tree
-   for any calculator problems, keep 2 stacks: 1 for operators and 1 for operands
+   for any calculator problems, keep 2 stacks: 1 for operators and 1 for
+   operands
    */
-  ExpressionTreeNode* build(vector<string> &expression) {
+  ExpressionTreeNode *build(vector<string> &expression) {
     for (auto &enigma : expression) {
       ExpressionTreeNode *node = new ExpressionTreeNode(enigma);
 
@@ -56,7 +57,8 @@ public:
         break;
       case '*':
       case '/':
-        while (!op_.empty() && (op_.top()->symbol[0] == '*' || op_.top()->symbol[0] == '/')) {
+        while (!op_.empty() &&
+               (op_.top()->symbol[0] == '*' || op_.top()->symbol[0] == '/')) {
           eval();
         }
         op_.push(node);
@@ -81,6 +83,7 @@ public:
 
     return number_.top();
   }
+
 private:
   void eval() {
     auto opnode = op_.top();
@@ -97,14 +100,15 @@ private:
 
     number_.push(opnode);
   }
+
 private:
   stack<ExpressionTreeNode *> op_;
   stack<ExpressionTreeNode *> number_;
 };
-int main()
-{
+int main() {
   Solution so;
-  vector<string> input{"2","-","6","*","(","23","+","7",")","/","(","1","+","2",")"};
+  vector<string> input{"2", "-", "6", "*", "(", "23", "+", "7",
+                       ")", "/", "(", "1", "+", "2",  ")"};
   auto ret = so.build(input);
 
   return 0;

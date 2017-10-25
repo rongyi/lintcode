@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/rotate-words
-#include <unordered_set>
-#include <vector>
+#include <bitset>
 #include <iostream>
 #include <string>
-#include <bitset>
+#include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,7 +18,7 @@ public:
   */
   int countRotateWords(vector<string> words) {
     std::unordered_set<string> set;
-    for (auto &s: words) {
+    for (auto &s : words) {
       set.insert(s);
     }
     cout << set.size() << endl;
@@ -27,7 +27,7 @@ public:
       if (set.find(s) == set.end()) {
         continue;
       }
-      for (unsigned i = 1; i < s.length(); i++ ) {
+      for (unsigned i = 1; i < s.length(); i++) {
         auto r = rotate(s, i);
         auto it = set.find(r);
         // special case equal to s, so we exclude it
@@ -51,8 +51,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<string> input{"abba", "abab", "baba", "abab", "baba", "bbaa", "aabb"};
   auto ret = so.countRotateWords(input);

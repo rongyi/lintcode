@@ -21,7 +21,7 @@ public:
    * @param head a ListNode
    * @return a boolean
    */
-  bool isPalindrome(ListNode* head) {
+  bool isPalindrome(ListNode *head) {
     if (!head || !head->next)
       return true;
     ListNode *slow = head;

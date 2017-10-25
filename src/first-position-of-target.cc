@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/first-position-of-target
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -24,11 +24,11 @@ public:
       const int mid = start + (end - start) / 2;
       if (array[mid] < target) {
         start = mid + 1;
-      } else if (array[mid] > target){
+      } else if (array[mid] > target) {
         end = mid - 1;
       } else {
         int j = mid;
-        for (; j >=0 && array[j] == array[mid]; --j) {
+        for (; j >= 0 && array[j] == array[mid]; --j) {
           ;
         }
         return j + 1;
@@ -38,9 +38,8 @@ public:
   }
 };
 
-int main()
-{
-  vector<int> test{3,4,5,8,8,8,8,10,13,14};
+int main() {
+  vector<int> test{3, 4, 5, 8, 8, 8, 8, 10, 13, 14};
   Solution so;
   auto ret = so.binarySearch(test, 8);
   cout << ret << endl;

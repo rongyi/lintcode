@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/paint-house-ii
-#include <vector>
 #include <iostream>
-#include <string>
 #include <limits>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @return an integer, the minimum cost to paint all houses
    # this version will time exceed!!
    */
-  int minCostIITimeoutVersion(vector<vector<int>>& costs) {
+  int minCostIITimeoutVersion(vector<vector<int>> &costs) {
     const int m = costs.size();
     if (m == 0)
       return 0;
@@ -52,7 +52,7 @@ public:
 
     return value;
   }
-  int minCostII(vector<vector<int>>& costs) {
+  int minCostII(vector<vector<int>> &costs) {
     if (costs.empty() || costs[0].empty())
       return 0;
     vector<vector<int>> dp = costs;

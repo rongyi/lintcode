@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/shape-factory
 
-#include <string>
 #include <iostream>
+#include <string>
 
 using std::string;
 using std::cout;
@@ -15,10 +15,10 @@ using std::endl;
  */
 class Shape {
 public:
-  virtual void draw() const=0;
+  virtual void draw() const = 0;
 };
 
-class Rectangle: public Shape {
+class Rectangle : public Shape {
   void draw() const {
     cout << " ----" << endl;
     cout << "|    |" << endl;
@@ -26,7 +26,7 @@ class Rectangle: public Shape {
   }
 };
 
-class Square: public Shape {
+class Square : public Shape {
   void draw() const {
     cout << " ----" << endl;
     cout << "|    |" << endl;
@@ -35,7 +35,7 @@ class Square: public Shape {
   }
 };
 
-class Triangle: public Shape {
+class Triangle : public Shape {
   void draw() const {
     cout << "  /\\" << endl;
     cout << " /  \\" << endl;
@@ -49,7 +49,7 @@ public:
    * @param shapeType a string
    * @return Get object of type Shape
    */
-  Shape* getShape(string& shapeType) {
+  Shape *getShape(string &shapeType) {
     if (shapeType == "Square") {
       Shape *ret = new Square();
       return ret;
@@ -62,8 +62,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   ShapeFactory sf;
   string t("Square");
   auto s = sf.getShape(t);

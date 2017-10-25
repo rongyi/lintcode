@@ -8,10 +8,10 @@
  * };
  */
 
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -20,9 +20,9 @@ using std::string;
 using std::unordered_map;
 
 struct UndirectedGraphNode {
-    int label;
-    vector<UndirectedGraphNode *> neighbors;
-    UndirectedGraphNode(int x) : label(x) {};
+  int label;
+  vector<UndirectedGraphNode *> neighbors;
+  UndirectedGraphNode(int x) : label(x){};
 };
 
 class Solution {
@@ -32,12 +32,14 @@ public:
    * @return: A undirected graph node
    */
   UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
-    unordered_map<int, UndirectedGraphNode*> aux_map;
+    unordered_map<int, UndirectedGraphNode *> aux_map;
 
     return doClone(node, aux_map);
   }
 
-  UndirectedGraphNode *doClone(UndirectedGraphNode *node, unordered_map<int, UndirectedGraphNode*> &save_map) {
+  UndirectedGraphNode *
+  doClone(UndirectedGraphNode *node,
+          unordered_map<int, UndirectedGraphNode *> &save_map) {
     if (!node)
       return nullptr;
 

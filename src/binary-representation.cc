@@ -1,10 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/binary-representation
-#include <vector>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <unordered_set>
 #include <algorithm>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -64,7 +64,8 @@ public:
       double d = std::stod("0." + decimal_part);
 
       while (d > 0) {
-        if (binary_dec.size() > 32 || decimal_set.find(d) != decimal_set.end()) {
+        if (binary_dec.size() > 32 ||
+            decimal_set.find(d) != decimal_set.end()) {
           return "ERROR";
         }
         decimal_set.insert(d);
@@ -92,8 +93,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.binaryRepresentation("28187281.128121212121");
   cout << ret << endl;

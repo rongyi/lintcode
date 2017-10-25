@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/word-break
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -37,8 +37,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   unordered_set<string> test_set;
   test_set.insert("lint");

@@ -1,14 +1,13 @@
 // http://www.lintcode.com/zh-cn/problem/dices-sum
-#include <vector>
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class Solution {
 public:
@@ -56,8 +55,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.dicesSum(15);
   for (auto p : ret)

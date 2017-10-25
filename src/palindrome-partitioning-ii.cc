@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/palindrome-partitioning-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,8 @@ public:
    * @return an integer
    按照分割回文串去实现，找出最小的分割次数超时。
    改为用动态规划去实现。设置一个数组2boolean维数组isPd[  ][  ]
-   isPd[ i ][ j ] = true 表示字符串s[ i , j ]是回文串，isPd[ i ][ j ]  = false 表示字符串s[ i ][ j ]不是回文串。也用动态规划去生成
+   isPd[ i ][ j ] = true 表示字符串s[ i , j ]是回文串，isPd[ i ][ j ]  = false
+   表示字符串s[ i ][ j ]不是回文串。也用动态规划去生成
 
    再用dp[i] 表示0..i之间的最小分割数
   */
@@ -59,8 +60,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.minCut("ab");
   cout << ret << endl;

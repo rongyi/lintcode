@@ -8,8 +8,8 @@ public:
    */
   vector<string> anagrams(vector<string> &strs) {
     // write your code here
-    unordered_map<string, vector<string> > group;
-    for (const auto &s :strs) {
+    unordered_map<string, vector<string>> group;
+    for (const auto &s : strs) {
       string key = s;
       std::sort(key.begin(), key.end());
       group[key].push_back(s);
@@ -21,6 +21,5 @@ public:
         ret.insert(ret.end(), it->second.begin(), it->second.end());
     }
     return ret;
-
   }
 };

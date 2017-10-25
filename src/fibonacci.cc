@@ -1,6 +1,6 @@
 // http://www.lintcode.com/zh-cn/problem/fibonacci/
 
-class Solution{
+class Solution {
 public:
   /**
    * @param n: an integer

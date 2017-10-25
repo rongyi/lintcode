@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/binary-tree-path-sum
 
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -22,7 +22,6 @@ using std::string;
  * }
  */
 
-
 class TreeNode {
 public:
   int val;
@@ -32,7 +31,6 @@ public:
     this->left = this->right = nullptr;
   }
 };
-
 
 class Solution {
 public:
@@ -51,6 +49,7 @@ public:
 
     return ret;
   }
+
 private:
   int getSum(vector<int> path) {
     int sum = 0;
@@ -60,7 +59,8 @@ private:
     return sum;
   }
 
-  void dfs(vector<vector<int>> &ret, vector<int> cur_sum_lst, const TreeNode *cur_node, const int target) {
+  void dfs(vector<vector<int>> &ret, vector<int> cur_sum_lst,
+           const TreeNode *cur_node, const int target) {
     cur_sum_lst.push_back(cur_node->val);
     if (cur_node->left == nullptr && cur_node->right == nullptr) {
       if (getSum(cur_sum_lst) == target) {

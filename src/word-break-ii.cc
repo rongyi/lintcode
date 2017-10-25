@@ -1,16 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/word-break-ii
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 using std::unordered_set;
-
-
 
 class Solution {
 public:
@@ -19,7 +17,7 @@ public:
     vector<bool> f(s.length() + 1, false);
     // prev[i][j]为true，表示s[j, i)是一个合法单词，可以从j处切开
     // 第一行未用
-    vector<vector<bool> > prev(s.length() + 1, vector<bool>(s.length()));
+    vector<vector<bool>> prev(s.length() + 1, vector<bool>(s.length()));
     f[0] = true;
     for (size_t i = 1; i <= s.length(); ++i) {
       for (int j = i - 1; j >= 0; --j) {
@@ -38,10 +36,11 @@ public:
     gen_path(s, prev, s.length(), path, ret);
     return ret;
   }
+
 private:
   // DFS遍历树，生成路径
-  void gen_path(const string &s, const vector<vector<bool> > &prev,
-                int cur, vector<string> &path, vector<string> &ret) {
+  void gen_path(const string &s, const vector<vector<bool>> &prev, int cur,
+                vector<string> &path, vector<string> &ret) {
     // 找到头了，这时候将path添加到ret
     if (cur == 0) {
       string tmp;
@@ -63,8 +62,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string test{"lintcode"};
   std::unordered_set<string> dict{"lint", "code", "co", "de"};

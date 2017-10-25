@@ -46,8 +46,8 @@ public:
     } while (!s.empty());
 
     return ret;
-
   }
+
 private:
   void inner(TreeNode *root, vector<int> &ret) {
     if (!root)

@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/best-time-to-buy-and-sell-stock-iv
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -39,6 +39,7 @@ public:
 
     return global[m - 1][k];
   }
+
 private:
   int unlimited(const vector<int> &prices) {
     int ret = 0;

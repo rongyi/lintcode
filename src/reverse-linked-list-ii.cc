@@ -33,7 +33,7 @@ public:
     for (int i = 0; i < m - 1; ++i) {
       prev = prev->next;
     }
-    ListNode * const head2 = prev;
+    ListNode *const head2 = prev;
 
     prev = head2->next;
     ListNode *cur = prev->next;

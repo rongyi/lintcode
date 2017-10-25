@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/interval-sum
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;

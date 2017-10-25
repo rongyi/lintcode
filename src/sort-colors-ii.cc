@@ -1,27 +1,25 @@
 // http://www.lintcode.com/zh-cn/problem/sort-colors-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-class Solution{
+class Solution {
 public:
   /**
    * @param colors: A list of integer
    * @param k: An integer
    * @return: nothing
    */
-  void sortColors2(vector<int> &colors, int k) {
-    sortIntegers(colors);
-  }
+  void sortColors2(vector<int> &colors, int k) { sortIntegers(colors); }
 
 private:
   // selected sort from ./sort-integers.cc
-  void sortIntegers(vector<int>& A) {
+  void sortIntegers(vector<int> &A) {
     if (A.empty())
       return;
     const int len = A.size();

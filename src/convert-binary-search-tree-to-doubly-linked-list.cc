@@ -1,6 +1,5 @@
 // http://www.lintcode.com/zh-cn/problem/convert-binary-search-tree-to-doubly-linked-list
 
-
 /**
  * Definition of TreeNode:
  * class TreeNode {
@@ -43,7 +42,6 @@ public:
   }
 };
 
-
 class Solution {
 public:
   Solution() : head_(nullptr), return_(nullptr) {}
@@ -52,14 +50,14 @@ public:
    * @return: the head of doubly list node
    */
   typedef void (*visitor)(const TreeNode *root);
-  DoublyListNode* bstToDoublyList(TreeNode* root) {
+  DoublyListNode *bstToDoublyList(TreeNode *root) {
     inorder(root);
     return return_;
   }
   ~Solution() {
     while (return_) {
       delete return_;
-      DoublyListNode *next = return_ ->next;
+      DoublyListNode *next = return_->next;
       return_ = next;
     }
   }

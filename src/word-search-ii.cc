@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/word-search-ii
-#include <vector>
+#include <cstring>
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,9 +15,7 @@ using std::unordered_set;
 namespace detail {
 struct TrieNode {
   static const int NUM = 26;
-  TrieNode () : is_leaf_(false){
-    std::memset(node_, 0, sizeof(node_));
-  }
+  TrieNode() : is_leaf_(false) { std::memset(node_, 0, sizeof(node_)); }
 
   bool HasNoChild() const {
     for (auto p : node_) {
@@ -33,9 +31,7 @@ struct TrieNode {
 
 class Trie {
 public:
-  Trie() {
-    root = new TrieNode();
-  }
+  Trie() { root = new TrieNode(); }
 
   // Inserts a word into the trie.
   void insert(string word) {
@@ -70,18 +66,18 @@ public:
     if (level == word.size())
       return root->is_leaf_;
     const char cur = std::tolower(word[level]);
-    return root->node_[cur - 'a'] && search(word, root->node_[cur - 'a'], level + 1);
+    return root->node_[cur - 'a'] &&
+           search(word, root->node_[cur - 'a'], level + 1);
   }
   bool start(const string &word, TrieNode *root, unsigned level) {
     if (level == word.size())
       return root != nullptr;
     const char cur = std::tolower(word[level]);
-    return root->node_[cur - 'a'] && start(word, root->node_[cur - 'a'], level + 1);
+    return root->node_[cur - 'a'] &&
+           start(word, root->node_[cur - 'a'], level + 1);
   }
 
-  ~Trie() {
-    do_delete(root);
-  }
+  ~Trie() { do_delete(root); }
 
 private:
   void do_delete(TrieNode *root) {
@@ -99,7 +95,7 @@ private:
       root = nullptr;
     }
   }
-  TrieNode* root;
+  TrieNode *root;
 };
 } // namespace detail
 
@@ -110,7 +106,7 @@ public:
    * @param words: A list of string
    * @return: A list of string
    */
-  vector<string> wordSearchII(vector<vector<char> > &board,
+  vector<string> wordSearchII(vector<vector<char>> &board,
                               vector<string> &words) {
     vector<string> ret;
     if (board.empty() || board[0].empty() || words.empty())
@@ -140,22 +136,18 @@ public:
         s.pop_back();
       }
     }
-    for (auto & w : uret)
+    for (auto &w : uret)
       ret.push_back(w);
     return ret;
   }
 
+  void search(string &word, const vector<vector<char>> &board, int i, int j,
+              vector<vector<bool>> &visited, unordered_set<string> &uret) {
 
-  void search(string &word,
-              const vector<vector<char>> &board,
-              int i, int j,
-              vector<vector<bool>> &visited,
-              unordered_set<string> &uret) {
-
-    auto isBoundaryValid = [](int cur_row, int cur_col, int row_size, int col_size, vector<vector<bool>> &visited) {
-      if (cur_row < 0 || cur_col < 0 ||
-          cur_row == row_size || cur_col == col_size ||
-          visited[cur_row][cur_col] == true) {
+    auto isBoundaryValid = [](int cur_row, int cur_col, int row_size,
+                              int col_size, vector<vector<bool>> &visited) {
+      if (cur_row < 0 || cur_col < 0 || cur_row == row_size ||
+          cur_col == col_size || visited[cur_row][cur_col] == true) {
         return false;
       }
       return true;
@@ -172,7 +164,8 @@ public:
     for (int cur_dicrection = 0; cur_dicrection < 4; cur_dicrection++) {
       next_x = i + dx[cur_dicrection];
       next_y = j + dy[cur_dicrection];
-      if (isBoundaryValid(next_x, next_y, board.size(), board[0].size(), visited)) {
+      if (isBoundaryValid(next_x, next_y, board.size(), board[0].size(),
+                          visited)) {
         word.push_back(board[next_x][next_y]);
         if (trie_.search(word))
           uret.insert(word);
@@ -190,14 +183,13 @@ private:
   detail::Trie trie_;
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<char> row1{'a', 'b', 'c', 'e'};
   vector<char> row2{'s', 'f', 'c', 's'};
   vector<char> row3{'a', 'd', 'e', 'e'};
   vector<vector<char>> test{row1, row2, row3};
-  vector<string> words{"as","ab","cf","da","ee","e","adee","eeda"};
+  vector<string> words{"as", "ab", "cf", "da", "ee", "e", "adee", "eeda"};
 
   auto ret = so.wordSearchII(test, words);
   for (auto s : ret)

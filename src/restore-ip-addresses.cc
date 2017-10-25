@@ -1,14 +1,13 @@
-//http://www.lintcode.com/zh-cn/problem/restore-ip-addresses/
-#include <vector>
+// http://www.lintcode.com/zh-cn/problem/restore-ip-addresses/
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
 
 class Solution {
 public:
@@ -17,7 +16,7 @@ public:
    * @return All possible valid IP addresses
    * a brute force solution
    */
-  vector<string> restoreIpAddressesLame(const string& s) {
+  vector<string> restoreIpAddressesLame(const string &s) {
     std::vector<std::string> ret;
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -28,7 +27,8 @@ public:
           std::string second = s.substr(i + 1, 1 + j);
           std::string third = s.substr(i + j + 2, 1 + k);
           std::string fourth = s.substr(k + 1 + i + j + 2);
-          // std::cout << first << "." << second << "." << third << "." << fourth << std::endl;
+          // std::cout << first << "." << second << "." << third << "." <<
+          // fourth << std::endl;
           int firsti = ::atoi(first.c_str());
           int secondi = ::atoi(second.c_str());
           int thirdi = ::atoi(third.c_str());
@@ -41,13 +41,10 @@ public:
             continue;
           if (fourth.length() > 1 && fourth[0] == '0')
             continue;
-          if (firsti >= 0 && firsti <= 255 && secondi >= 0 && secondi <= 255
-              && thirdi >= 0 && thirdi <= 255 && fourthi >= 0 && fourthi <= 255) {
+          if (firsti >= 0 && firsti <= 255 && secondi >= 0 && secondi <= 255 &&
+              thirdi >= 0 && thirdi <= 255 && fourthi >= 0 && fourthi <= 255) {
             std::stringstream ss;
-            ss << first << "."
-               << second << "."
-               << third << "."
-               << fourth;
+            ss << first << "." << second << "." << third << "." << fourth;
             ret.push_back(ss.str());
           }
         }
@@ -63,6 +60,7 @@ public:
     dfs(s, ip, ret, 0);
     return ret;
   }
+
 private:
   void dfs(string &s, vector<string> &ip, vector<string> &ret, int start) {
     if (ip.size() == 4 && start == s.length()) {
@@ -87,8 +85,7 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   string test{"25525511135"};
   auto ret = so.restoreIpAddresses(test);

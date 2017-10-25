@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/construct-binary-tree-from-preorder-and-inorder-traversal
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -44,16 +44,14 @@ public:
 
     TreeNode *ret = nullptr;
 
-    doBuild(ret, preorder, inorder,
-            0, 0, inorder.size());
+    doBuild(ret, preorder, inorder, 0, 0, inorder.size());
 
     return ret;
   }
+
 private:
-  void doBuild(TreeNode * &root, vector<int> &preorder, vector<int> &inorder,
-               int pre_index,
-               int in_index,
-               int in_size) {
+  void doBuild(TreeNode *&root, vector<int> &preorder, vector<int> &inorder,
+               int pre_index, int in_index, int in_size) {
     if (in_index >= in_size)
       return;
     root = new TreeNode(preorder[pre_index]);
@@ -64,8 +62,8 @@ private:
         break;
       }
     }
-    doBuild(root->left, preorder, inorder,
-            pre_index + 1, in_index, cur_in_size);
+    doBuild(root->left, preorder, inorder, pre_index + 1, in_index,
+            cur_in_size);
     doBuild(root->right, preorder, inorder,
             pre_index + cur_in_size - in_index + 1, cur_in_size + 1, in_size);
   }

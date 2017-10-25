@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/jump-game-ii
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -30,8 +30,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   vector<int> input{2, 3, 1, 1, 4};
   Solution so;
   auto ret = so.jump(input);

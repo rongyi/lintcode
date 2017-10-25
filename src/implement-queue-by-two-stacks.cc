@@ -12,9 +12,7 @@ public:
     // do intialization if necessary
   }
 
-  void push(int element) {
-    stack1.push(element);
-  }
+  void push(int element) { stack1.push(element); }
 
   int pop() {
     if (!stack2.empty()) {

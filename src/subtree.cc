@@ -1,22 +1,21 @@
 // http://www.lintcode.com/zh-cn/problem/subtree
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-
 class TreeNode {
 public:
-    int val;
-    TreeNode *left, *right;
-    TreeNode(int val) {
-        this->val = val;
-        this->left = this->right = NULL;
-    }
+  int val;
+  TreeNode *left, *right;
+  TreeNode(int val) {
+    this->val = val;
+    this->left = this->right = NULL;
+  }
 };
 
 class Solution {
@@ -44,7 +43,8 @@ public:
     //   } else if (t1->right == nullptr && t2->right == nullptr) { // no right
     //     return isSubtree(t1->left, t2->left);
     //   } else if (t1->left && t2->left && t1->right && t2->right) { // has all
-    //     return isSubtree(t1->left, t2->left) && isSubtree(t1->right, t2->right);
+    //     return isSubtree(t1->left, t2->left) && isSubtree(t1->right,
+    //     t2->right);
     //   }
     //   return false;
     // }
@@ -53,9 +53,9 @@ public:
     dfs(t1, t2);
     return ret_;
   }
-private:
 
-  bool check(TreeNode * t1, TreeNode *t2) {
+private:
+  bool check(TreeNode *t1, TreeNode *t2) {
     if (t1 == nullptr && t2 != nullptr)
       return false;
     if (t1 != nullptr && t2 == nullptr)

@@ -13,7 +13,8 @@ public:
       return vector<int>{-1, -1};
 
     const int l = distance(A.begin(), lower_bound(A.begin(), A.end(), target));
-    const int u = distance(A.begin(), prev(upper_bound(A.begin(), A.end(), target)));
+    const int u =
+        distance(A.begin(), prev(upper_bound(A.begin(), A.end(), target)));
 
     if (A[l] != target)
       return vector<int>{-1, -1};

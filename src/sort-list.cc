@@ -17,13 +17,14 @@ public:
       slow = slow->next;
     }
     fast = slow;
-    slow = slow->next; // now slow is the bottom half list's header
+    slow = slow->next;    // now slow is the bottom half list's header
     fast->next = nullptr; // split action
     ListNode *l1 = sortList(head);
     ListNode *l2 = sortList(slow);
 
     return mergeTwoLists(l1, l2);
   }
+
 private:
   ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
     if (!l1)

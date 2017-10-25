@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/binary-tree-maximum-node
 
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -26,7 +26,7 @@ public:
    * @param root the root of binary tree
    * @return the max node
    */
-  TreeNode* maxNode(TreeNode* root) {
+  TreeNode *maxNode(TreeNode *root) {
     if (!root) {
       return nullptr;
     }
@@ -51,8 +51,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   TreeNode n1(1), n5(-5), n0(0), n3(3);
   n1.left = &n5;
   n5.left = &n0;

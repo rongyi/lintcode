@@ -9,7 +9,7 @@ public:
    * @param ratings Children's ratings
    * @return the minimum candies you must give
    */
-  int candy(vector<int>& ratings) {
+  int candy(vector<int> &ratings) {
     const int n = ratings.size();
     vector<int> increment(n);
     for (int i = 1, inc = 1; i < n; i++) {
@@ -22,7 +22,7 @@ public:
       if (ratings[i] > ratings[i + 1])
         increment[i] = std::max(inc++, increment[i]);
       else
-        inc  = 1;
+        inc = 1;
     }
     return std::accumulate(&increment[0], &increment[0] + n, n);
   }

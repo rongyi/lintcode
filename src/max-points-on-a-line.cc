@@ -1,16 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/max-points-on-a-line
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 using std::unordered_map;
-
 
 /**
  * Definition for a point.
@@ -34,7 +33,7 @@ public:
    * @param points an array of point
    * @return an integer
    */
-  int maxPoints(vector<Point>& points) {
+  int maxPoints(vector<Point> &points) {
     if (points.size() < 3)
       return points.size();
     int ret = 0;
@@ -56,7 +55,8 @@ public:
           }
           slope = std::numeric_limits<double>::infinity();
         } else {
-          slope = 1.0 * (points[i].y - points[j].y) / (points[i].x - points[j].x);
+          slope =
+              1.0 * (points[i].y - points[j].y) / (points[i].x - points[j].x);
         }
 
         int count = 0;
@@ -74,5 +74,4 @@ public:
     }
     return ret;
   }
-
 };

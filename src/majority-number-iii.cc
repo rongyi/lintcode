@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/majority-number-iii
-#include <vector>
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -33,9 +33,7 @@ public:
       else
         ++aux[i];
     }
-    for (auto iter = aux.cbegin();
-         iter != aux.cend();
-         iter++) {
+    for (auto iter = aux.cbegin(); iter != aux.cend(); iter++) {
       if (iter->second > pivot)
         return iter->first;
     }
@@ -43,10 +41,9 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
-  vector<int> test{2,2,5,1};
+  vector<int> test{2, 2, 5, 1};
   auto ret = so.majorityNumber(test, 3);
   cout << ret << endl;
   return 0;

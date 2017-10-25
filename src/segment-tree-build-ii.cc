@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/segment-tree-build-ii
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -42,7 +42,7 @@ public:
    *@param A: a list of integer
    *@return: The root of Segment Tree
    */
-  SegmentTreeNode * build(vector<int>& nums) {
+  SegmentTreeNode *build(vector<int> &nums) {
     if (nums.empty())
       return nullptr;
 
@@ -55,12 +55,12 @@ public:
       return new SegmentTreeNode(start, start, nums[start]);
     }
 
-    SegmentTreeNode *root = new SegmentTreeNode(start, end, std::numeric_limits<int>::min());
+    SegmentTreeNode *root =
+        new SegmentTreeNode(start, end, std::numeric_limits<int>::min());
     const int mid = start + (end - start) / 2;
     root->left = build(nums, start, mid);
     root->right = build(nums, mid + 1, end);
-    root->max = std::max(root->left->max,
-                         root->right->max);
+    root->max = std::max(root->left->max, root->right->max);
 
     return root;
   }

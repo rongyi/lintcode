@@ -1,10 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/building-outline
-#include <vector>
-#include <iostream>
-#include <string>
-#include <set>
 #include <algorithm>
+#include <iostream>
 #include <map>
+#include <set>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -38,17 +38,20 @@ public:
         else
           ret[ret.size() - 1][1] = cur;
       }
-      for (auto x : start_[cur]) heap_.insert(x);
-      for (auto x : end_[cur]) heap_.erase(heap_.find(x));
+      for (auto x : start_[cur])
+        heap_.insert(x);
+      for (auto x : end_[cur])
+        heap_.erase(heap_.find(x));
       pre = cur;
     }
 
     return ret;
   }
+
 private:
   std::set<int> points_;
 
-  std::map<int,vector<int>> start_;
+  std::map<int, vector<int>> start_;
   std::map<int, vector<int>> end_;
 
   multiset<int> heap_;

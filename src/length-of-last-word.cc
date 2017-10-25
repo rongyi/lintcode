@@ -6,7 +6,7 @@ public:
    * @param s A string
    * @return the length of last word
    */
-  int lengthOfLastWord(string& str) {
+  int lengthOfLastWord(string &str) {
     // Write your code here
     const char *s = str.c_str();
     int len = 0;
@@ -18,7 +18,5 @@ public:
         len = 0;
     }
     return len;
-
-
   }
 };

@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/n-queens
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -28,6 +28,7 @@ public:
 
     return ret;
   }
+
 private:
   void dfs(vector<vector<string>> &ret, vector<int> &queen_col_vec, int row) {
     const int N = queen_col_vec.size();
@@ -49,9 +50,8 @@ private:
     }
 
     for (int j = 0; j < N; ++j) {
-      const bool ok = columns_[j] == 0 &&
-        main_diag_[row + j] == 0 &&
-        anti_diag_[row - j + N] == 0;
+      const bool ok = columns_[j] == 0 && main_diag_[row + j] == 0 &&
+                      anti_diag_[row - j + N] == 0;
 
       if (!ok)
         continue;
@@ -65,6 +65,7 @@ private:
       columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 0;
     }
   }
+
 private:
   vector<int> columns_;
   vector<int> main_diag_;

@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/maximum-average-subarray
-#include <vector>
-#include <iostream>
-#include <string>
-#include <limits>
 #include <algorithm>
+#include <iostream>
+#include <limits>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -17,7 +17,7 @@ public:
    * @param k an integer
    * @return the maximum average
    */
-  double maxAverage(vector<int>& nums, int k) {
+  double maxAverage(vector<int> &nums, int k) {
     double l = std::numeric_limits<double>::max();
     double r = std::numeric_limits<double>::min();
     const int n = nums.size();
@@ -60,8 +60,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{5, -10, 4};
   auto ret = so.maxAverage(test, 2);

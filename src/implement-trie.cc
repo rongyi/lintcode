@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/implement-trie
-#include <vector>
+#include <cstring>
 #include <iostream>
 #include <string>
-#include <cstring>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,9 +18,7 @@ using std::string;
  */
 struct TrieNode {
   static const int NUM = 26;
-  TrieNode () : is_leaf_(false){
-    std::memset(node_, 0, sizeof(node_));
-  }
+  TrieNode() : is_leaf_(false) { std::memset(node_, 0, sizeof(node_)); }
 
   bool HasNoChild() const {
     for (auto p : node_) {
@@ -36,9 +34,7 @@ struct TrieNode {
 
 class Trie {
 public:
-  Trie() {
-    root = new TrieNode();
-  }
+  Trie() { root = new TrieNode(); }
 
   // Inserts a word into the trie.
   void insert(string word) {
@@ -73,18 +69,18 @@ public:
     if (level == word.size())
       return root->is_leaf_;
     const char cur = std::tolower(word[level]);
-    return root->node_[cur - 'a'] && search(word, root->node_[cur - 'a'], level + 1);
+    return root->node_[cur - 'a'] &&
+           search(word, root->node_[cur - 'a'], level + 1);
   }
   bool start(const string &word, TrieNode *root, unsigned level) {
     if (level == word.size())
       return root != nullptr;
     const char cur = std::tolower(word[level]);
-    return root->node_[cur - 'a'] && start(word, root->node_[cur - 'a'], level + 1);
+    return root->node_[cur - 'a'] &&
+           start(word, root->node_[cur - 'a'], level + 1);
   }
 
-  ~Trie() {
-    do_delete(root);
-  }
+  ~Trie() { do_delete(root); }
 
 private:
   void do_delete(TrieNode *root) {
@@ -102,11 +98,10 @@ private:
       root = nullptr;
     }
   }
-  TrieNode* root;
+  TrieNode *root;
 };
 
-int main()
-{
+int main() {
   Trie wd;
   wd.insert("lintcode");
   auto ret = wd.search("lintcode");

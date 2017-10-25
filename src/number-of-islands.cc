@@ -9,7 +9,7 @@ public:
    * @param grid a boolean 2D matrix
    * @return an integer
    */
-  int numIslands(vector<vector<bool>>& grid) {
+  int numIslands(vector<vector<bool>> &grid) {
     if (grid.empty() || grid[0].empty()) {
       return 0;
     }
@@ -23,11 +23,11 @@ public:
           // 清楚其相邻的岛屿
           search(grid, i, j);
         }
-
       }
     }
     return count;
   }
+
 private:
   void search(vector<vector<bool>> &grid, int i, int j) {
     const int m = grid.size();

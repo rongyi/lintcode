@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/min-stack
-#include <vector>
 #include <iostream>
-#include <string>
 #include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -42,6 +42,7 @@ public:
       return -1;
     return min_stack_.top();
   }
+
 private:
   std::stack<int> min_stack_;
   std::stack<int> normal_stack_;

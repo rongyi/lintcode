@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/strings-homomorphism
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -41,7 +41,7 @@ public:
     std::sort(sc.begin(), sc.end());
     std::sort(tc.begin(), tc.end());
 
-    for (int i = 0 ; i < sc.size(); ++i) {
+    for (int i = 0; i < sc.size(); ++i) {
       if (sc[i] != tc[i])
         return false;
     }

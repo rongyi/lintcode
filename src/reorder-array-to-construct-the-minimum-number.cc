@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/reorder-array-to-construct-the-minimum-number
-#include <vector>
-#include <iostream>
-#include <string>
 #include <algorithm>
+#include <iostream>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -16,7 +16,7 @@ public:
    * @param nums n non-negative integer array
    * @return a string
    */
-  string minNumber(vector<int>& nums) {
+  string minNumber(vector<int> &nums) {
     auto cmp = [](int i, int j) {
       auto si = std::to_string(i);
       auto sj = std::to_string(j);
@@ -37,8 +37,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{0};
   auto ret = so.minNumber(test);

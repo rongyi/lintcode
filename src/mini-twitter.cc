@@ -1,10 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/mini-twitter
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -49,9 +49,7 @@ public:
     }
   };
 
-  MiniTwitter() :
-    timeline_(0) {
-  }
+  MiniTwitter() : timeline_(0) {}
 
   // @param user_id an integer
   // @param tweet a string
@@ -106,7 +104,7 @@ public:
   // @param user_id an integer
   // return a list of 10 new posts recently
   // and sort by timeline
-  vector<Tweet>  getTimeline(int user_id) {
+  vector<Tweet> getTimeline(int user_id) {
     vector<Tweet> ret;
     if (user_twits_.find(user_id) == user_twits_.end())
       return ret;
@@ -126,7 +124,8 @@ public:
   // from user_id follows to_user_id
   void follow(int from_user_id, int to_user_id) {
     if (follow_dict_.find(from_user_id) == follow_dict_.end()) {
-      follow_dict_.insert(std::make_pair(from_user_id, std::unordered_set<int>()));
+      follow_dict_.insert(
+          std::make_pair(from_user_id, std::unordered_set<int>()));
     }
 
     follow_dict_[from_user_id].insert(to_user_id);
@@ -140,16 +139,20 @@ public:
     if (follow_dict_.find(from_user_id) == follow_dict_.end())
       return;
 
-    // If the key is not present in the set, 0 is returned indicating that no element was removed.
+    // If the key is not present in the set, 0 is returned indicating that no
+    // element was removed.
     follow_dict_[from_user_id].erase(to_user_id);
   }
+
 private:
-  vector<TweetWithTimeline> lastn(vector<TweetWithTimeline> &input, int n=10) {
+  vector<TweetWithTimeline> lastn(vector<TweetWithTimeline> &input,
+                                  int n = 10) {
     const int m = input.size();
     int len = std::min(n, m);
 
     return vector<TweetWithTimeline>(input.end() - len, input.end());
   }
+
 private:
   unordered_map<int, unordered_set<int>> follow_dict_;
   unordered_map<int, vector<TweetWithTimeline>> user_twits_;

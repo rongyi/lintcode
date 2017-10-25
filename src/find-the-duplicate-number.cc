@@ -1,7 +1,7 @@
 // http://www.lintcode.com/zh-cn/problem/find-the-duplicate-number
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ public:
    * @param nums an array containing n + 1 integers which is between 1 and n
    * @return the duplicate one
    */
-  int findDuplicate(vector<int>& nums) {
+  int findDuplicate(vector<int> &nums) {
     int low = 1;
     int high = nums.size() - 1;
     while (low < high) {
@@ -36,8 +36,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{5, 5, 4, 3, 2, 1};
   auto ret = so.findDuplicate(test);

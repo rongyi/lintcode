@@ -1,9 +1,9 @@
 // http://www.lintcode.com/zh-cn/problem/reverse-words-in-a-string
-#include <vector>
 #include <iostream>
-#include <string>
-#include <stack>
 #include <sstream>
+#include <stack>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -53,8 +53,7 @@ public:
   }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
   string test("the sky is blue");
   Solution so;
   auto ret = so.reverseWords(test);

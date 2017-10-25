@@ -8,8 +8,7 @@ public:
    */
   int singleNumber(vector<int> &A) {
     int ret = 0;
-    for (vector<int>::const_iterator iter = A.begin();
-         iter != A.end();
+    for (vector<int>::const_iterator iter = A.begin(); iter != A.end();
          iter++) {
       ret ^= (*iter);
     }

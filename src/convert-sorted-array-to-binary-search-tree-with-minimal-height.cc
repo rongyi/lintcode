@@ -21,8 +21,9 @@ public:
   TreeNode *sortedArrayToBST(vector<int> &A) {
     return sortedArrayToBST(A.begin(), A.end());
   }
-  template<typename RandomAccessIterator>
-  TreeNode *sortedArrayToBST(RandomAccessIterator first, RandomAccessIterator last) {
+  template <typename RandomAccessIterator>
+  TreeNode *sortedArrayToBST(RandomAccessIterator first,
+                             RandomAccessIterator last) {
     const auto length = distance(first, last);
     if (length <= 0)
       return nullptr;
@@ -33,5 +34,4 @@ public:
 
     return root;
   }
-
 };

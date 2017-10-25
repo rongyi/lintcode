@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/reverse-integer
-#include <vector>
+#include <climits>
 #include <iostream>
 #include <string>
-#include <climits>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -34,8 +34,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   auto ret = so.reverseInteger(0);
   cout << ret << endl;

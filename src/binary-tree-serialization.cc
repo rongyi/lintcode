@@ -1,16 +1,15 @@
 // http://www.lintcode.com/zh-cn/problem/binary-tree-serialization
-#include <vector>
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <queue>
+#include <sstream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 using std::queue;
-
 
 class TreeNode {
 public:
@@ -143,7 +142,8 @@ private:
   }
   /* like python split
    */
-  inline void split(const char delim, const std::string &input, std::vector<std::string> &output) {
+  inline void split(const char delim, const std::string &input,
+                    std::vector<std::string> &output) {
     if (input.empty())
       return;
 
@@ -171,9 +171,7 @@ private:
   }
 };
 
-
-int main()
-{
+int main() {
   Solution so;
   TreeNode n1(1), n2(2), n3(3), n4(4);
   n1.left = &n2;

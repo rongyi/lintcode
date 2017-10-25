@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/two-strings-are-anagrams
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -27,8 +27,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   cout << so.anagram("abcd", "dbca") << endl;
   return 0;

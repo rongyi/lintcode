@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/triangle
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -15,7 +15,7 @@ public:
    * @param triangle: a list of lists of integers.
    * @return: An integer, minimum path sum.
    */
-  int minimumTotal(vector<vector<int> > &triangle) {
+  int minimumTotal(vector<vector<int>> &triangle) {
     if (triangle.empty())
       return 0;
     if (triangle.size() == 1)
@@ -35,7 +35,9 @@ public:
         } else if (i == cur_vec.size() - 1) {
           dp[cur_level][i] = cur_vec[i] + dp[cur_level - 1][i - 1];
         } else {
-          dp[cur_level][i] = std::min(dp[cur_level - 1][i - 1], dp[cur_level - 1][i]) + cur_vec[i];
+          dp[cur_level][i] =
+              std::min(dp[cur_level - 1][i - 1], dp[cur_level - 1][i]) +
+              cur_vec[i];
         }
       }
     }

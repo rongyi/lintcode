@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/divide-two-integers
-#include <vector>
 #include <iostream>
-#include <string>
 #include <limits>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -19,7 +19,7 @@ public:
   int divide(int dividend, int divisor) {
     if (divisor == 0)
       return -1;
-    if(dividend == std::numeric_limits<int>::min() && divisor==-1)
+    if (dividend == std::numeric_limits<int>::min() && divisor == -1)
       return std::numeric_limits<int>::max();
 
     int sign = 1;
@@ -37,7 +37,8 @@ public:
     // while (num >= diver) {
     //   num -= diver;
     //   if (std::numeric_limits<int>::max() - 1 == ret) {
-    //     return sign > 0 ? std::numeric_limits<int>::max() : std::numeric_limits<int>::min();
+    //     return sign > 0 ? std::numeric_limits<int>::max() :
+    //     std::numeric_limits<int>::min();
     //   }
     //   ret += 1;
     // }

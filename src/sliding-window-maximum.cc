@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/sliding-window-maximum
-#include <vector>
 #include <iostream>
-#include <string>
 #include <queue>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -32,8 +32,7 @@ public:
     return ret;
   }
 };
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 2, 7, 7, 8, 1, 2, 3};
   auto ret = so.maxSlidingWindow(test, 3);

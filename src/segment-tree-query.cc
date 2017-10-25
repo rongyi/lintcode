@@ -1,13 +1,12 @@
 // http://www.lintcode.com/zh-cn/problem/segment-tree-query
-#include <vector>
-#include <iostream>
 #include <algorithm>
 #include <climits>
+#include <iostream>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
-
 
 class SegmentTreeNode {
 public:
@@ -21,7 +20,6 @@ public:
   }
 };
 
-
 class Solution {
 public:
   /**
@@ -33,11 +31,11 @@ public:
     if (!root || start > end)
       return INT_MIN;
 
-    if(root->start > end || root->end < start) {
+    if (root->start > end || root->end < start) {
       return INT_MIN;
     }
 
-    if(root->start >= start && root->end <= end)
+    if (root->start >= start && root->end <= end)
       return root->max;
 
     const int mid = root->start + (root->end - root->start) / 2;

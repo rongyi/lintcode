@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/backpack
-#include <vector>
+#include <cstring>
 #include <iostream>
 #include <string>
-#include <cstring>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -21,7 +21,8 @@ public:
     if (m <= 0 || A.empty())
       return 0;
     /*
-      s1: D[i][j]:  bool array ---- whether the amount j can be filled with the beginning i items;
+      s1: D[i][j]:  bool array ---- whether the amount j can be filled with the
+      beginning i items;
       s2: If not put current item into backpack: D[i][j] = D[i-1][j]
       if put it into backpack: D[i][j] = D[i-1][j - A[i]]
       s3: Initial condition: 0 <= i <= A.size()    0 <= j <= m

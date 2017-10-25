@@ -1,8 +1,8 @@
 // http://www.lintcode.com/zh-cn/problem/interval-minimum-number
-#include <vector>
+#include <algorithm>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -22,7 +22,6 @@ class SegmentTreeNode;
  *     }
  */
 
-
 class Interval {
 public:
   int start, end;
@@ -31,7 +30,6 @@ public:
     this->end = end;
   }
 };
-
 
 class Solution {
 public:
@@ -43,7 +41,8 @@ public:
   public:
     int start, end, min;
     SegmentTreeNode *left, *right;
-    SegmentTreeNode(int start, int end, int min=std::numeric_limits<int>::max()) {
+    SegmentTreeNode(int start, int end,
+                    int min = std::numeric_limits<int>::max()) {
       this->start = start, this->end = end;
       this->left = this->right = nullptr;
       this->min = min;
@@ -63,7 +62,7 @@ public:
   }
 
   // FIXME: add free function
-  SegmentTreeNode * build(int start, int end, const vector<int> &input) {
+  SegmentTreeNode *build(int start, int end, const vector<int> &input) {
     if (start > end) {
       return nullptr;
     }
@@ -95,8 +94,7 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{1, 2, 7, 8, 5};
   vector<Interval> query;

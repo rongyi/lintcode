@@ -1,16 +1,14 @@
 // http://www.lintcode.com/zh-cn/problem/bst-swapped-nodes
-#include <vector>
-#include <iostream>
-#include <string>
 #include <bitset>
 #include <climits>
+#include <iostream>
+#include <string>
+#include <vector>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
-
-
 
 class TreeNode {
 public:
@@ -29,7 +27,7 @@ public:
   * @return: the tree after swapping
   * http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/
   */
-  TreeNode * bstSwappedNode(TreeNode * root) {
+  TreeNode *bstSwappedNode(TreeNode *root) {
     TreeNode *first = nullptr;
     TreeNode *middle = nullptr;
     TreeNode *last = nullptr;
@@ -45,7 +43,8 @@ public:
     return root;
   }
 
-  void recur(TreeNode *root, TreeNode **first, TreeNode **middle, TreeNode **last, TreeNode **prev) {
+  void recur(TreeNode *root, TreeNode **first, TreeNode **middle,
+             TreeNode **last, TreeNode **prev) {
     if (!root) {
       return;
     }
@@ -74,10 +73,9 @@ public:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
-  TreeNode  n1(1), n2(2), n3(3), n4(4), n5(5);
+  TreeNode n1(1), n2(2), n3(3), n4(4), n5(5);
   n4.left = &n5;
   n4.right = &n2;
   n2.left = &n1;

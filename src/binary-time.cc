@@ -13,13 +13,15 @@ public:
   /*
   * @param : the number of "1"s on a given timetable
   * @return: all possible time
+  * from example we can see 4 bits for hour and 6 bits for hour, and this
+  * is a combination problem.
   */
   vector<string> binaryTime(int num) {
-    // vector<string> hvec;
-    // vector<string> mvec;
+    auto hnums = genVector(4);
+    auto mnums = genVector(6);
     if (num == 0) {
-      auto hvec = mkHour(0);
-      auto mvec = mkMinute(0);
+      auto hvec = mkHour(0, hnums);
+      auto mvec = mkMinute(0, mnums);
       return multiply(hvec, mvec);
     }
     vector<string> ret;
@@ -28,8 +30,9 @@ public:
       // count of "1" in minutes part
       int j = num - i;
 
-      auto hvec = mkHour(i);
-      auto mvec = mkMinute(j);
+      // first
+      auto hvec = mkHour(i, hnums);
+      auto mvec = mkMinute(j, mnums);
       auto tmp = multiply(hvec, mvec);
       for (auto &s : tmp) {
         ret.push_back(s);
@@ -39,14 +42,13 @@ public:
     return ret;
   }
 
-  vector<string> mkHour(int n) {
+  vector<string> mkHour(int n, const vector<int> &nums) {
     vector<string> ret;
     if (n == 0) {
       ret.push_back("0");
       return ret;
     }
 
-    auto nums = genVector(4);
     vector<int> c(nums.size(), 0);
 
     vector<vector<int>> comb;
@@ -62,14 +64,13 @@ public:
     return ret;
   }
 
-  vector<string> mkMinute(int n) {
+  vector<string> mkMinute(int n, const vector<int> &nums) {
     vector<string> ret;
     if (n == 0) {
       ret.push_back("00");
       return ret;
     }
 
-    auto nums = genVector(6);
     vector<int> c(nums.size(), 0);
 
     vector<vector<int>> comb;

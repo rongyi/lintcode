@@ -27,6 +27,7 @@ public:
   /*
   * @param : the given tree
   * @return: the tree after swapping
+  * http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/
   */
   TreeNode * bstSwappedNode(TreeNode * root) {
     TreeNode *first = nullptr;
@@ -50,6 +51,9 @@ public:
     }
     recur(root->left, first, middle, last, prev);
 
+    // two cases
+    // 1. swap node is not adjacent
+    // 2. swap node is adjacent
     if (*prev && root->val < (*prev)->val) {
       if (!*first) {
         *first = *prev;

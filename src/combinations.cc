@@ -27,9 +27,12 @@ public:
       ret.push_back(cur);
       return;
     }
+    // cur.size > k may never met
     if (index > n || cur.size() > k)
       return;
+    // dont choose current node
     combine(ret, cur, index + 1, n, k);
+    // choose current node
     cur.push_back(index);
     combine(ret, cur, index + 1, n, k);
   }

@@ -29,6 +29,8 @@ public:
     return ret;
   }
 
+  // there's picture at this link show the process very well
+  // https://stackoverflow.com/questions/7537791/understanding-recursion-to-generate-permutations
   vector<vector<int>> permute(vector<int> nums) {
     vector<vector<int>> ret;
     if (nums.size() == 0)

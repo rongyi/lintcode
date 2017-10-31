@@ -13,11 +13,38 @@ using std::stringstream;
 
 class Solution {
 public:
+
+  int calcMaxValue(string &str) {
+    if (str.length() == 0) {
+      return 0;
+    }
+    if (str.length() == 1) {
+      return std::stoi(str);
+    }
+
+    const auto ops_size = str.size() - 1;
+    auto prev = str[0] - '0';
+
+    for (int i = 0; i < ops_size; i++) {
+      auto cur_max = calMax(prev, str[i + 1]);
+      prev = cur_max;
+    }
+
+    return prev;
+  }
+  int calMax(int prev, char right) {
+    auto sum = prev + (right - '0');
+    auto mul = prev * (right - '0');
+    return std::max(sum, mul);
+  }
+
   /*
   * @param : the given string
   * @return: the maximum value
+  * memory exceeded version
+  * we calculate all possible operator combination
   */
-  int calcMaxValue(string &str) {
+  int calcMaxValueMLE(string &str) {
     if (str.length() == 0) {
       return 0;
     }

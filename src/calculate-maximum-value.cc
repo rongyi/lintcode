@@ -22,7 +22,13 @@ public:
       return std::stoi(str);
     }
 
+    /* simple relationship
+    * operator size
+    * 1 2 3
+    *  + -
+    */
     const auto ops_size = str.size() - 1;
+    // take prev
     auto prev = str[0] - '0';
 
     for (int i = 0; i < ops_size; i++) {
@@ -32,6 +38,7 @@ public:
 
     return prev;
   }
+
   int calMax(int prev, char right) {
     auto sum = prev + (right - '0');
     auto mul = prev * (right - '0');
@@ -43,6 +50,10 @@ public:
   * @return: the maximum value
   * memory exceeded version
   * we calculate all possible operator combination
+  * for each combination we calculate the result,
+  * there is no lazy in it. But notice there are only two operator * and +,
+  * so there will be no negative result, the max value is the value which each step is the max
+  * value, so the simple solution is we get the max value of each step, see the solution above
   */
   int calcMaxValueMLE(string &str) {
     if (str.length() == 0) {

@@ -12,11 +12,26 @@ using std::string;
 
 class Solution {
 public:
+
+  string convertPalindromeStillTLE(string str) {
+    string rev = str;
+    std::reverse(rev.begin(), rev.end());
+    auto count = 0;
+    while (rev != str) {
+      count++;
+      str.insert(count - 1, 1, rev[count - 1]);
+      rev = str;
+      std::reverse(rev.begin(), rev.end());
+    }
+    return rev;
+  }
+
+
   /*
   * @param : String
   * @return: String
   */
-  string convertPalindrome(string str) {
+  string convertPalindromeTLE(string str) {
     if (isPalindrome(str)) {
       return str;
     }

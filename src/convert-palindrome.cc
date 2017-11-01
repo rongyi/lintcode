@@ -12,6 +12,10 @@ using std::string;
 
 class Solution {
 public:
+  // http://www.geeksforgeeks.org/minimum-characters-added-front-make-string-palindrome/
+  string convertPalindromeStill(string str) {
+
+  }
 
   string convertPalindromeStillTLE(string str) {
     string rev = str;

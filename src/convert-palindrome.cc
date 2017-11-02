@@ -13,8 +13,41 @@ using std::string;
 class Solution {
 public:
   // http://www.geeksforgeeks.org/minimum-characters-added-front-make-string-palindrome/
-  string convertPalindromeStill(string str) {
+  string convertPalindrome(string str) {
+    string rev = str;
+    std::reverse(rev.begin(), rev.end());
+    string concat = str + "$" + rev;
+    auto lps = lpsArray(concat);
 
+    int min_char = str.length() - lps.back();
+    string con_section = rev.substr(0, min_char);
+
+    return con_section + str;
+  }
+
+
+  vector<int> lpsArray(const string &str) {
+    const int n = str.length();
+    vector<int> ret(n);
+    int len = 0;
+    ret[0] = 0;
+
+    for (int i = 1; i < n;) {
+      if (str[i] == str[len]) {
+        len++;
+        ret[i] = len;
+        i++;
+      } else {
+        if (len != 0) {
+          len = ret[len - 1];
+        } else {
+          ret[i] = 0;
+          i++;
+        }
+      }
+    }
+
+    return ret;
   }
 
   string convertPalindromeStillTLE(string str) {
@@ -76,7 +109,8 @@ private:
 int main()
 {
   Solution so;
-  string t{"abcd"};
-  so.convertPalindrome(t);
+  string t{"aacecaaa"};
+  auto ret = so.convertPalindrome(t);
+  cout << ret << endl;
   return 0;
 }

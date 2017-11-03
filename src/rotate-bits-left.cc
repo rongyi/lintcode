@@ -1,4 +1,5 @@
 // http://www.lintcode.com/zh-cn/problem/rotate-bits-left
+
 class Solution {
 public:
   /*
@@ -7,6 +8,7 @@ public:
   * @return: a number
   */
   int leftRotate(int n, int d) {
-
+    int higer = n >> (32 - d);
+    return (n << d) | higer;
   }
 };

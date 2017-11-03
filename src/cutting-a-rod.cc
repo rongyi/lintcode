@@ -14,6 +14,7 @@ public:
   * @param : the prices
   * @param : the length of rod
   * @return: the max value
+  * http://faculty.ycp.edu/~dbabcock/PastCourses/cs360/lectures/lecture12.html
   */
   int cutting(vector<int> &prices, int n) {
     std::vector<int> dp(prices.size() + 1);

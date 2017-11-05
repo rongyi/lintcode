@@ -22,7 +22,7 @@
 ** 编辑器选择：
    #+BEGIN_QUOTE
    Emacs outshines all other editing software in approximately the same way that the noonday sun does the stars. It is not just bigger and brighter; it simply makes everything else vanish
-   -- In the Beginning was the Command Line [fn:1]
+   -- In the Beginning was the Command Line[fn:1]
    #+END_QUOTE
 
 写代码是一种不断人机交互过程，输入、验证做这样的循环迭代过程，好的编辑器可以加速这一过程的处理。Vim是，Emacs也是。具体
@@ -78,3 +78,7 @@ TODO: IMAGE HERE
 
   -- 《人到中年》 余秀华
   #+END_QUOTE
+
+* Footnotes
+
+[fn:1] http://cristal.inria.fr/~weis/info/commandline.html

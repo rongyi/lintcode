@@ -4,6 +4,8 @@
 #include <unordered_map>
 #include <vector>
 #include <limits>
+#include <algorithm>
+#include <unordered_set>
 
 using std::vector;
 using std::cout;
@@ -23,6 +25,48 @@ public:
   }
 
   int findMin(vector<int> &nums) {
+    // auto sm = nums;
+    std::sort(nums.begin(), nums.end());
+    vector<int> sums(nums.size(), 0);
+    std::unordered_set<int> dp;
+    sums[0] = nums[0];
+    dp.insert(sums[0]);
+    for (int i = 1; i < nums.size(); i++) {
+      sums[i] = sums[i - 1] + nums[i];
+      dp.insert(sums[i]);
+    }
+    for (int i = 0; i < nums.size(); i++) {
+      for (int j = 1; j < i; j++) {
+        int between_sum = sums[i] - sums[j - 1];
+
+        dp.insert(between_sum);
+      }
+    }
+
+
+    int diff = std::numeric_limits<int>::min();
+    cout << "---" << endl;
+    for (auto i : dp) {
+      cout << i << endl;
+    }
+    cout << "---" << endl;
+
+    for (int j = sums.back() / 2; j >= 0; j--) {
+
+      // if (get(n, j)) {
+      //   diff = sum - 2 * j;
+      //   break;
+      // }
+      if (dp.find(j) != dp.end()) {
+        diff = sums.back() - 2 * j;
+        break;
+      }
+    }
+    return diff;
+
+  }
+
+  int findMinMLE(vector<int> &nums) {
     aux_.clear();
 
     int sum = 0;
@@ -49,7 +93,7 @@ public:
           set(i, j, true);
         } else { // include current
           auto inc = get(i - 1, j - nums[i - 1]);
-          // this is the last change we set it anyway
+          // this is the last chance we set it anyway
           set(i, j, inc);
         }
       }

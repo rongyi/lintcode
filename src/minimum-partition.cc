@@ -1,11 +1,11 @@
 // http://www.lintcode.com/zh-cn/problem/minimum-partition
+#include <algorithm>
 #include <iostream>
+#include <limits>
 #include <string>
 #include <unordered_map>
-#include <vector>
-#include <limits>
-#include <algorithm>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -25,89 +25,31 @@ public:
   }
 
   int findMin(vector<int> &nums) {
-    // auto sm = nums;
-    std::sort(nums.begin(), nums.end());
-    vector<int> sums(nums.size(), 0);
-    std::unordered_set<int> dp;
-    sums[0] = nums[0];
-    dp.insert(sums[0]);
-    for (int i = 1; i < nums.size(); i++) {
-      sums[i] = sums[i - 1] + nums[i];
-      dp.insert(sums[i]);
-    }
-    for (int i = 0; i < nums.size(); i++) {
-      for (int j = 1; j < i; j++) {
-        int between_sum = sums[i] - sums[j - 1];
+    const unsigned n = nums.size();
 
-        dp.insert(between_sum);
-      }
-    }
+    int sum_all = 0;
+    for (auto num : nums)
+      sum_all += num;
 
+    bool is_odd = (sum_all & 1);
+    sum_all >>= 1; // half sum
+    vector<bool> dp(sum_all + 1, false);
 
-    int diff = std::numeric_limits<int>::min();
-    cout << "---" << endl;
-    for (auto i : dp) {
-      cout << i << endl;
-    }
-    cout << "---" << endl;
+    dp[0] = true;
+    for (int i = 0; i < n; ++i)
+      for (int j = sum_all; j >= nums[i]; --j)
+        dp[j] = dp[j] || dp[j - nums[i]];
 
-    for (int j = sums.back() / 2; j >= 0; j--) {
-
-      // if (get(n, j)) {
-      //   diff = sum - 2 * j;
-      //   break;
-      // }
-      if (dp.find(j) != dp.end()) {
-        diff = sums.back() - 2 * j;
+    // check for solution closest to half sum
+    int result = 0;
+    for (int i = sum_all; i > 0; --i) {
+      if (dp[i]) {
+        result = (sum_all - i) << 1;
         break;
       }
     }
-    return diff;
 
-  }
-
-  int findMinMLE(vector<int> &nums) {
-    aux_.clear();
-
-    int sum = 0;
-    const auto n = nums.size();
-    for (auto i : nums) {
-      sum += i;
-    }
-
-    // Initialize first column as true. 0 sum is possible
-    // with all elements.
-    for (int i = 0; i <= n; i++) {
-      set(i, 0, true);
-    }
-    // Initialize top row, except dp[0][0], as false. With
-    // 0 elements, no other sum except 0 is possible
-    for (int i = 1; i <= sum; i++) {
-      set(0, 1, false);
-    }
-
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= sum; j++) {
-        auto exc = get(i - 1, j);
-        if (exc) {
-          set(i, j, true);
-        } else { // include current
-          auto inc = get(i - 1, j - nums[i - 1]);
-          // this is the last chance we set it anyway
-          set(i, j, inc);
-        }
-      }
-    }
-
-    int diff = std::numeric_limits<int>::min();
-
-    for (int j = sum / 2; j >= 0; j--) {
-      if (get(n, j)) {
-        diff = sum - 2 * j;
-        break;
-      }
-    }
-    return diff;
+    return is_odd ? result + 1 : result;
   }
 
 private:
@@ -127,37 +69,9 @@ private:
 
     return aux[key];
   }
-
-  string key(int i, int j) {
-    return std::to_string(i) + ":" + std::to_string(j);
-  }
-
-  bool get(int i, int j) {
-    auto k = key(i, j);
-    if (aux_.find(k) == aux_.end()) {
-      return false;
-    }
-
-    return aux_[k];
-  }
-
-  void set(int i, int j, bool value) {
-    auto k = key(i, j);
-    aux_[k] = value;
-  }
-
-private:
-  // dp[n+1][sum+1] = {1 if some subset from 1st to i'th has a sum
-  //                    equal to j
-  //                    0 otherwise}
-
-  //  i ranges from {1..n}
-  //  j ranges from {0..(sum of all elements)}
-  unordered_map<string, bool> aux_;
 };
 
-int main()
-{
+int main() {
   vector<int> nums{1, 6, 11, 5};
   Solution so;
   auto ret = so.findMin(nums);

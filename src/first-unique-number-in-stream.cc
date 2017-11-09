@@ -4,7 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_set>
 #include <unordered_map>
+#include <list>
+#include <algorithm>
 
 using std::vector;
 using std::cout;
@@ -21,19 +24,24 @@ public:
   int firstUniqueNumber(vector<int> nums, int number) {
     const int n = nums.size();
     bool has_number = false;
-    std::unordered_map<int, int> count;
     int number_index = -1;
+
     // number is not an index, it is a value in this vector
     for (int i = 0; i < n; ++i) {
-      count[nums[i]]++;
       if (nums[i] == number) {
         has_number = true;
         number_index = i;
         break;
       }
     }
+
     if (!has_number) {
       return -1;
+    }
+
+    std::unordered_map<int, int> count;
+    for (int i = 0; i <= number_index; i++) {
+      count[nums[i]]++;
     }
 
     for (int i = 0; i <= number_index; ++i) {
@@ -45,3 +53,8 @@ public:
     return -1;
   }
 };
+
+int main()
+{
+  return 0;
+}

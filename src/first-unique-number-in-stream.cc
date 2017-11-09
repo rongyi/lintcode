@@ -17,6 +17,8 @@ using std::string;
 
 class Solution {
 public:
+  // this page show the difference of unordered_map and map, may be TLE is caused by unordered_map
+  // https://stackoverflow.com/questions/2196995/is-there-any-advantage-of-using-map-over-unordered-map-in-case-of-trivial-keys
   int firstUniqueNumber(vector<int> nums, int number) {
     const int n = nums.size();
     bool has_number = false;

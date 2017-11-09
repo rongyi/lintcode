@@ -39,14 +39,17 @@ public:
       return -1;
     }
 
-    std::unordered_map<int, int> count;
+    std::unordered_map<int, int> index_map;
     for (int i = 0; i <= number_index; i++) {
-      count[nums[i]]++;
+      // count[nums[i]]++;
+      index_map[nums[i]] = i;
     }
 
     for (int i = 0; i <= number_index; ++i) {
-      if (count[nums[i]] == 1) {
+      if (index_map[nums[i]] == i) {
         return nums[i];
+      } else {
+        index_map[nums[i]] = i;
       }
     }
 
@@ -56,5 +59,9 @@ public:
 
 int main()
 {
+  vector<int> test{1,2,2,1,2,4,4,5,6,5,7,6,8};
+  Solution so;
+  auto i = so.firstUniqueNumber(test, 8);
+  cout << i << endl;
   return 0;
 }

@@ -18,31 +18,30 @@ public:
   * @param : a number
   * @return: returns the first unique number
   */
-  int firstUniqueNumberTLE(vector<int> nums, int number) {
-    auto last_index = index(nums, number);
-    if (last_index == -1) {
+  int firstUniqueNumber(vector<int> nums, int number) {
+    const int n = nums.size();
+    bool has_number = false;
+    std::unordered_map<int, int> count;
+    int number_index = -1;
+    // number is not an index, it is a value in this vector
+    for (int i = 0; i < n; ++i) {
+      count[nums[i]]++;
+      if (nums[i] == number) {
+        has_number = true;
+        number_index = i;
+        break;
+      }
+    }
+    if (!has_number) {
       return -1;
     }
-    std::unordered_map<int, int> count;
-    // number is not an index, it is a value in this vector
-    for (int i = 0; i < last_index; ++i) {
-      count[nums[i]]++;
-    }
 
-    for (int i = 0; i < last_index; ++i) {
+    for (int i = 0; i <= number_index; ++i) {
       if (count[nums[i]] == 1) {
         return nums[i];
       }
     }
-    return -1;
-  }
-private:
-  int index(const vector<int> &nums, int n) {
-    for (int i = 0; i < nums.size(); ++i) {
-      if (nums[i] == n) {
-        return i;
-      }
-    }
+
     return -1;
   }
 };

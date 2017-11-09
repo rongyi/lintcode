@@ -37,8 +37,10 @@ public:
 
     dp[0] = true;
     for (int i = 0; i < n; ++i)
-      for (int j = sum_all; j >= nums[i]; --j)
+      for (int j = sum_all; j >= nums[i]; --j) {
+        // 1. 不取当前值 2. 取当前值
         dp[j] = dp[j] || dp[j - nums[i]];
+      }
 
     // check for solution closest to half sum
     int result = 0;

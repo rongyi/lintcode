@@ -37,16 +37,9 @@
 
 ** 上述过程的一些截图
 *** 打开编辑器，新建对应文件
-    1. 添加URL
-    2. 添加common header
-    3. 添加模板代码
-    4. 添加main
-    5. 添加逻辑代码
-TODO: IMAGE HERE
+    [[./img/overview.png]]
 *** 编译、报错、迭代
-*** 复制、黏贴、提交
-*** 快速浏览题目
-
+    [[./img/debug.png]]
 * 跋
 
   #+BEGIN_QUOTE

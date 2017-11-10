@@ -23,6 +23,7 @@ public:
     return dp[n - 1];
   }
 
+  // to minic the way used in uniq path II
   int uniquePaths(int m, int n) {
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
     dp[1][1] = 1;

@@ -16,7 +16,7 @@ public:
   */
   int nextSparseNum(int x) {
     while (!isSparseNum(x)) {
-      x = chanit(x);
+      ++x;
     }
     return x;
   }

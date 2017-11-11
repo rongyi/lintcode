@@ -13,28 +13,35 @@ public:
   /*
   * @param : a number
   * @return: return the next sparse number behind x
+  * http://www.geeksforgeeks.org/given-a-number-find-next-sparse-number/
   */
   int nextSparseNum(int x) {
-    while (!isSparseNum(x)) {
-      ++x;
+    vector<bool> bin;
+    while (x) {
+      bin.push_back(x & 0b1);
+      x >>= 1;
     }
-    return x;
-  }
-
-  int chanit(int x) {
-    for (int i = 0; i < 31; i++) {
-      auto cur = (x & (1 << i)) >> i;
-      auto nei = (x & (1 << (i + 1))) >> (i + 1);
-      // we found con
-      if (cur == 1 && nei == 1) {
-        x &= ~(1 << i);
-        x &= ~(1 << (i + 1));
-        x |= (1 << (i + 2) % 32);
-        return x;
+    bin.push_back(0);
+    const int n = bin.size();
+    int last_final = 0;
+    for (int i = 1; i < n - 1; i++) {
+      if (bin[i] == 1 && bin[i - 1] == 1 && bin[i + 1] != 1) {
+        bin[i + 1] = 1;
+        for (int j = i; j >= last_final; --j) {
+          bin[j] = 0;
+        }
+        last_final = i + 1;
       }
     }
-    return x;
+    int ret = 0;
+    for (int i = 0; i < n; ++i) {
+      ret += bin[i] * (1 << i);
+    }
+    return ret;
   }
+
+  // this way is better:
+  // http://www.geeksforgeeks.org/check-if-a-given-number-is-sparse-or-not/
   bool isSparseNum(int x) {
     while (x) {
       auto b = x & 0b1;

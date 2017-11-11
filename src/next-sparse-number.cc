@@ -27,6 +27,7 @@ public:
     for (int i = 1; i < n - 1; i++) {
       if (bin[i] == 1 && bin[i - 1] == 1 && bin[i + 1] != 1) {
         bin[i + 1] = 1;
+        // 我的思路中没有把低位清掉，这里能保证是最小的，赞
         for (int j = i; j >= last_final; --j) {
           bin[j] = 0;
         }

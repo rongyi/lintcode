@@ -6,29 +6,29 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <iomanip>
 
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
 
-// each element < 10000
-// LSB first, ie. little endian
-using BigInt = std::vector<int>;
 
 class Solution {
 public:
   /*
   * @param : an integer
   * @return:  the factorial of n
+  * from chenshuo:
+  * https://github.com/chenshuo/recipes/blob/master/basic/tutorial/factorial.cc
   */
   string factorial(int n) {
     auto ret = fac(n);
-    return printBigInt(ret);
+    return to_string(ret);
   }
 
-  BigInt fac(int n) {
-    BigInt result;
+  vector<int> fac(int n) {
+    vector<int> result;
     result.push_back(1);
     for (int factor = 1; factor <= n; ++factor) {
       int carry = 0;
@@ -44,7 +44,7 @@ public:
     return result;
   }
 
-  string printBigInt(const BigInt &number) {
+  string to_string(const vector<int> &number) {
     std::stringstream ss;
 
     ss << number.back();
@@ -55,3 +55,8 @@ public:
     return ss.str();
   }
 };
+
+int main() {
+
+  return 0;
+}

@@ -1,11 +1,11 @@
 // http://www.lintcode.com/zh-cn/problem/factorial
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <iomanip>
 
 using std::vector;
 using std::cout;
@@ -14,7 +14,7 @@ using std::string;
 
 // each element < 10000
 // LSB first, ie. little endian
-typedef std::vector<int> BigInt;
+using BigInt = std::vector<int>;
 
 class Solution {
 public:
@@ -28,9 +28,6 @@ public:
   }
 
   BigInt fac(int n) {
-    // 9999 * 9999 < 10000 * 10000 = 100000000 < 1073741824  = 2 ** 30
-    // assert(n >= 0 && n <= 10000);
-
     BigInt result;
     result.push_back(1);
     for (int factor = 1; factor <= n; ++factor) {
@@ -50,22 +47,11 @@ public:
   string printBigInt(const BigInt &number) {
     std::stringstream ss;
 
-    if (number.empty()) {
-      ss << "0";
-      printf("0\n"); // compiles to puts()
-    } else {
-      // printf("%d", number.back());
-      ss << number.back();
-      for (auto it = number.rbegin() + 1; it != number.rend(); ++it) {
-        // printf("%04d", *it);
-        ss << std::setfill('0') << std::setw(4) << *it;
-      }
-      // printf("\n");
+    ss << number.back();
+    for (auto it = number.rbegin() + 1; it != number.rend(); ++it) {
+      ss << std::setfill('0') << std::setw(4) << *it;
     }
+
     return ss.str();
   }
 };
-
-int main() {
-  return 0;
-}

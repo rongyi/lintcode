@@ -19,7 +19,6 @@ public:
    */
   string multiply(string &num1, string &num2) {
     vector<string> ret;
-    bool all_zero = true;
     for (int i = num2.size() - 1; i >= 0; i--) {
       int carry = 0;
       std::stringstream ss;

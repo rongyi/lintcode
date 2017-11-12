@@ -18,27 +18,26 @@ public:
   * @return:  the factorial of n
   */
   string factorial(int n) {
-    if (n == 0) {
-      return "1";
-    }
     // int over flow range
-    // if (n <= 20) {
-    //   auto f = fac(n);
-    //   return std::to_string(f);
-    // }
+    if (n <= 20) {
+      auto f = fac(n);
+      return std::to_string(f);
+    }
+
     // string multiply
-    // auto sfact16 = std::to_string(fac(16));
+    auto sfact20 = std::to_string(fac(20));
     auto ret = std::to_string(n);
-    for (int i = n - 1; i > 1; --i) {
+    for (int i = n - 1; i > 20; --i) {
       auto s2 = std::to_string(i);
       // auto multi = multiply2(ret, s2);
       ret = multiply2(ret, s2);
     }
     // the rest 16
-    // ret = multiply(ret, sfact16);
+    ret = multiply2(ret, sfact20);
 
     return ret;
   }
+  // to test overflow
   void print() {
     auto max = std::numeric_limits<uint64_t>::max();
     for (int i = 0; i < 23; i++) {
@@ -47,11 +46,15 @@ public:
   }
 
 private:
-  uint64_t fac(int i) {
-    if (i == 0) {
+  uint64_t fac(int n) {
+    if (n == 0) {
       return 1;
     }
-    return uint64_t(i) * fac(i - 1);
+    uint64_t ret = 1;
+    for (uint64_t i = 1; i <= uint64_t(n); ++i) {
+      ret *= i;
+    }
+    return ret;
   }
 
   // Multiplies str1 and str2, and prints result.
@@ -194,7 +197,6 @@ int main() {
   Solution so;
   auto ret = so.factorial(2000);
   cout << ret << endl;
-
   // so.print();
   return 0;
 }

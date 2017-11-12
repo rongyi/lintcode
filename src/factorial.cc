@@ -1,9 +1,10 @@
 // http://www.lintcode.com/zh-cn/problem/factorial
-#include <vector>
-#include <iostream>
-#include <string>
-#include <limits>
 #include <algorithm>
+#include <iostream>
+#include <limits>
+#include <string>
+#include <vector>
+#include <sstream>
 
 using std::vector;
 using std::cout;
@@ -17,29 +18,112 @@ public:
   * @return:  the factorial of n
   */
   string factorial(int n) {
+    if (n == 0) {
+      return "1";
+    }
     // int over flow range
-    if (n <= 16) {
-      auto f = fac(n);
-      return std::to_string(f);
-    }
+    // if (n <= 20) {
+    //   auto f = fac(n);
+    //   return std::to_string(f);
+    // }
     // string multiply
+    // auto sfact16 = std::to_string(fac(16));
     auto ret = std::to_string(n);
-    for (int i = n - 1; i >= 1; --i) {
+    for (int i = n - 1; i > 1; --i) {
       auto s2 = std::to_string(i);
-      auto multi = multiply(ret, s2);
-      ret = multi;
+      // auto multi = multiply2(ret, s2);
+      ret = multiply2(ret, s2);
     }
+    // the rest 16
+    // ret = multiply(ret, sfact16);
 
     return ret;
   }
+  void print() {
+    auto max = std::numeric_limits<uint64_t>::max();
+    for (int i = 0; i < 23; i++) {
+      cout << i << ":  " << fac(i) << endl << "     " << max << endl;
+    }
+  }
+
 private:
-  int fac(int i) {
+  uint64_t fac(int i) {
     if (i == 0) {
       return 1;
     }
-    return i * fac(i - 1);
+    return uint64_t(i) * fac(i - 1);
   }
 
+  // Multiplies str1 and str2, and prints result.
+  string multiply2(string num1, string num2) {
+    int n1 = num1.size();
+    int n2 = num2.size();
+    if (n1 == 0 || n2 == 0)
+      return "0";
+
+    // will keep the result number in vector
+    // in reverse order
+    vector<int> result(n1 + n2, 0);
+
+    // Below two indexes are used to find positions
+    // in result.
+    int i_n1 = 0;
+    int i_n2 = 0;
+
+    // Go from right to left in num1
+    for (int i = n1 - 1; i >= 0; i--) {
+      int carry = 0;
+      int n1 = num1[i] - '0';
+
+      // To shift position to left after every
+      // multiplication of a digit in num2
+      i_n2 = 0;
+
+      // Go from right to left in num2
+      for (int j = n2 - 1; j >= 0; j--) {
+        // Take current digit of second number
+        int n2 = num2[j] - '0';
+
+        // Multiply with current digit of first number
+        // and add result to previously stored result
+        // at current position.
+        int sum = n1 * n2 + result[i_n1 + i_n2] + carry;
+
+        // Carry for next iteration
+        carry = sum / 10;
+
+        // Store result
+        result[i_n1 + i_n2] = sum % 10;
+
+        i_n2++;
+      }
+
+      // store carry in next cell
+      if (carry > 0)
+        result[i_n1 + i_n2] += carry;
+
+      // To shift position to left after every
+      // multiplication of a digit in num1.
+      i_n1++;
+    }
+
+    // ignore '0's from the right
+    int i = result.size() - 1;
+    while (i >= 0 && result[i] == 0)
+      i--;
+
+    // If all were '0's - means either both or
+    // one of num1 or num2 were '0'
+    if (i == -1)
+      return "0";
+
+    // generate the result string
+    string s = "";
+    while (i >= 0)
+      s += std::to_string(result[i--]);
+
+    return s;
+  }
 
   /**
    * @param num1 a non-negative integers
@@ -106,8 +190,11 @@ private:
   }
 };
 
-int main()
-{
+int main() {
   Solution so;
+  auto ret = so.factorial(2000);
+  cout << ret << endl;
+
+  // so.print();
   return 0;
 }

@@ -20,7 +20,7 @@ public:
       for (int j = 0; j < n; j++) {
         if (grid[i][j]) {
           count++;
-          // 清楚其相邻的岛屿
+          // 清除其相邻的岛屿
           search(grid, i, j);
         }
       }

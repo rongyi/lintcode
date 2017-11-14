@@ -104,3 +104,11 @@ public:
     return ret;
   }
 };
+int main()
+{
+  Solution so;
+  vector<int> test{4, 6, 8};
+  auto ret = so.maxXorSubarray(test);
+  cout << ret << endl;
+  return 0;
+}

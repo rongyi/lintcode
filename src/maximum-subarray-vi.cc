@@ -74,7 +74,6 @@ int query(TrieNode *root, int pre_xor) {
   return pre_xor ^ (temp->value);
 }
 
-
 class Solution {
 public:
   /*
@@ -104,8 +103,7 @@ public:
     return ret;
   }
 };
-int main()
-{
+int main() {
   Solution so;
   vector<int> test{4, 6, 8};
   auto ret = so.maxXorSubarray(test);

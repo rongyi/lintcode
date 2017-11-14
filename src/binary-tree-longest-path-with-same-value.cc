@@ -24,7 +24,7 @@ public:
     adj_ = vector<vector<int>>(N_);
     //输入数据处理,把边保存到adj里面
     for (int i = 0; i < N_ - 1; i++) {
-      //构造adj
+      //构造adj, 移到0开始的index
       addEdge(E[i * 2] - 1, E[i * 2 + 1] - 1);
     }
 

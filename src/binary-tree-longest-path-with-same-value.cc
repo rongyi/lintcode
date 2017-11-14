@@ -38,16 +38,15 @@ public:
   int depth(vector<int> &A, vector<bool> &marked, int index) {
     int L = 0, R = 0;
     marked[index] = true;
-    bool flag = true;
+    bool is_left = true;
     //在与index相连接的节点里面寻找值相等并且没有被访问过的点，深度搜索
     for (int j : adj_[index]) {
       //判断节点值是否与index的值相等
       if (A[j] == A[index] && marked[j] == false) {
-        //无法得知节点j是Index的左节点还是右节点
-        //但是这里只求路径长度，可以假定第一个匹配到的为左，第二个为右；
-        if (flag) {
+        //假定第一个匹配到的为左，第二个为右；
+        if (is_left) {
           L = depth(A, marked, j) + 1;
-          flag = false;
+          is_left = false;
         } else {
           R = depth(A, marked, j) + 1;
         }

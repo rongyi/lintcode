@@ -24,7 +24,8 @@ public:
       graph[e.second].push_back(e.first);
       ++in[e.first];
     }
-    queue<int> q;
+    // 具体细节参见 course schedule i
+    std::queue<int> q;
     for (int i = 0; i < numCourses; ++i) {
       if (in[i] == 0)
         q.push(i);

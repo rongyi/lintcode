@@ -79,9 +79,9 @@
 
 * Footnotes
 
-[fn:2] http://cristal.inria.fr/~weis/info/commandline.html
-
 [fn:1] https://google.github.io/styleguide/cppguide.html
+
+[fn:2] http://cristal.inria.fr/~weis/info/commandline.html
 
 [fn:3] https://statico.github.io/vim3.html
 

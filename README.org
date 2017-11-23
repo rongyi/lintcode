@@ -39,10 +39,10 @@
 
 
 ** 上述过程的一些截图
-*** 快速迭代的过程
-    [[./img/overview.png]]
+*** 快速编译的过程
+    [[./img/compile.gif]]
 *** 单步调试
-    [[./img/debug.png]]
+    [[./img/debug.gif]]
 * 跋
 
   #+BEGIN_QUOTE

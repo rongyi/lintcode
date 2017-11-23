@@ -31,3 +31,14 @@ public:
     nums[n - 1] = -1;
   }
 };
+int main()
+{
+  Solution so;
+  vector<int> test{1, 2, 3, 4, 5};
+  so.arrayReplaceWithGreatestFromRight(test);
+  for (auto i : test) {
+    cout << i << " ";
+  }
+  cout << endl;
+  return 0;
+}

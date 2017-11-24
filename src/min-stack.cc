@@ -20,6 +20,7 @@ public:
     normal_stack_.push(number);
 
     // note the equal compare
+    // so the min stack keep a ascending order
     if (min_stack_.empty() || number <= min_stack_.top()) {
       min_stack_.push(number);
     }
@@ -29,6 +30,7 @@ public:
     if (normal_stack_.empty())
       return -1;
     const int number = normal_stack_.top();
+    // if the the min leave main, it should also leave min stack
     if (number <= min_stack_.top()) {
       min_stack_.pop();
     }

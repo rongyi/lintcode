@@ -13,12 +13,15 @@ public:
 
     std::stack<char> stack;
     for (auto c : s) {
+      // push all the left
       if (left.find(c) != string::npos) {
         stack.push(c);
       } else {
+        // check the right couterpart, the right don't push to the stack
         if (stack.empty() || stack.top() != left[right.find(c)]) {
           return false;
         } else {
+          // pop the matched left
           stack.pop();
         }
       }

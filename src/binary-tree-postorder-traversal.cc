@@ -26,7 +26,7 @@ public:
     stack<const TreeNode *> s;
     p = root;
     do {
-      while (p != nullptr) {
+      while (p != nullptr) {     // 往左下走
         s.push(p);
         p = p->left;
       }
@@ -34,10 +34,12 @@ public:
       while (!s.empty()) {
         p = s.top();
         s.pop();
+        // 右孩子不存在或已被访问，访问之
         if (p->right == q) {
           ret.push_back(p->val);
           q = p;
         } else {
+          // 当前节点不能访问，需再次进栈
           s.push(p);
           p = p->right;
           break;

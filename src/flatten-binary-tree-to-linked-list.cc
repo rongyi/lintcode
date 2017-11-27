@@ -25,6 +25,10 @@ public:
     stack<TreeNode *> s;
     s.push(root);
 
+    // in order tranverse
+    // 1. clear left
+    // 2. change right to the next element which sit on the
+    // top of stack if exist
     while (!s.empty()) {
       auto p = s.top();
       s.pop();

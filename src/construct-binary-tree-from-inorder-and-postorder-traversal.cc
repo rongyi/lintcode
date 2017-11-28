@@ -65,6 +65,7 @@ private:
     // 差代表着左半边或者是右半边的数量的多少, 减去等于对应另一半
     doBuild(root->left, postorder, inorder,
             post_index - (in_size - cur_in_size), in_index, cur_in_size);
+    // 右子树顺在post order中紧挨着根节点
     doBuild(root->right, postorder, inorder, post_index - 1, cur_in_size + 1,
             in_size);
   }

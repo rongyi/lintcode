@@ -56,14 +56,17 @@ private:
       return;
     root = new TreeNode(preorder[pre_index]);
     int cur_in_size;
+    // find the index of root node in inorder
     for (int i = in_index; i < in_size; i++) {
       if (inorder[i] == preorder[pre_index]) {
         cur_in_size = i;
         break;
       }
     }
+    // left root's index is pre_index + 1, and in_index is not change, and have cur_in_size elements
     doBuild(root->left, preorder, inorder, pre_index + 1, in_index,
             cur_in_size);
+    // right root's index, first in_order index and size
     doBuild(root->right, preorder, inorder,
             pre_index + cur_in_size - in_index + 1, cur_in_size + 1, in_size);
   }

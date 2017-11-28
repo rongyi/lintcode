@@ -17,6 +17,10 @@ public:
   int numTrees(int n) {
     // f(n) = f(n-1)f(0) + f(n-2)f(1) + f(n-3)f(2) + ... + f(1)f(n-2) +
     // f(n-1)f(0)
+    // ​      i
+    // f(i)=∑   f(k−1)xf(i−k)
+    // ​      k=1
+    //
     vector<int> ret_vec(n + 1, 0);
     ret_vec[0] = 1;
     ret_vec[1] = 1;

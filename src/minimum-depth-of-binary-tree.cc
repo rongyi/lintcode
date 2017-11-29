@@ -37,6 +37,7 @@ public:
     if (root->right)
       right_height = do_min(root->right);
 
+    // 比子树中最小的层次还多一层
     return std::min(left_height, right_height) + 1;
   }
 

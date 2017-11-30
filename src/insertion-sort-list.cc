@@ -20,6 +20,16 @@ public:
    */
   ListNode *insertionSortList(ListNode *head) {
     ListNode dummy(INT_MIN);
+    /*
+     // sorted position to be inserted
+     ... pos ...
+
+     origin list
+     cur -> tmp
+     ==> cur->next = pos->next
+     ==> pos->next = cur
+     ==> cur = tmp;
+    */
     for (ListNode *cur = head; cur != nullptr;) {
       auto pos = find_insert_pos(&dummy, cur->val);
       ListNode *tmp = cur->next;

@@ -16,6 +16,7 @@ public:
       fast = fast->next->next;
       slow = slow->next;
     }
+    // jus omit one pointer
     fast = slow;
     slow = slow->next;    // now slow is the bottom half list's header
     fast->next = nullptr; // split action

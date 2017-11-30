@@ -24,11 +24,15 @@ public:
     const int n = board[0].size();
     // 从四周切进去发现的O不能替换，所以这里有个转换，转换成其他值
     for (int i = 0; i < n; i++) {
+      // top line
       bfs(board, 0, i);
+      // bottom line
       bfs(board, m - 1, i);
     }
     for (int j = 1; j < m - 1; j++) {
+      // left column
       bfs(board, j, 0);
+      // right column
       bfs(board, j, n - 1);
     }
     for (int i = 0; i < m; i++) {
@@ -63,7 +67,7 @@ private:
       const int x = c.first;
       const int y = c.second;
       const Coordinate fourDirection[4] = {
-          {x - 1, y}, {x + 1, y}, {x, y - 1}, {x, y + 1}};
+        {x - 1, y}/*left*/, {x + 1, y}/*right*/, {x, y - 1}/*down*/, {x, y + 1}/*up*/};
       for (int k = 0; k < 4; ++k) {
         if (isValid(fourDirection[k])) {
           board[fourDirection[k].first][fourDirection[k].second] =

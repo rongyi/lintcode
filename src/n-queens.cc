@@ -67,7 +67,10 @@ private:
   }
 
 private:
+  // 标记占据哪些列
   vector<int> columns_;
+  // 标记占据哪些主对角线
   vector<int> main_diag_;
+  // 标记占据哪些辅对角线
   vector<int> anti_diag_;
 };

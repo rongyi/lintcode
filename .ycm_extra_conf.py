@@ -69,6 +69,8 @@ flags = [
 '/usr/local/include',
 '-isystem',
 '/usr/include/c++/5.4.0',
+'-isystem',
+'/Library/Developer/CommandLineTools/usr/include/c++/v1'
 ]
 
 

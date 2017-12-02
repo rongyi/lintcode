@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 using std::vector;
 using std::cout;
@@ -18,8 +19,8 @@ public:
    */
   vector<vector<string>> solveNQueens(int n) {
     columns_ = vector<int>(n, 0);
-    main_diag_ = vector<int>(2 * n, 0);
-    anti_diag_ = vector<int>(2 * n, 0);
+    // main_diag_ = vector<int>(2 * n, 0);
+    // anti_diag_ = vector<int>(2 * n, 0);
 
     vector<vector<string>> ret;
     // indicate the column index of each row
@@ -51,28 +52,28 @@ private:
 
     for (int j = 0; j < N; ++j) {
       const bool ok = columns_[j] == 0 && main_diag_[row + j] == 0 &&
-                      anti_diag_[row - j + N] == 0;
+                      anti_diag_[row - j] == 0;
 
       if (!ok)
         continue;
 
       queen_col_vec[row] = j;
-      columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 1;
+      columns_[j] = main_diag_[row + j] = anti_diag_[row - j] = 1;
 
       dfs(ret, queen_col_vec, row + 1);
 
       // restore
-      columns_[j] = main_diag_[row + j] = anti_diag_[row - j + N] = 0;
+      columns_[j] = main_diag_[row + j] = anti_diag_[row - j] = 0;
     }
   }
 
 private:
-  // 标记占据哪些列
+  // 标记哪一列上放置了皇后
   vector<int> columns_;
   // 标记占据哪些主对角线
   // 在一个正斜线上有一个特征: row + col == 固定值
-  vector<int> main_diag_;
+  std::unordered_map<int, int> main_diag_;
   // 标记占据哪些辅对角线
-  // 在一个反斜线上有一个特征： row - col == 固定值
-  vector<int> anti_diag_;
+  // 同样在一个反斜线上有一个特征： row - col == 固定值
+  std::unordered_map<int, int> anti_diag_;
 };

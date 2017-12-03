@@ -20,6 +20,7 @@ private:
     int l = dfs(root->left);
     int r = dfs(root->right);
     int sum = root->val;
+    // 对结果有利再加上
     if (l > 0)
       sum += l;
     if (r > 0)

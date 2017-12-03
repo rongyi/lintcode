@@ -27,6 +27,10 @@ public:
     }
     return true;
   }
+  // According to property of perfect square,
+  // "Every perfect square(x2) always have only odd numbers of factors"
+  // If the square root of given number(say x2) is prime(after conforming that
+  // number is perfect square) then it must have exactly three distict factors
   bool isThreeDisctFactors(long long n) {
     int sq = (int)std::sqrt(n);
     if (1ll * sq * sq != n) {

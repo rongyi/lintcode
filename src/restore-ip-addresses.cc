@@ -67,8 +67,10 @@ private:
       ret.push_back(ip[0] + "." + ip[1] + "." + ip[2] + "." + ip[3]);
       return;
     }
+    // 剩余太多
     if (s.length() - start > (4 - ip.size()) * 3)
       return;
+    // 剩余太少
     if (s.length() - start < (4 - ip.size()))
       return;
     int num = 0;
@@ -79,6 +81,7 @@ private:
       ip.push_back(s.substr(start, i - start + 1));
       dfs(s, ip, ret, i + 1);
       ip.pop_back();
+      // 遇到一个不合法的情况，这里就没必要再走下去, break后继续弹临时存储ip
       if (num == 0)
         break;
     }
@@ -87,7 +90,7 @@ private:
 
 int main() {
   Solution so;
-  string test{"25525511135"};
+  string test{"222001"};
   auto ret = so.restoreIpAddresses(test);
   for (auto &s : ret) {
     cout << s << endl;

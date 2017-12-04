@@ -59,6 +59,7 @@ private:
 
     for (int i = cur_index; i < candidates.size(); i++) {
       cur_vec.push_back(candidates[i]);
+      // 因为可以重复取，这里index其实没有往上加
       dfs2(ret, candidates, cur_vec, i, target - candidates[i]);
       cur_vec.pop_back();
     }

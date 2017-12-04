@@ -24,9 +24,17 @@ public:
     }
     return false;
   }
+  bool canJump(vector<int> &nums) {
+    int reach = 1;
+    for (int i = 0; i < reach && reach < nums.size(); ++i) {
+      reach = std::max(reach, i + 1 + nums[i]);
+    }
+
+    return reach >= nums.size();
+  }
   // DP思路， f[i] 表示从第0层出发，走到A[i]时剩余的最大步数
   // f[i] = max(f[i - 1], A[i - 1]) - 1
-  bool canJump(vector<int> &nums) {
+  bool canJump2(vector<int> &nums) {
     vector<int> dp(nums.size(), 0);
     for (int i = 1; i < nums.size(); ++i) {
       dp[i] = std::max(dp[i - 1], nums[i - 1]) - 1;

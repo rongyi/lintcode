@@ -15,14 +15,14 @@ public:
    * @param n n pairs
    * @return All combinations of well-formed parentheses
    */
-  vector<string> generateParenthesis1(int n) {
+  vector<string> generateParenthesis(int n) {
     vector<string> ret;
-    help(n, n, "", ret);
+    rec2(0, 0, n, "", ret);
     return ret;
   }
 
   // 采用深搜来实现
-  vector<string> generateParenthesis(int n) {
+  vector<string> generateParenthesisDFS(int n) {
     vector<string> ret;
     vector<string> path;
     if (n > 0) {
@@ -70,6 +70,22 @@ private:
       ss << s;
     }
     return ss.str();
+  }
+
+  void rec2(int left, int right, const int n, string s, vector<string> &ret) {
+    if (left < right) {
+      return;
+    }
+    if (left == n && right == n) {
+      ret.push_back(s);
+      return;
+    }
+    if (left < n) {
+      rec2(left + 1, right, n, s + '(', ret);
+    }
+    if (right < n) {
+      rec2(left, right + 1, n, s + ')', ret);
+    }
   }
 };
 

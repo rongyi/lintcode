@@ -15,6 +15,7 @@ public:
     int curmax;
     int max;
     max = nums[0];
+    // 这里考虑负负得正，所以记录最小值
     curmin = nums[0];
     curmax = nums[0];
     const int n = nums.size();

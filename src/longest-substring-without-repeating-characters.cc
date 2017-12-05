@@ -24,6 +24,8 @@ q p x r j x k l t z y x
             |--------|
    */
   int lengthOfLongestSubstring(string s) {
+    // 从左往右扫描，当遇到重复字母时，以上一个重复字母的index+1，作为新的搜索起始位置，
+    // 直到最后一个字母。
     // left用以记录合法的最远左边界位置，last记录字符上一次出现的位置
     int ret = 0, left = 0, len = s.length();
     int last[255];

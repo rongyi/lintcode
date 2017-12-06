@@ -40,8 +40,7 @@ public:
                         |
               ----------+---------------
                         |
-                        |                        minums of 3 neighbour and plus
-              1
+                        |                  minums of 3 neighbour and plus 1
              */
             dp[i][j] = std::min(std::min(dp[i - 1][j - 1], dp[i][j - 1]),
                                 dp[i - 1][j]) +

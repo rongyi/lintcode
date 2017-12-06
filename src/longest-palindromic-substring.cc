@@ -16,7 +16,7 @@ public:
    * @param s input string
    * @return the longest palindromic substring
    */
-  string longestPalindrome(string &s) {
+  string longestPalindrome2(string &s) {
     string result;
     if (s.empty())
       return s;
@@ -36,6 +36,27 @@ public:
 
     result = s.substr(left, right - left);
     return result;
+  }
+
+  string longestPalindrome(string &s) {
+    const int n = s.size();
+    bool f[n][n];
+    std::fill_n(&f[0][0], n * n, 0);
+
+    unsigned max_len = 1;
+    unsigned start = 0;
+    for (unsigned i = 0; i < s.size(); ++i) {
+      f[i][i] = true;
+      for (unsigned j = 0; j < i; ++j) {
+        f[j][i] = (s[j] == s[i] && (i - j < 2 || f[j + 1][i - 1]));
+        if (f[j][i] && max_len < (i - j + 1)) {
+          max_len = i - j + 1;
+          start = j;
+        }
+      }
+    }
+
+    return s.substr(start, max_len);
   }
 
 private:

@@ -11,7 +11,7 @@ public:
    * @param b a number
    * @return the result
    */
-  string addBinary(string &a, string &b) {
+  string addBinary1(string &a, string &b) {
     string ret;
     const size_t n = a.size() > b.size() ? a.size() : b.size();
     std::reverse(a.begin(), a.end());
@@ -26,6 +26,23 @@ public:
     }
     if (carry)
       ret.insert(ret.begin(), '1');
+    return ret;
+  }
+
+  string addBinary(string &a, string &b) {
+    string ret;
+
+    int i = a.size() - 1;
+    int j = b.size() - 1;
+    int carry = 0;
+    while (i >= 0 || j >= 0 || carry > 0) {
+      int ai = i < 0 ? 0 : a[i--] - '0';
+      int bi = j < 0 ? 0 : b[j--] - '0';
+      int sum = ai + bi + carry;
+      ret.insert(ret.begin(), (sum % 2) + '0');
+      carry = sum / 2;
+    }
+
     return ret;
   }
 };

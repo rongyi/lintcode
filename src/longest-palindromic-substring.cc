@@ -48,6 +48,7 @@ public:
     for (unsigned i = 0; i < s.size(); ++i) {
       f[i][i] = true;
       for (unsigned j = 0; j < i; ++j) {
+        // 从j到i为回文的条件是首尾字符相等（要么相邻要么去掉这两个首尾字符也是回文）
         f[j][i] = (s[j] == s[i] && (i - j < 2 || f[j + 1][i - 1]));
         if (f[j][i] && max_len < (i - j + 1)) {
           max_len = i - j + 1;

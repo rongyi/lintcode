@@ -28,6 +28,9 @@ public:
     if (len1 + len2 != s3.size())
       return false;
 
+    // 设状态f[i][j]，表示s1[0,i]和s2[0,j]，匹配s3[0,
+    // i+j]。如果s1的最后一个字符等于s3的最后一个字符，则f[i][j]=f[i-1][j]；
+    // 如果s2的最后一个字符等于s3的最后一个字符，则f[i][j]=f[i][j-1]
     vector<vector<bool>> ret(len1 + 1, vector<bool>(len2 + 1, false));
 
     ret[0][0] = true;

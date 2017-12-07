@@ -22,6 +22,7 @@ public:
       sign = -1;
       n *= -1;
     }
+    // multiply the last digit repeatly
     while (n) {
       int tmp = ret * 10 + n % 10;
       if (tmp / 10 != ret)

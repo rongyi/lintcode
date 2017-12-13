@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_set>
 
 using std::vector;
 using std::cout;
@@ -21,12 +22,6 @@ public:
     vector<vector<int>> ret;
     vector<int> cur;
     dfs(coins, 0, coins.size(), cur, amount, ret);
-    for (auto &v : ret) {
-      for (auto i : v) {
-        cout << i << " ";
-      }
-      cout << endl;
-    }
     return ret.size();
   }
   void dfs(const vector<int> &coins, int i, const int n, vector<int> &cur,

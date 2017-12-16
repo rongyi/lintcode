@@ -43,24 +43,34 @@ public:
   }
 
   int change(int amount, vector<int> &coins) {
-    const int n = coins.size();
-    // [i][j] ==> sum to i using j coins
-    vector<vector<int>> dp(amount + 1, vector<int>(n, 0));
-    for (int i = 0; i < n; ++i) {
-      dp[0][i] = 1;
-    }
+    const int m = coins.size();
+    const int n = amount;
+    //  Include the coin: reduce the amount by coin value and use the sub
+    //  problem solution (amount-v[i]).
+    // Exclude the coin: solution for the same amount without considering
+    // that coin.
 
-    for (int i = 1; i <= amount; ++i) {
-      for (int j = 0; j < n; j++) {
-        // 对于当前这个硬币可取可不取
-        // 取当前节点
-        int x = (i - coins[j] >= 0) ? dp[i - coins[j]][j] : 0;
-        // 不取当前节点
-        int y = (j >= 1) ? dp[i][j - 1] : 0;
-        dp[i][j]= x + y;
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+
+    // sum is 0, empty set
+    for (int i = 0; i <= m; ++i) {
+      dp[i][0] = 1;
+    }
+    // solution[coins+1][amount+1]
+    // 1. 0 if i=0
+    // 2. 1 if j=0
+    // 3. solution[i — 1][j] + solution[i][j — v[i — 1]]  if(coin[i]<=j)
+    // 4. solution[i — 1][j]; if(coin[i]>j)
+    for (int i = 1; i <= m; ++i) {
+      for (int j = 1; j <= n; ++j) {
+        if (coins[i - 1] <= j) {
+          dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
+        } else {
+          dp[i][j] = dp[i - 1][j];
+        }
       }
     }
-    return dp[amount][n - 1];
+    return dp[m][n];
   }
 };
 

@@ -31,7 +31,7 @@ public:
     return ret;
   }
 
-  // string process is fast than digit
+  // string process is fast than digit!
   bool isdn(long long num) {
     string str = std::to_string(num);
     for (char c : str) {

@@ -3,8 +3,8 @@
 #include <bitset>
 #include <iostream>
 #include <string>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 
 using std::vector;
 using std::cout;
@@ -18,7 +18,7 @@ public:
    * @param coins: the denomination of each coin
    * @return: the number of combinations that make up the amount
    */
-  int change(int amount, vector<int> &coins) {
+  int changeTLE(int amount, vector<int> &coins) {
     vector<vector<int>> ret;
     vector<int> cur;
     dfs(coins, 0, coins.size(), cur, amount, ret);
@@ -40,6 +40,27 @@ public:
     dfs(coins, i, n, cur, sum - coins[i], ret);
     cur.pop_back();
     dfs(coins, i + 1, n, cur, sum, ret);
+  }
+
+  int change(int amount, vector<int> &coins) {
+    const int n = coins.size();
+    // [i][j] ==> sum to i using j coins
+    vector<vector<int>> dp(amount + 1, vector<int>(n, 0));
+    for (int i = 0; i < n; ++i) {
+      dp[0][i] = 1;
+    }
+
+    for (int i = 1; i <= amount; ++i) {
+      for (int j = 0; j < n; j++) {
+        // 对于当前这个硬币可取可不取
+        // 取当前节点
+        int x = (i - coins[j] >= 0) ? dp[i - coins[j]][j] : 0;
+        // 不取当前节点
+        int y = (j >= 1) ? dp[i][j - 1] : 0;
+        dp[i][j]= x + y;
+      }
+    }
+    return dp[amount][n - 1];
   }
 };
 

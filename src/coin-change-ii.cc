@@ -42,6 +42,7 @@ public:
     dfs(coins, i + 1, n, cur, sum, ret);
   }
 
+  // http://algorithms.tutorialhorizon.com/dynamic-programming-coin-change-problem/
   int change(int amount, vector<int> &coins) {
     const int m = coins.size();
     const int n = amount;
@@ -66,6 +67,7 @@ public:
         if (coins[i - 1] <= j) {
           dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i - 1]];
         } else {
+          // 化为n - 1个coin和为j的子问题
           dp[i][j] = dp[i - 1][j];
         }
       }

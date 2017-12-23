@@ -71,6 +71,10 @@ private:
     if (s.length() - start > (4 - ip.size()) * 3)
       return;
     // 剩余太少
+    // IP地址点分的每一位最多3个字符，太长了
+    if (s.length() - start > (4 - ip.size()) * 3)
+      return;
+    // IP地址点分的每一位最小一个字符，太短了
     if (s.length() - start < (4 - ip.size()))
       return;
     int num = 0;

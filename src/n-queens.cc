@@ -64,6 +64,7 @@ private:
 
       // restore
       columns_[j] = main_diag_[row + j] = anti_diag_[row - j] = 0;
+      // queen_col_vec之所以不用回撤，是因为像全局变量一样每次被overwrite了
     }
   }
 

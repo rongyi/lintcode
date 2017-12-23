@@ -86,15 +86,17 @@ private:
       dfs(s, ip, ret, i + 1);
       ip.pop_back();
       // 遇到一个不合法的情况，这里就没必要再走下去, break后继续弹临时存储ip
-      if (num == 0)
+      // "00255255"这种case，遇到0不再继续往前续
+      if (num == 0) {
         break;
+      }
     }
   }
 };
 
 int main() {
   Solution so;
-  string test{"222001"};
+  string test{"00255255"};
   auto ret = so.restoreIpAddresses(test);
   for (auto &s : ret) {
     cout << s << endl;

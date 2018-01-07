@@ -17,6 +17,7 @@ public:
   * @return: the alphabets in the order followed by the sum of digits
   */
   string rearrange(string &str) {
+    // empty case
     if (str == "") {
       return "";
     }

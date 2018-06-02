@@ -1,13 +1,13 @@
 // http://www.lintcode.com/zh-cn/problem/top-k-largest-numbers
-#include <vector>
 #include <iostream>
-#include <string>
 #include <queue>
+#include <string>
+#include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 class Solution {
 public:
@@ -32,8 +32,8 @@ public:
 
 int main() {
   Solution so;
-  vector<int> test{3,10,1000,-99,4,100};
+  vector<int> test{3, 10, 1000, -99, 4, 100};
   auto ret = so.topk(test, 3);
-  for (auto i: ret)
+  for (auto i : ret)
     cout << i << endl;
 }

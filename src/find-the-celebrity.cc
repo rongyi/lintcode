@@ -1,13 +1,13 @@
 // http://www.lintcode.com/zh-cn/problem/find-the-celebrity
-#include <vector>
 #include <iostream>
-#include <string>
 #include <set>
+#include <string>
+#include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 // Forward declaration of the knows API.
 bool knows(int a, int b);

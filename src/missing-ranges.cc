@@ -1,22 +1,22 @@
 // http://www.lintcode.com/zh-cn/problem/missing-ranges
-#include <vector>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
+#include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 class Solution {
 public:
   /*
-  * @param nums: a sorted integer array
-  * @param lower: An integer
-  * @param upper: An integer
-  * @return: a list of its missing ranges
-  */
+   * @param nums: a sorted integer array
+   * @param lower: An integer
+   * @param upper: An integer
+   * @return: a list of its missing ranges
+   */
   vector<string> findMissingRanges(vector<int> &nums, int lower, int upper) {
     vector<string> ret;
     auto origin_lower = lower;
@@ -55,11 +55,10 @@ private:
     if (i == 0) {
       if (start + 1 == end) {
         return std::to_string(start);
-      } else if (start < end){
+      } else if (start < end) {
         return std::to_string(start) + "->" + std::to_string(end - 1);
       }
     }
-
 
     if (end - start < 2) {
       return "";
@@ -74,10 +73,10 @@ private:
 };
 
 int main() {
-  vector<int> input{0,1,3,50,75};
+  vector<int> input{0, 1, 3, 50, 75};
   Solution so;
   auto ret = so.findMissingRanges(input, 0, 99);
-  for (auto s: ret) {
+  for (auto s : ret) {
     cout << s << " ";
   }
   cout << endl;

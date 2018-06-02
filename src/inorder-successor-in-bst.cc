@@ -20,11 +20,11 @@ class Solution {
 public:
   Solution() : pre_(0), succ_(0) {}
   /*
-  * @param root: The root of the BST.
-  * @param p: You need find the successor node of p.
-  * @return: Successor of p.
-  */
-  TreeNode * inorderSuccessor(TreeNode * root, TreeNode * p) {
+   * @param root: The root of the BST.
+   * @param p: You need find the successor node of p.
+   * @return: Successor of p.
+   */
+  TreeNode *inorderSuccessor(TreeNode *root, TreeNode *p) {
     if (!p) {
       return nullptr;
     }
@@ -45,6 +45,7 @@ public:
 
     inorder(root->right, p);
   }
+
 private:
   TreeNode *pre_;
   TreeNode *succ_;

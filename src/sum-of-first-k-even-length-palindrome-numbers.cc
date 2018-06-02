@@ -1,12 +1,12 @@
 // http://www.lintcode.com/zh-cn/problem/sum-of-first-k-even-length-palindrome-numbers
-#include <vector>
 #include <iostream>
 #include <string>
+#include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 class Solution {
 public:

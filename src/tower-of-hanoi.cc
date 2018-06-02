@@ -35,9 +35,9 @@ private:
       return;
     }
     // 实现这个算法可以简单分为三个步骤：
-    // （1）把n-1个盘子由A 移到 B；
-    // （2）把第n个盘子由 A移到 C；
-    // （3）把n-1个盘子由B 移到 C；
+    // （1）把n-1个盘子由A移到B；
+    // （2）把第n个盘子由A移到C；
+    // （3）把n-1个盘子由B移到C；
     doHanoi(n - 1, from, aux, to, ret);
     ret.push_back(cacat(from, to));
     doHanoi(n - 1, aux, to, from, ret);

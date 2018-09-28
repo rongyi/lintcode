@@ -38,10 +38,8 @@ private:
       vector<string> cur_layout;
       for (int i = 0; i < N; i++) {
         string cur_row(N, '.');
-        for (int j = 0; j < N; j++) {
-          if (j == queen_col_vec[i])
-            cur_row[j] = 'Q';
-        }
+        // no need to for
+        cur_row[queen_col_vec[i]] = 'Q';
         // one row done
         cur_layout.push_back(cur_row);
       }

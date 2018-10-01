@@ -3,10 +3,10 @@
 #include <string>
 #include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 class Solution {
 public:
@@ -64,51 +64,60 @@ public:
   }
   vector<int> spiralOrder(vector<vector<int>> &matrix) {
     vector<int> ret;
-    if (matrix.size() == 0) {
+    const int m = matrix.size();
+    if (m == 0) {
       return ret;
     }
-    const int m = matrix.size();
     const int n = matrix[0].size();
 
-    int beginx = 0;
-    int endx = n - 1;
-    int beginy = 0;
-    int endy = m - 1;
+    auto beginx = 0;
+    auto endx = m - 1;
 
-    // 每走完一行或一列，就更新后面的起始/结束范围
+    auto beginy = 0;
+    auto endy = n - 1;
 
-    /**
-     ----------> 更新beginy
-更新benginx          |
-    |                |
-    |                |
-    |                |
-    |                |
- 更新endy<----------更新endx
-     */
+    //    ----------> ++beginx
+    // ++beginy
+    //   ^                |
+    //   |                |
+    //   |                |
+    //   |                |
+    //   |                v
+    // --endx<--------- --endy
+
+    // 这里有一个规律，无论横着，竖着，反着，正着都循环里边界都很固定，
+    // 个人觉得难点在更新边界，说明在更新部分
     while (true) {
-      for (int j = beginx; j <= endx; ++j) {
-        ret.push_back(matrix[beginy][j]);
+      // left --> right
+      for (int j = beginy; j <= endy; ++j) {
+        ret.push_back(matrix[beginx][j]);
       }
-      if (++beginy > endy) {
-        break;
-      }
-      for (int i = beginy; i <= endy; ++i) {
-        ret.push_back(matrix[i][endx]);
-      }
-      if (beginx > --endx) {
-        break;
-      }
-      for (int j = endx; j >= beginx; --j) {
-        ret.push_back(matrix[endy][j]);
-      }
-      if (beginy > --endy) {
-        break;
-      }
-      for (int i = endy; i >= beginy; --i) {
-        ret.push_back(matrix[i][beginx]);
-      }
+      // 第一行走完了，后续的行操作都从下一行开始
       if (++beginx > endx) {
+        break;
+      }
+      // top --> down
+      for (int i = beginx; i <= endx; ++i) {
+        ret.push_back(matrix[i][endy]);
+      }
+      // 最后一列走完，后续的列操作都到前面一列终止
+      if (--endy < beginy) {
+        break;
+      }
+      // right --> left
+      for (int j = endy; j >= beginy; --j) {
+        ret.push_back(matrix[endx][j]);
+      }
+      // 最后一行走完，行操作都到前面一行
+      if (--endx < beginx) {
+        break;
+      }
+      // down --> top
+      for (int i = endx; i >= beginx; --i) {
+        ret.push_back(matrix[i][beginy]);
+      }
+      // 第一列走完，后续列下一列开始
+      if (++beginy > endy) {
         break;
       }
     }

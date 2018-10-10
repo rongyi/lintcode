@@ -3,10 +3,10 @@
 #include <string>
 #include <vector>
 
-using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::vector;
 
 class Solution {
 public:
@@ -36,13 +36,12 @@ public:
     ret[0][0] = true;
 
     for (int i = 1; i <= len1; i++) {
-      if (s1[i - 1] == s3[i - 1])
-        ret[i][0] = true;
+      ret[i][0] = ret[i - 1][0] && (s1[i - 1] == s3[i - 1]);
     }
 
     for (int j = 1; j <= len2; j++) {
-      if (s2[j - 1] == s3[j - 1])
-        ret[0][j] = true;
+
+      ret[0][j] = ret[0][j - 1] && (s2[j - 1] == s3[j - 1]);
     }
 
     for (int i = 1; i <= len1; i++) {
